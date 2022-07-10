@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">AppChamCong</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="todo">TODO</string>
+
+    <string name="action_import_xlxs">Import .XLXS</string>
+    <string name="action_import_xls">Import .XLS</string>
+
+    <string name="storage_access_required">This app requires your memory access to read excel-sheet files</string>
+    <string name="storage_access_denied">Please goto app settings and grant memory permission. </string>
+
+    <string name="storage_unavailable">Your device does not support storage</string>
+
+    <string name="navigation_drawer_open">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close">Close Navigation Drawer</string>
+</resources>

@@ -1,0 +1,47 @@
+package com.example.appchamcong.DTO;
+
+public class GopY {
+    int IDGY;
+    String TENNGUOIDUNG;
+    int SDT;
+    String NOIDUNG;
+
+    public GopY(int IDGY, String TENNGUOIDUNG, int SDT, String NOIDUNG) {
+        this.IDGY = IDGY;
+        this.TENNGUOIDUNG = TENNGUOIDUNG;
+        this.SDT = SDT;
+        this.NOIDUNG = NOIDUNG;
+    }
+
+    public int getIDGY() {
+        return IDGY;
+    }
+
+    public void setIDGY(int IDGY) {
+        this.IDGY = IDGY;
+    }
+
+    public String getTENNGUOIDUNG() {
+        return TENNGUOIDUNG;
+    }
+
+    public void setTENNGUOIDUNG(String TENTK) {
+        this.TENNGUOIDUNG = TENTK;
+    }
+
+    public int getSDT() {
+        return SDT;
+    }
+
+    public void setSDT(int SDT) {
+        this.SDT = SDT;
+    }
+
+    public String getNOIDUNG() {
+        return NOIDUNG;
+    }
+
+    public void setNOIDUNG(String NOIDUNG) {
+        this.NOIDUNG = NOIDUNG;
+    }
+}

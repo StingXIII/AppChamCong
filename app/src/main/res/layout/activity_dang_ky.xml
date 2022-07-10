@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:src="@drawable/image"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đăng Ký"
+        android:fontFamily="serif"
+        android:textColor="#0d6e6a"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.03"/>
+
+    <EditText
+        android:id="@+id/edt_Taikhoan_dk"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="@drawable/forget"
+        android:drawableStart="@drawable/ic_baseline_account_circle_24"
+        android:drawablePadding="10dp"
+        android:hint="Tài khoản"
+        android:fontFamily="serif"
+        android:textColor="#0d6e6a"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="20dp"/>
+
+    <EditText
+        android:id="@+id/edt_Tennguoidung_dk"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="@drawable/forget"
+        android:drawableStart="@drawable/ic_baseline_person_outline_24"
+        android:drawablePadding="10dp"
+        android:hint="Họ Tên"
+        android:fontFamily="serif"
+        android:textColor="#0d6e6a"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"/>
+
+    <EditText
+        android:id="@+id/edt_Matkhau_dk"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:password="true"
+        android:background="@drawable/forget"
+        android:drawableStart="@drawable/ic_baseline_lock_24"
+        android:drawablePadding="10dp"
+        android:hint="Mật khẩu"
+        android:fontFamily="serif"
+        android:textColor="#0d6e6a"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"/>
+
+    <EditText
+        android:id="@+id/edt_Nhaplaimatkhau_dk"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:password="true"
+        android:background="@drawable/forget"
+        android:drawableStart="@drawable/ic_baseline_lock_24"
+        android:drawablePadding="10dp"
+        android:hint="Nhập lại mật khẩu"
+        android:fontFamily="serif"
+        android:textColor="#0d6e6a"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"/>
+
+    <Button
+        android:id="@+id/btn_Dangkytaikhoan"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="@drawable/button"
+        android:text="Đăng Ký"
+        android:fontFamily="serif"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#FFF"
+        android:layout_marginTop="25dp"/>
+
+    <TextView
+        android:id="@+id/txt_Quaylaidangnhap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bạn đã sẵn sàng? Đăng nhập"
+        android:fontFamily="serif"
+        android:textColor="#0d6e6a"
+        android:textStyle="bold"
+        android:textSize="12sp"
+        android:layout_marginTop="15dp"/>
+
+</LinearLayout>

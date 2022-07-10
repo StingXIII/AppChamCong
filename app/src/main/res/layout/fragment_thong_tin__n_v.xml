@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/MyUser"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_alignParentBottom="true"
+    tools:context=".NhanVien.Fragment_NhanVien.ThongTin_NV">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal" >
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_Hinhanhnguoidung_nv"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_baseline_account_circle_24" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/txt_Tennguoidung_nv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tên người dùng"
+                android:textSize="16dp"
+                android:fontFamily="serif" />
+
+            <TextView
+                android:id="@+id/txt_Chucvunguoidung_nv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Chức vụ"
+                android:textSize="16dp"
+                android:fontFamily="serif" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txt_Thongtingnuoidung_nv"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1.1"
+            android:gravity="center|left"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:background="@color/white"
+            android:text="Thông Tin Người Dùng"
+            android:textSize="16dp"
+            android:textColor="@color/black"
+            android:fontFamily="serif"
+            android:drawableRight="@drawable/ic_baseline_chevron_right_24"/>
+
+        <TextView
+            android:id="@+id/txt_Doimatkhau_nv"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1.1"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:gravity="center|left"
+            android:background="@color/white"
+            android:text="Đổi Mật Khẩu"
+            android:textSize="16dp"
+            android:textColor="@color/black"
+            android:fontFamily="serif"
+            android:drawableRight="@drawable/ic_baseline_chevron_right_24"/>
+
+        <TextView
+            android:id="@+id/txt_Lichsutracnghiem_nv"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1.1"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:gravity="center|left"
+            android:background="@color/white"
+            android:text="Lịch Sử Bài Làm"
+            android:textSize="16dp"
+            android:textColor="@color/black"
+            android:fontFamily="serif"
+            android:drawableRight="@drawable/ic_baseline_chevron_right_24"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txt_Dangxuattaikhoan_nv"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1.1"
+            android:gravity="center|left"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:background="@color/white"
+            android:text="Đăng Xuất"
+            android:textSize="16dp"
+            android:textColor="@color/black"
+            android:fontFamily="serif"
+            android:drawableRight="@drawable/ic_baseline_chevron_right_24"/>
+
+    </LinearLayout>
+
+</LinearLayout>
