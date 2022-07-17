@@ -10,11 +10,11 @@ import java.util.Iterator;
 
 public class ExcelHelper {
 
-    public static final String Tablename = "MyTable1";
-    public static final String id = "_id";// 0 integer
-    public static final String Company = "Company";// 1 text(String)
-    public static final String Product = "Product";// 2 text(String)
-    public static final String Price = "Price";// 3 text(String)
+    public static final String Tablename = "CHAMCONG";
+    public static final String ID = "ID";// 0 integer
+    public static final String TENNHANVIEN = "TENNHANVIEN";// 1 text(String)
+    public static final String CHUCVU = "CHUCVU";// 2 text(String)
+    public static final String TIENLUONG = "TIENLUONG";// 3 text(String)
 
     public static void insertExcelToSqlite(DBHelper dbAdapter, Sheet sheet) {
 
@@ -26,12 +26,12 @@ public class ExcelHelper {
             row.getCell(1, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).setCellType(CellType.STRING);
             row.getCell(2, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).setCellType(CellType.STRING);
 
-            contentValues.put(Company, row.getCell(0, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).getStringCellValue());
-            contentValues.put(Product, row.getCell(1, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).getStringCellValue());
-            contentValues.put(Price, row.getCell(2, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).getStringCellValue());
+            contentValues.put(TENNHANVIEN, row.getCell(0, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).getStringCellValue());
+            contentValues.put(CHUCVU, row.getCell(1, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).getStringCellValue());
+            contentValues.put(TIENLUONG, row.getCell(2, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).getStringCellValue());
 
             try {
-                if (dbAdapter.insert("MyTable1", contentValues) < 0) {
+                if (dbAdapter.insert("CHAMCONG", contentValues) < 0) {
                     return;
                 }
             } catch (Exception ex) {

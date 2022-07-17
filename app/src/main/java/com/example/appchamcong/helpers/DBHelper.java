@@ -17,18 +17,18 @@ public class DBHelper {
 
     String TAG = "DBAdapter";
 
-    public static final String Tablename = "MyTable1";
-    public static final String id = "_id";// 0 integer
-    public static final String Company = "Company";// 1 text(String)
-    public static final String Product = "Product";// 2 integer
-    public static final String Price = "Price";// 3 date(String)
+    public static final String Tablename = "CHAMCONG";
+    public static final String ID = "ID";// 0 integer
+    public static final String TENNHANVIEN = "TENNHANVIEN";// 1 text(String)
+    public static final String CHUCVU = "CHUCVU";// 2 integer
+    public static final String TIENLUONG = "TIENLUONG";// 3 date(String)
 
     private SQLiteDatabase db;
     private Database dbHelper;
 
 
-    private static final int VERSION = 1;
-    private static final String DB_NAME = "MyDB1.db";
+    private static final int VERSION = 2;
+    private static final String DB_NAME = "DatabaseAppChamCong";
 
 
     public DBHelper(Context context) {
@@ -70,7 +70,7 @@ public class DBHelper {
     }
 
     public Cursor getAllRow(String table) {
-        return db.query(table, null, null, null, null, null, id);
+        return db.query(table, null, null, null, null, null, ID);
     }
 
 
@@ -83,9 +83,9 @@ public class DBHelper {
         if (cursor.moveToFirst()) {
             do {
                 HashMap<String, String> map = new HashMap<String, String>();
-                map.put(Company, cursor.getString(1));
-                map.put(Product, cursor.getString(2));
-                map.put(Price, cursor.getString(3));
+                map.put(TENNHANVIEN, cursor.getString(1));
+                map.put(CHUCVU, cursor.getString(2));
+                map.put(TIENLUONG, cursor.getString(3));
                 prolist.add(map);
             } while (cursor.moveToNext());
         }
@@ -94,8 +94,8 @@ public class DBHelper {
 
 
     private class Database extends SQLiteOpenHelper {
-        private static final int VERSION = 1;
-        private static final String DB_NAME = "MyDB1.db";
+        private static final int VERSION = 2;
+        private static final String DB_NAME = "DatabaseAppChamCong";
 
         public Database(Context context) {
             super(context, DB_NAME, null, VERSION);
@@ -104,9 +104,9 @@ public class DBHelper {
         @Override
         public void onCreate(SQLiteDatabase db) {
             String create_sql = "CREATE TABLE IF NOT EXISTS " + Tablename + "("
-                    + id + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                    + Company + " TEXT ," + Product + " TEXT ,"
-                    + Price + " TEXT " + ")";
+                    + ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                    + TENNHANVIEN + " TEXT ," + CHUCVU + " TEXT ,"
+                    + TIENLUONG + " INTEGER " + ")";
             db.execSQL(create_sql);
         }
 

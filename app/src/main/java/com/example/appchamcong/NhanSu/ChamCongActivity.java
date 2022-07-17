@@ -133,10 +133,10 @@ public class ChamCongActivity extends AppCompatActivity {
             if (myList.size() != 0) {
                 lv = findViewById(R.id.lstView);
                 ListAdapter adapter = new SimpleAdapter(ChamCongActivity.this, myList,
-                        R.layout.lst_template, new String[]{DBHelper.Company, DBHelper.Product,
-                        DBHelper.Price},
-                        new int[]{R.id.txtproductcompany, R.id.txtproductname,
-                                R.id.txtproductprice});
+                        R.layout.lst_template, new String[]{DBHelper.TENNHANVIEN, DBHelper.CHUCVU,
+                        DBHelper.TIENLUONG},
+                        new int[]{R.id.txtTennhanvien, R.id.txtChucvu,
+                                R.id.txtTienluong});
                 lv.setAdapter(adapter);
             }
         } catch (Exception ex) {

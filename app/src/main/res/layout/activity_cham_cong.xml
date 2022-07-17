@@ -13,40 +13,40 @@
         android:layout_height="0dp"
         android:layout_alignParentTop="true"
         android:layout_weight="0.5"
-        android:background="#000"
+        android:background="@color/danguoi"
         android:orientation="horizontal"
         android:padding="1dp"
         android:weightSum="3">
 
         <TextView
-            android:id="@+id/txtCompany"
+            android:id="@+id/txtTennhanvien"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="left"
-            android:text="Company"
+            android:text="Họ Tên"
             android:textColor="#fff"
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/txtProduct"
+            android:id="@+id/txtChucvu"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="left"
             android:padding="3dp"
-            android:text="Product"
+            android:text="Chức vụ"
             android:textColor="#fff"
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/txtPrice"
+            android:id="@+id/txtTienluong"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="left"
             android:padding="3dp"
-            android:text="Price"
+            android:text="Tiền Lương"
             android:textColor="#fff"
             android:textSize="16sp" />
     </LinearLayout>
@@ -78,6 +78,7 @@
         android:id="@+id/btn_import"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/danguoi"
         android:text="Tải File" />
 
 </LinearLayout>

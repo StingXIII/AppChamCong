@@ -14,34 +14,34 @@
         android:weightSum="3">
 
         <TextView
-            android:id="@+id/txtproductcompany"
+            android:id="@+id/txtTennhanvien"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="left"
-            android:text="NAME"
+            android:text="Họ Tên"
             android:textColor="#000000"
             android:textSize="13sp" />
 
         <TextView
-            android:id="@+id/txtproductname"
+            android:id="@+id/txtChucvu"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="left"
             android:padding="3dp"
-            android:text="ISSN"
+            android:text="Chức vụ"
             android:textColor="#000000"
             android:textSize="13sp" />
 
         <TextView
-            android:id="@+id/txtproductprice"
+            android:id="@+id/txtTienluong"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="left"
             android:padding="3dp"
-            android:text="IMPACTFACTOR"
+            android:text="Tiền lương"
             android:textColor="#000000"
             android:textSize="13sp" />
 
