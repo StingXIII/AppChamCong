@@ -59,13 +59,15 @@ public class DangNhapActivity extends AppCompatActivity implements View.OnClickL
             public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
                 super.onAuthenticationError(errorCode, errString);
                 Toast.makeText(getApplicationContext(),
-                        "Authentication error: " + errString, Toast.LENGTH_SHORT)
+                        "Thông báo: " + errString, Toast.LENGTH_SHORT)
                         .show();
             }
 
             @Override
             public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
                 super.onAuthenticationSucceeded(result);
+                Log.e("Vân tay ", result + "" );
+
                 startActivity(new Intent(DangNhapActivity.this, TrangChuActivity.class));
                 Toast.makeText(getApplicationContext(), "Đăng nhập thành công!",
                         Toast.LENGTH_SHORT)
@@ -132,13 +134,13 @@ public class DangNhapActivity extends AppCompatActivity implements View.OnClickL
         BiometricManager biometricManager = BiometricManager.from(this);
         switch (biometricManager.canAuthenticate(BIOMETRIC_STRONG | DEVICE_CREDENTIAL)) {
             case BiometricManager.BIOMETRIC_SUCCESS:
-                Log.d("MY_APP_TAG", "App can authenticate using biometrics.");
+                Log.d("MY_APP_TAG", "Ứng dụng có thể xác thực bằng sinh trắc học.");
                 break;
             case BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE:
-                Log.e("MY_APP_TAG", "No biometric features available on this device.");
+                Log.e("MY_APP_TAG", "Không có tính năng sinh trắc học nào trên thiết bị này.");
                 break;
             case BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE:
-                Log.e("MY_APP_TAG", "Biometric features are currently unavailable.");
+                Log.e("MY_APP_TAG", "Các tính năng sinh trắc học hiện không khả dụng.");
                 break;
             case BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED:
                 // Prompts the user to create credentials that your app accepts.

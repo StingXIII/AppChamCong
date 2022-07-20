@@ -224,6 +224,12 @@ public class Database extends SQLiteOpenHelper {
         }
         return list;
     }
+    public void INSRERTSOCAU(int IDTK,int VONG, int SOCAU){
+
+        QueryData("INSERT INTO VONGCHINH ( IDTK, VONG, SOCAU ) VALUES ( " + IDTK + " , " + VONG + " , "
+                    + SOCAU + ")");
+
+    }
 
     public void XoaGY(int IDGY){
         QueryData("DELETE FROM GOPY WHERE IDGOPY = '" + IDGY + "'");

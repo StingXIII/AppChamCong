@@ -59,7 +59,15 @@
         <entry key="..\:/Nam4/LienThong/AppChamCong/app/src/main/res/menu/menu_quanly.xml" value="0.209375" />
         <entry key="..\:/Nam4/LienThong/AppChamCong/app/src/main/res/menu/menu_quanly_nhansu.xml" value="0.209375" />
         <entry key="..\:/Nam4/LienThong/AppChamCong/app/src/main/res/menu/menu_quanly_taikhoan.xml" value="0.209375" />
+        <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/drawable-v24/custom_btn.xml" value="0.22552083333333334" />
+        <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/drawable-v24/custom_cau.xml" value="0.22552083333333334" />
+        <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/drawable-v24/custom_cautraloi_chon.xml" value="0.22552083333333334" />
+        <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/drawable/person.xml" value="0.22552083333333334" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/activity_cham_cong.xml" value="0.209375" />
+        <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/activity_game_nhan_vien.xml" value="0.25" />
+        <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/activity_thong_tin_nguoi_dung.xml" value="0.209375" />
+        <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/activity_trac_nghiem_nhan_vien.xml" value="0.22" />
+        <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/chucmung.xml" value="0.209375" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/header_manager.xml" value="0.209375" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/lst_template.xml" value="0.209375" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/toolbar_manager.xml" value="0.209375" />

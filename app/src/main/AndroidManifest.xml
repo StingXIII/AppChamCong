@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppChamCong">
         <activity
+            android:name=".NhanVien.TracNghiem_NhanVien"
+            android:exported="true" />
+        <activity
             android:name=".QuanLy.CapNhat_NhanSu"
             android:exported="true" />
         <activity
