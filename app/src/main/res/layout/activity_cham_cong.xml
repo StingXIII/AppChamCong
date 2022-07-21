@@ -13,10 +13,21 @@
         android:layout_height="0dp"
         android:layout_alignParentTop="true"
         android:layout_weight="0.5"
+        android:gravity="center"
         android:background="@color/danguoi"
         android:orientation="horizontal"
         android:padding="1dp"
-        android:weightSum="3">
+        android:weightSum="5">
+
+        <TextView
+            android:id="@+id/txtManhanvien"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="Mã NV"
+            android:textColor="#fff"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/txtTennhanvien"
@@ -29,24 +40,32 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/txtChucvu"
+            android:id="@+id/txtPhongban"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="left"
-            android:padding="3dp"
-            android:text="Chức vụ"
+            android:text="Phòng"
             android:textColor="#fff"
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/txtTienluong"
+            android:id="@+id/txtNgayCong"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="left"
-            android:padding="3dp"
-            android:text="Tiền Lương"
+            android:text="Ngày"
+            android:textColor="#fff"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txtGiocong"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="Giờ Công"
             android:textColor="#fff"
             android:textSize="16sp" />
     </LinearLayout>
@@ -56,23 +75,10 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_below="@+id/lvcontainer"
-        android:layout_weight="8.5">
+        android:layout_weight="9.5">
 
     </ListView>
 
-    <TextView
-        android:id="@+id/txtresulttext"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_below="@android:id/list"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="2dp"
-        android:layout_weight="1"
-        android:gravity="left"
-        android:text=""
-        android:textColor="#FFF55F54"
-        android:textSize="10sp"
-        android:textStyle="italic|bold" />
 
     <Button
         android:id="@+id/btn_import"

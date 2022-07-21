@@ -19,9 +19,11 @@ public class DBHelper {
 
     public static final String Tablename = "CHAMCONG";
     public static final String ID = "ID";// 0 integer
-    public static final String TENNHANVIEN = "TENNHANVIEN";// 1 text(String)
-    public static final String CHUCVU = "CHUCVU";// 2 integer
-    public static final String TIENLUONG = "TIENLUONG";// 3 date(String)
+    public static final String MANHANVIEN = "MANHANVIEN";// 1 text(String)
+    public static final String TENNHANVIEN = "TENNHANVIEN";// 2 text(String)
+    public static final String PHONGBAN = "PHONGBAN";// 3 integer
+    public static final String NGAYCONG = "NGAYCONG";//4 date(String)
+    public static final String GIOCONG = "GIOCONG";// 5 date(String)
 
     private SQLiteDatabase db;
     private Database dbHelper;
@@ -83,9 +85,11 @@ public class DBHelper {
         if (cursor.moveToFirst()) {
             do {
                 HashMap<String, String> map = new HashMap<String, String>();
-                map.put(TENNHANVIEN, cursor.getString(1));
-                map.put(CHUCVU, cursor.getString(2));
-                map.put(TIENLUONG, cursor.getString(3));
+                map.put(MANHANVIEN, cursor.getString(1));
+                map.put(TENNHANVIEN, cursor.getString(2));
+                map.put(PHONGBAN, cursor.getString(3));
+                map.put(NGAYCONG, cursor.getString(4));
+                map.put(GIOCONG, cursor.getString(5));
                 prolist.add(map);
             } while (cursor.moveToNext());
         }
@@ -105,8 +109,8 @@ public class DBHelper {
         public void onCreate(SQLiteDatabase db) {
             String create_sql = "CREATE TABLE IF NOT EXISTS " + Tablename + "("
                     + ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                    + TENNHANVIEN + " TEXT ," + CHUCVU + " TEXT ,"
-                    + TIENLUONG + " INTEGER " + ")";
+                    + MANHANVIEN + " TEXT , "+ TENNHANVIEN + " TEXT ," + PHONGBAN + " TEXT ,"
+                    + NGAYCONG + " TEXT ," + GIOCONG + " INTEGER " + ")";
             db.execSQL(create_sql);
         }
 

@@ -75,7 +75,6 @@ public class ChamCongActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cham_cong);
 
-        lbl = (TextView) findViewById(R.id.txtresulttext);
         lv = findViewById(R.id.lstView);
         mLayout = findViewById(R.id.main_layout);
         btn_import = findViewById(R.id.btn_import);
@@ -86,7 +85,7 @@ public class ChamCongActivity extends AppCompatActivity {
             try {
                 OpenFilePicker();
             } catch (ActivityNotFoundException e) {
-                lbl.setText("Vui lòng chọn lại !");
+
             }
         });
 
@@ -133,10 +132,10 @@ public class ChamCongActivity extends AppCompatActivity {
             if (myList.size() != 0) {
                 lv = findViewById(R.id.lstView);
                 ListAdapter adapter = new SimpleAdapter(ChamCongActivity.this, myList,
-                        R.layout.lst_template, new String[]{DBHelper.TENNHANVIEN, DBHelper.CHUCVU,
-                        DBHelper.TIENLUONG},
-                        new int[]{R.id.txtTennhanvien, R.id.txtChucvu,
-                                R.id.txtTienluong});
+                        R.layout.lst_template, new String[]{DBHelper.MANHANVIEN, DBHelper.TENNHANVIEN,
+                        DBHelper.PHONGBAN, DBHelper.NGAYCONG, DBHelper.GIOCONG},
+                        new int[]{R.id.txtManhanvien,R.id.txtTennhanvien, R.id.txtPhongban,R.id.txtNgayCong,
+                                R.id.txtGiocong});
                 lv.setAdapter(adapter);
             }
         } catch (Exception ex) {
@@ -159,7 +158,6 @@ public class ChamCongActivity extends AppCompatActivity {
 
                 inStream.close();
             } catch (IOException e) {
-                lbl.setText("First " + e.getMessage().toString());
                 e.printStackTrace();
             }
 
@@ -264,7 +262,7 @@ public class ChamCongActivity extends AppCompatActivity {
                 ChooseFile();
             }
         } catch (ActivityNotFoundException e) {
-            lbl.setText("No activity can handle picking a file. Showing alternatives.");
+
         }
 
     }

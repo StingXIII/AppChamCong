@@ -77,9 +77,9 @@ public class TrangChu_NV extends Fragment {
     private void HienThiThongTin() {
         if (BatDauActivity.taiKhoanDTO.getQUYEN() == 1) {
             if (BatDauActivity.taiKhoanDTO.getCHUCVU() == 1) {
-                txt_Chucvunguoidung_tt.setText("Chức vụ: Công Nhân");
+                txt_Chucvunguoidung_tt.setText("Chức vụ: CN Sản Xuất");
             } else if (BatDauActivity.taiKhoanDTO.getCHUCVU() == 2) {
-                txt_Chucvunguoidung_tt.setText("Chức vụ: Nhân viên Văn Phòng");
+                txt_Chucvunguoidung_tt.setText("Chức vụ: CN Văn Phòng");
             } else if (BatDauActivity.taiKhoanDTO.getCHUCVU() == 3) {
                 txt_Chucvunguoidung_tt.setText("Chức vụ: Tổ Trưởng");
             }

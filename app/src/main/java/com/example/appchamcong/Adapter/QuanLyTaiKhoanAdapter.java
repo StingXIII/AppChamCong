@@ -61,11 +61,11 @@ public class QuanLyTaiKhoanAdapter extends RecyclerView.Adapter<QuanLyTaiKhoanAd
         holder.txtV_Tennhanvien_qltaikhoan.setText(taiKhoan.getTENNGUOIDUNG());
 
         if (taiKhoan.getQUYEN() == 1) {
-            if (BatDauActivity.taiKhoanDTO.getCHUCVU() == 1) {
-                holder.txtV_Chucvu_qlTaikhoan.setText("Công Nhân");
-            } else if (BatDauActivity.taiKhoanDTO.getCHUCVU() == 2) {
-                holder.txtV_Chucvu_qlTaikhoan.setText("Văn Phòng");
-            } else if (BatDauActivity.taiKhoanDTO.getCHUCVU() == 3) {
+            if (taiKhoan.getCHUCVU() == 1) {
+                holder.txtV_Chucvu_qlTaikhoan.setText("CN Sản Xuất");
+            } else if (taiKhoan.getCHUCVU() == 2) {
+                holder.txtV_Chucvu_qlTaikhoan.setText("CN Văn Phòng");
+            } else if (taiKhoan.getCHUCVU() == 3) {
                 holder.txtV_Chucvu_qlTaikhoan.setText("Tổ Trưởng");
             }
         } else if (taiKhoan.getQUYEN() == 2){
