@@ -23,6 +23,8 @@ public class DBHelper {
     public static final String TENNHANVIEN = "TENNHANVIEN";// 2 text(String)
     public static final String PHONGBAN = "PHONGBAN";// 3 integer
     public static final String NGAYCONG = "NGAYCONG";//4 date(String)
+    public static final String GIOVAO = "GIOVAO";//4 date(String)
+    public static final String GIORA = "GIORA";//4 date(String)
     public static final String GIOCONG = "GIOCONG";// 5 date(String)
 
     private SQLiteDatabase db;
@@ -89,7 +91,9 @@ public class DBHelper {
                 map.put(TENNHANVIEN, cursor.getString(2));
                 map.put(PHONGBAN, cursor.getString(3));
                 map.put(NGAYCONG, cursor.getString(4));
-                map.put(GIOCONG, cursor.getString(5));
+                map.put(GIOVAO, cursor.getString(5));
+                map.put(GIORA, cursor.getString(6));
+                map.put(GIOCONG, cursor.getString(7));
                 prolist.add(map);
             } while (cursor.moveToNext());
         }
@@ -110,7 +114,8 @@ public class DBHelper {
             String create_sql = "CREATE TABLE IF NOT EXISTS " + Tablename + "("
                     + ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                     + MANHANVIEN + " TEXT , "+ TENNHANVIEN + " TEXT ," + PHONGBAN + " TEXT ,"
-                    + NGAYCONG + " TEXT ," + GIOCONG + " INTEGER " + ")";
+                    + NGAYCONG + " TEXT ," + GIOVAO + " TEXT " + "," + GIORA + " TEXT " + ","
+                    + GIOCONG + " INTEGER " + ")";
             db.execSQL(create_sql);
         }
 
