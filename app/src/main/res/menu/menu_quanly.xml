@@ -2,11 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_quanly_taikhoan"
-            android:icon="@drawable/ic_baseline_person_24"
-            android:title="Quản Lý Tài Khoản" />
-
-        <item
             android:id="@+id/nav_quanly_nhansu"
             android:icon="@drawable/ic_baseline_group_24"
             android:title="Quản Lý Nhân Sự" />
@@ -15,16 +10,6 @@
             android:id="@+id/nav_quanly_chamcong"
             android:icon="@drawable/ic_baseline_note_add_24"
             android:title="Quản Lý Công" />
-
-        <item
-            android:id="@+id/nav_quanly_tintuc"
-            android:icon="@drawable/ic_baseline_notifications_24"
-            android:title="Quản Lý Tin Tức" />
-
-        <item
-            android:id="@+id/nav_quanly_gopy"
-            android:icon="@drawable/ic_baseline_feedback_24"
-            android:title="Quản Lý Góp Ý" />
 
         <item
             android:id="@+id/nav_logging_manager"

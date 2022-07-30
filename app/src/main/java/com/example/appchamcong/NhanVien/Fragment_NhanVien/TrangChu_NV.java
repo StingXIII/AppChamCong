@@ -57,14 +57,6 @@ public class TrangChu_NV extends Fragment {
             startActivity(new Intent(getActivity(), XemCong_NhanVien.class));
         });
 
-        img_Trangchu.setOnClickListener(view -> {
-            startActivity(new Intent(getActivity(), TrangChu_NhanVien.class));
-        });
-
-        img_Caidat.setOnClickListener(view -> {
-            startActivity(new Intent(getActivity(), CaiDatActivity.class));
-        });
-
         img_Gopy.setOnClickListener(view -> {
             startActivity(new Intent(getActivity(), GopYActivity.class));
         });
@@ -102,9 +94,7 @@ public class TrangChu_NV extends Fragment {
         txt_Chucvunguoidung_tt = view.findViewById(R.id.txt_Chucvunguoidung_tt);
 
         img_Xemcong = view.findViewById(R.id.img_XemCong);
-        img_Trangchu = view.findViewById(R.id.img_Trangchu);
         img_Gopy = view.findViewById(R.id.img_Gopy);
-        img_Caidat = view.findViewById(R.id.img_Caidat);
         img_Game = view.findViewById(R.id.img_Game);
     }
 }

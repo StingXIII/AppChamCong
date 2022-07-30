@@ -33,14 +33,9 @@ import com.google.android.material.navigation.NavigationView;
 public class QuanLyActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     static final float END_SCALE = 0.7f;
-
-    private static final int FRAGMENT_QL_TAIKHOAN = 1;
-    private static final int FRAGMENT_QL_NHANSU = 2;
-    private static final int FRAGMENT_QL_CONG = 3;
-    private static final int FRAGMENT_QL_TINTUC = 4;
-    private static final int FRAGMENT_QL_GOPY = 5;
-
-    private int currentFragment = FRAGMENT_QL_TAIKHOAN;
+    private static final int FRAGMENT_QL_NHANSU = 1;
+    private static final int FRAGMENT_QL_CONG = 2;
+    private int currentFragment = FRAGMENT_QL_NHANSU;
 
     // Drawer
     private DrawerLayout drawerLayout;
@@ -87,7 +82,7 @@ public class QuanLyActivity extends AppCompatActivity implements NavigationView.
         toggle.syncState();
 
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.nav_quanly_taikhoan);
+        navigationView.setCheckedItem(R.id.nav_quanly_nhansu);
         // Drawer
 
         replaceFragment(new QL_TaiKhoan());
@@ -153,25 +148,10 @@ public class QuanLyActivity extends AppCompatActivity implements NavigationView.
                 replaceFragment(new QL_ChamCong());
                 currentFragment = FRAGMENT_QL_CONG;
             }
-        }else if (id == R.id.nav_quanly_taikhoan) {
-            if (FRAGMENT_QL_TAIKHOAN != currentFragment) {
-                replaceFragment(new QL_TaiKhoan());
-                currentFragment = FRAGMENT_QL_TAIKHOAN;
-            }
         }else if (id == R.id.nav_quanly_nhansu) {
             if (FRAGMENT_QL_NHANSU != currentFragment) {
                 replaceFragment(new QL_NhanSu());
                 currentFragment = FRAGMENT_QL_NHANSU;
-            }
-        }else if (id == R.id.nav_quanly_tintuc) {
-            if (FRAGMENT_QL_TINTUC != currentFragment) {
-                replaceFragment(new QL_TinTuc());
-                currentFragment = FRAGMENT_QL_TINTUC;
-            }
-        }else if (id == R.id.nav_quanly_gopy) {
-            if (FRAGMENT_QL_GOPY != currentFragment) {
-                replaceFragment(new QL_GopY());
-                currentFragment = FRAGMENT_QL_GOPY;
             }
         }
 
