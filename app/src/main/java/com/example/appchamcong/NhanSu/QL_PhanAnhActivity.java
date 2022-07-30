@@ -1,61 +1,48 @@
-package com.example.appchamcong.QuanLy.Fragment_QuanLy;
+package com.example.appchamcong.NhanSu;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.appchamcong.Adapter.QuanLyGopYAdapter;
 import com.example.appchamcong.BatDauActivity;
 import com.example.appchamcong.DTO.GopY;
 import com.example.appchamcong.Database.Database;
-import com.example.appchamcong.QuanLy.Xem_GopY;
 import com.example.appchamcong.R;
 
 import java.util.ArrayList;
 
-public class QL_GopY extends Fragment {
+public class QL_PhanAnhActivity extends AppCompatActivity {
 
-    View view;
-    RecyclerView recV_DanhSachGopY;
+    RecyclerView recV_DanhSachPhanAnh;
     GopY gopYDTO;
     ArrayList<GopY> listGopy;
     QuanLyGopYAdapter adapter;
 
-    public QL_GopY() {
-        // Required empty public constructor
-    }
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_q_l__gop_y, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_ql_phan_anh);
 
-        BatDauActivity.database = new Database(getActivity());
-        recV_DanhSachGopY = view.findViewById(R.id.recV_DanhSachGopY);
-        registerForContextMenu(recV_DanhSachGopY);
+        BatDauActivity.database = new Database(QL_PhanAnhActivity.this);
+        recV_DanhSachPhanAnh = findViewById(R.id.recV_DanhSachPhanAnh);
+        registerForContextMenu(recV_DanhSachPhanAnh);
 
         listGopy = new ArrayList<>();
-        adapter = new QuanLyGopYAdapter(this, listGopy);
+        adapter = new QuanLyGopYAdapter(QL_PhanAnhActivity.this, listGopy);
         Load();
 
-        recV_DanhSachGopY.setLayoutManager( new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL,false));
-        recV_DanhSachGopY.setAdapter(adapter);
-
-        return view;
+        recV_DanhSachPhanAnh.setLayoutManager( new LinearLayoutManager(QL_PhanAnhActivity.this, LinearLayoutManager.VERTICAL,false));
+        recV_DanhSachPhanAnh.setAdapter(adapter);
     }
 
     @Override
@@ -81,9 +68,9 @@ public class QL_GopY extends Fragment {
         }
         switch (item.getItemId()) {
             case R.id.iSua:
-                Intent iCapnhat = new Intent(getActivity(), Xem_GopY.class);
+                Intent iCapnhat = new Intent(QL_PhanAnhActivity.this, Xem_PhanAnhActivity.class);
                 iCapnhat.putExtra("IDGY", listGopy.get(position).getIDGY());
-                Toast.makeText(getActivity(), "ID là: " + listGopy.get(position).getIDGY(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(QL_PhanAnhActivity.this, "ID là: " + listGopy.get(position).getIDGY(), Toast.LENGTH_SHORT).show();
                 startActivity(iCapnhat);
                 return true;
             case R.id.iXoa:
@@ -96,14 +83,14 @@ public class QL_GopY extends Fragment {
     }
 
     private void ShowDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        AlertDialog.Builder builder = new AlertDialog.Builder(QL_PhanAnhActivity.this);
         builder.setTitle("Thông Báo");
         builder.setMessage("Bạn có chắc muốn xóa nó hay không ?");
         builder.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 BatDauActivity.database.XoaGY(gopYDTO.getIDGY());
-                Toast.makeText(getContext(), "Xóa thành công !", Toast.LENGTH_SHORT).show();
+                Toast.makeText(QL_PhanAnhActivity.this, "Xóa thành công !", Toast.LENGTH_SHORT).show();
                 Load();
             }
         });

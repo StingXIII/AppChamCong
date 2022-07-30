@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppChamCong">
         <activity
+            android:name=".NhanSu.QL_PhanAnhActivity"
+            android:exported="true" />
+        <activity
             android:name=".NhanVien.TracNghiem_NhanVien"
             android:exported="true" />
         <activity
@@ -24,13 +27,7 @@
             android:name=".NhanSu.PhongBan"
             android:exported="true" />
         <activity
-            android:name=".QuanLy.Xem_GopY"
-            android:exported="true" />
-        <activity
             android:name=".QuanLy.CapNhat_TaiKhoan"
-            android:exported="true" />
-        <activity
-            android:name=".NhanVien.LichSuTracNghiem_NhanVien"
             android:exported="true" />
         <activity
             android:name=".NhanSu.NhanSuActivity"
@@ -43,9 +40,6 @@
             android:exported="true" />
         <activity
             android:name=".NhanVien.TrangChu_NhanVien"
-            android:exported="true" />
-        <activity
-            android:name=".NhanSu.LichSuChamCongActivity"
             android:exported="true" />
         <activity
             android:name=".CaiDatActivity"

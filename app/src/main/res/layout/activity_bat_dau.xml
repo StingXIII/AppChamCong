@@ -34,8 +34,8 @@
     <Button
         android:id="@+id/btn_Dangnhap"
         android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:background="@drawable/button"
+        android:layout_height="60dp"
+        android:backgroundTint="#0d6e6a"
         android:text="Đăng Nhập"
         android:textSize="18dp"
         android:textStyle="bold"
@@ -46,13 +46,13 @@
     <Button
         android:id="@+id/btn_Dangky"
         android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:background="@drawable/button"
+        android:layout_height="60dp"
+        android:backgroundTint="#0d6e6a"
         android:text="Đăng Ký"
         android:textSize="18dp"
         android:textStyle="bold"
         android:textColor="#FFF"
         android:fontFamily="serif"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="10dp"/>
 
 </LinearLayout>

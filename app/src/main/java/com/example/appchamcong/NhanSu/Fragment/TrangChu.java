@@ -18,6 +18,7 @@ import com.example.appchamcong.CaiDatActivity;
 import com.example.appchamcong.NhanSu.ChamCongActivity;
 import com.example.appchamcong.GopYActivity;
 import com.example.appchamcong.NhanSu.NhanSuActivity;
+import com.example.appchamcong.NhanSu.QL_PhanAnhActivity;
 import com.example.appchamcong.R;
 import com.example.appchamcong.NhanSu.TrangChuActivity;
 
@@ -26,7 +27,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class TrangChu extends Fragment {
 
     View view;
-    ImageView img_Chamcong, img_Trangchu, img_Gopy, img_Caidat, img_Nhansu;
+    ImageView img_Chamcong, img_QLPhanAnh;
     TextView txt_Tennguoidung_tt, txt_Chucvunguoidung_tt;
     CircleImageView img_hinhanhnguoidung_tt;
 
@@ -56,8 +57,8 @@ public class TrangChu extends Fragment {
             startActivity(new Intent(getActivity(), ChamCongActivity.class));
         });
 
-        img_Gopy.setOnClickListener(view -> {
-            startActivity(new Intent(getActivity(), GopYActivity.class));
+        img_QLPhanAnh.setOnClickListener(view -> {
+            startActivity(new Intent(getActivity(), QL_PhanAnhActivity.class));
         });
     }
 
@@ -85,6 +86,6 @@ public class TrangChu extends Fragment {
         txt_Chucvunguoidung_tt = view.findViewById(R.id.txt_Chucvunguoidung_tt);
 
         img_Chamcong = view.findViewById(R.id.img_Chamcong);
-        img_Gopy = view.findViewById(R.id.img_Gopy);
+        img_QLPhanAnh = view.findViewById(R.id.img_QLPhanAnh);
     }
 }

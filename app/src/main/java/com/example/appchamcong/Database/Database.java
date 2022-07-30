@@ -87,6 +87,9 @@ public class Database extends SQLiteOpenHelper {
     public void CapNhatMatKhau(int IDTAIKHOAN, String MATKHAU){
         QueryData("UPDATE " + CreateDatabase.tbl_TAIKHOAN + " SET " + CreateDatabase.tbl_TAIKHOAN_MATKHAU + " = '" + MATKHAU + "' WHERE " + CreateDatabase.tbl_TAIKHOAN_IDTK + " = " + IDTAIKHOAN);
     }
+    public void CAPNHATNGAYCONG(int ID, String NGAYCONG){
+        QueryData("UPDATE CHAMCONG SET NGAYCONG = '" + NGAYCONG + "' WHERE ID = " + ID);
+    }
 
     public ArrayList<TaiKhoan> QuanLyTaiKhoan(int QUYEN){
         ArrayList<TaiKhoan> list = new ArrayList<>();

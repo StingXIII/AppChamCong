@@ -11,7 +11,7 @@
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="@color/danguoi"
+        android:background="@color/xanhdam"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -31,7 +31,7 @@
         android:layout_height="100dp"
         android:layout_marginStart="10dp"
         android:contentDescription="@string/todo"
-        android:src="@drawable/ic_baseline_account_circle_24"
+        android:src="@drawable/baseline_account_circle_white_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -42,7 +42,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="28dp"
         android:text="Tên người dùng"
-        android:textColor="#3E2723"
+        android:textColor="@color/white"
         app:layout_constraintStart_toEndOf="@+id/img_hinhanhnguoidung_tt"
         app:layout_constraintTop_toTopOf="@+id/view" />
 
@@ -53,7 +53,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
         android:text="Chức vụ"
-        android:textColor="#3E2723"
+        android:textColor="@color/white"
         app:layout_constraintStart_toEndOf="@+id/img_hinhanhnguoidung_tt"
         app:layout_constraintTop_toBottomOf="@+id/txt_Tennguoidung_tt" />
 
@@ -71,7 +71,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="120dp"
-            android:layout_marginRight="35dp"
+            android:layout_marginLeft="35dp"
             android:layout_row="0"
             android:layout_column="0"
             android:layout_gravity="fill"
@@ -108,7 +108,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="120dp"
-            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
             android:layout_row="0"
             android:layout_column="1"
             android:layout_gravity="fill"
@@ -172,7 +172,7 @@
                 <TextView
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
-                    android:text="Phản Hồi"
+                    android:text="Phản Ánh"
                     android:textStyle="bold"
                     android:textAlignment="center" />
 

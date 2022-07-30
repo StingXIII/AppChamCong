@@ -23,10 +23,8 @@ import com.example.appchamcong.BatDauActivity;
 import com.example.appchamcong.DTO.TaiKhoan;
 import com.example.appchamcong.DangNhapActivity;
 import com.example.appchamcong.QuanLy.Fragment_QuanLy.QL_ChamCong;
-import com.example.appchamcong.QuanLy.Fragment_QuanLy.QL_GopY;
 import com.example.appchamcong.QuanLy.Fragment_QuanLy.QL_NhanSu;
 import com.example.appchamcong.QuanLy.Fragment_QuanLy.QL_TaiKhoan;
-import com.example.appchamcong.QuanLy.Fragment_QuanLy.QL_TinTuc;
 import com.example.appchamcong.R;
 import com.google.android.material.navigation.NavigationView;
 

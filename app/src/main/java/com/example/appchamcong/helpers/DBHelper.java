@@ -94,6 +94,7 @@ public class DBHelper {
                 map.put(MANHANVIEN, cursor.getString(1));
                 map.put(TENNHANVIEN, cursor.getString(2));
                 map.put(PHONGBAN, cursor.getString(3));
+
                 map.put(NGAYCONG, cursor.getString(4));
                 map.put(GIOVAO, cursor.getString(5));
                 map.put(GIORA, cursor.getString(6));

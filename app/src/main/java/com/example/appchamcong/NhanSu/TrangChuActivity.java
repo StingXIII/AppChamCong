@@ -49,7 +49,7 @@ public class TrangChuActivity extends AppCompatActivity {
                 loadFragment(fragment);
             }
         });
-        bottomNavigation.setCount(1, "2");
+
         bottomNavigation.show(2, true);
 
         bottomNavigation.setOnClickMenuListener(new MeowBottomNavigation.ClickListener() {

@@ -1,5 +1,6 @@
 package com.example.appchamcong.Adapter;
 
+import android.content.Context;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +20,7 @@ import java.util.ArrayList;
 
 public class QuanLyGopYAdapter extends RecyclerView.Adapter<QuanLyGopYAdapter.Viewholder>{
     ArrayList<GopY> listGopy;
-    Fragment context;
+    Context context;
     public static int position;
 
     public static int getPosition() {
@@ -30,7 +31,7 @@ public class QuanLyGopYAdapter extends RecyclerView.Adapter<QuanLyGopYAdapter.Vi
         this.position = position;
     }
 
-    public QuanLyGopYAdapter( Fragment context,ArrayList<GopY> listGopy) {
+    public QuanLyGopYAdapter( Context context,ArrayList<GopY> listGopy) {
         this.listGopy = listGopy;
         this.context = context;
     }

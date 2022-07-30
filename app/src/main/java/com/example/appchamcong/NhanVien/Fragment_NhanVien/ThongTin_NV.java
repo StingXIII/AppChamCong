@@ -17,7 +17,6 @@ import android.widget.TextView;
 import com.example.appchamcong.BatDauActivity;
 import com.example.appchamcong.DTO.TaiKhoan;
 import com.example.appchamcong.DoiMatKhauActivity;
-import com.example.appchamcong.NhanSu.LichSuChamCongActivity;
 import com.example.appchamcong.ThongTinNguoiDungActivity;
 import com.example.appchamcong.R;
 
@@ -27,7 +26,7 @@ public class ThongTin_NV extends Fragment {
 
     View view;
     TextView txt_Tennguoidung_nv, txt_Chucvunguoidung_nv, txt_Dangxuattaikhoan_nv,
-            txt_Thongtingnuoidung_nv, txt_Doimatkhau_nv, txt_Lichsutracnghiem_nv;
+            txt_Thongtingnuoidung_nv, txt_Doimatkhau_nv;
     CircleImageView img_Hinhanhnguoidung_nv;
 
     public ThongTin_NV() {
@@ -65,10 +64,6 @@ public class ThongTin_NV extends Fragment {
         txt_Doimatkhau_nv.setOnClickListener(view -> {
             startActivity(new Intent(getActivity(), DoiMatKhauActivity.class));
         });
-
-        txt_Lichsutracnghiem_nv.setOnClickListener(view -> {
-            startActivity(new Intent(getActivity(), LichSuChamCongActivity.class));
-        });
     }
 
     private void HienThiThongTin() {
@@ -99,7 +94,6 @@ public class ThongTin_NV extends Fragment {
         txt_Dangxuattaikhoan_nv = view.findViewById(R.id.txt_Dangxuattaikhoan_nv);
         txt_Thongtingnuoidung_nv = view.findViewById(R.id.txt_Thongtingnuoidung_nv);
         txt_Doimatkhau_nv = view.findViewById(R.id.txt_Doimatkhau_nv);
-        txt_Lichsutracnghiem_nv = view.findViewById(R.id.txt_Lichsutracnghiem_nv);
         img_Hinhanhnguoidung_nv = view.findViewById(R.id.img_Hinhanhnguoidung_nv);
 
 

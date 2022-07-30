@@ -18,12 +18,12 @@
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:mbn_circleColor="@color/danguoi"
-        app:mbn_selectedIconColor="@color/black"
-        app:mbn_countTextColor="@color/black"
-        app:mbn_countBackgroundColor="@color/white"
-        app:mbn_defaultIconColor="@color/black"
-        app:mbn_backgroundBottomColor="@color/danguoi"
+        app:mbn_circleColor="@color/xanhdam"
+        app:mbn_selectedIconColor="@color/white"
+        app:mbn_countTextColor="@color/white"
+        app:mbn_countBackgroundColor="@color/black"
+        app:mbn_defaultIconColor="@color/white"
+        app:mbn_backgroundBottomColor="@color/xanhdam"
         tools:ignore="MissingClass" />
 
 

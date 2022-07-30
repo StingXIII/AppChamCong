@@ -4,25 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="66dp"
     android:background="@color/white"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:gravity="center"
-        android:fontFamily="serif"
-        android:text="Quản Lý Góp Ý"
-        android:textSize="24dp"
-        android:textColor="@color/black"
-        android:textStyle="bold"/>
+        android:background="@color/danguoi">
+
+        <ImageButton
+            android:id="@+id/quaylai_choingay"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@null"
+            app:srcCompat="?attr/actionModeCloseDrawable"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:contentDescription="TODO" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingLeft="20dp"
+            android:gravity="center|left"
+            android:text="Quản lý phản ánh"
+            android:textSize="20dp"
+            android:fontFamily="serif"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recV_DanhSachGopY"
+        android:id="@+id/recV_DanhSachPhanAnh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp"

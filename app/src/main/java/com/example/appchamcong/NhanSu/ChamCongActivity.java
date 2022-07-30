@@ -12,6 +12,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +26,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.appchamcong.BatDauActivity;
 import com.example.appchamcong.R;
 import com.example.appchamcong.helpers.DBHelper;
 import com.example.appchamcong.helpers.ExcelHelper;
@@ -37,7 +39,11 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 public class ChamCongActivity extends AppCompatActivity {
@@ -102,6 +108,8 @@ public class ChamCongActivity extends AppCompatActivity {
 
                     }
                 });
+
+
         FillList();
     }
 
@@ -124,6 +132,25 @@ public class ChamCongActivity extends AppCompatActivity {
     }
 
     public void FillList() {
+//        try {
+//            Cursor cursor = BatDauActivity.database.Getdata("SELECT ID,NGAYCONG FROM CHAMCONG");
+//            while (cursor.moveToNext()) {
+//                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//                Calendar c = Calendar.getInstance();
+//                try {
+//                    c.setTime(sdf.parse("1899-12-30"));
+//                } catch (ParseException e) {
+//                    e.printStackTrace();
+//                }
+//                c.add(Calendar.DATE, Integer.parseInt(cursor.getString(1)));
+//                sdf = new SimpleDateFormat("MM/yyyy");
+//                Date resultdate = new Date(c.getTimeInMillis());
+//                String dateInString = sdf.format(resultdate);
+//                BatDauActivity.database.CAPNHATNGAYCONG(cursor.getInt(0), dateInString);
+//            }
+//        } catch (Exception e){
+//            Toast.makeText(ChamCongActivity.this, "cccc", Toast.LENGTH_SHORT).show();
+//        }
         try {
             if (controller == null) {
                 DBHelper controller = new DBHelper(ChamCongActivity.this);
