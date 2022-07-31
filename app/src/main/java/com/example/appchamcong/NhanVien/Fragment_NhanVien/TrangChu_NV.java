@@ -14,10 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.appchamcong.BatDauActivity;
-import com.example.appchamcong.CaiDatActivity;
-import com.example.appchamcong.GopYActivity;
+import com.example.appchamcong.NhanVien.GopYActivity;
 import com.example.appchamcong.NhanVien.Game_NhanVien;
-import com.example.appchamcong.NhanVien.TrangChu_NhanVien;
 import com.example.appchamcong.NhanVien.XemCong_NhanVien;
 import com.example.appchamcong.R;
 
@@ -69,11 +67,19 @@ public class TrangChu_NV extends Fragment {
     private void HienThiThongTin() {
         if (BatDauActivity.taiKhoanDTO.getQUYEN() == 1) {
             if (BatDauActivity.taiKhoanDTO.getCHUCVU() == 1) {
-                txt_Chucvunguoidung_tt.setText("Chức vụ: CN Sản Xuất");
+                txt_Chucvunguoidung_tt.setText("Chức vụ: Staff");
             } else if (BatDauActivity.taiKhoanDTO.getCHUCVU() == 2) {
-                txt_Chucvunguoidung_tt.setText("Chức vụ: CN Văn Phòng");
+                txt_Chucvunguoidung_tt.setText("Chức vụ: Supervisor");
             } else if (BatDauActivity.taiKhoanDTO.getCHUCVU() == 3) {
-                txt_Chucvunguoidung_tt.setText("Chức vụ: Tổ Trưởng");
+                txt_Chucvunguoidung_tt.setText("Chức vụ: Manager");
+            } else if (BatDauActivity.taiKhoanDTO.getCHUCVU() == 4) {
+                txt_Chucvunguoidung_tt.setText("Chức vụ: BOD");
+            } else if (BatDauActivity.taiKhoanDTO.getCHUCVU() == 5) {
+                txt_Chucvunguoidung_tt.setText("Chức vụ: Leader");
+            } else if (BatDauActivity.taiKhoanDTO.getCHUCVU() == 6) {
+                txt_Chucvunguoidung_tt.setText("Chức vụ: Senior Leader");
+            } else if (BatDauActivity.taiKhoanDTO.getCHUCVU() == 7) {
+                txt_Chucvunguoidung_tt.setText("Chức vụ: Operator");
             }
         }
 

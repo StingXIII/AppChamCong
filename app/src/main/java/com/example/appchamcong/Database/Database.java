@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteStatement;
 
 import androidx.annotation.Nullable;
 
+import com.example.appchamcong.DTO.ChamCong;
 import com.example.appchamcong.DTO.GopY;
 import com.example.appchamcong.DTO.TaiKhoan;
 
@@ -57,7 +58,26 @@ public class Database extends SQLiteOpenHelper {
                     cursor.getInt(7),
                     cursor.getInt(9),
                     cursor.getInt(10),
-                    cursor.getInt(11)
+                    cursor.getInt(11),
+                    cursor.getInt(12)
+            );
+        }
+        return null;
+    }
+
+    public ChamCong Load_ChamCong(int IDCHAMCONG)
+    {
+        Cursor cursor = Getdata("SELECT * FROM CHAMCONG WHERE ID = " + IDCHAMCONG );
+        while (cursor.moveToNext()) {
+            return new ChamCong(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getString(5),
+                    cursor.getString(6),
+                    cursor.getInt(7)
             );
         }
         return null;
@@ -106,7 +126,8 @@ public class Database extends SQLiteOpenHelper {
                     cursor.getInt(7),
                     cursor.getInt(9),
                     cursor.getInt(10),
-                    cursor.getInt(11)
+                    cursor.getInt(11),
+                    cursor.getInt(12)
             ));
         }
         return list;
@@ -128,15 +149,16 @@ public class Database extends SQLiteOpenHelper {
                     cursor.getInt(7),
                     cursor.getInt(9),
                     cursor.getInt(10),
-                    cursor.getInt(11)
+                    cursor.getInt(11),
+                    cursor.getInt(12)
             ));
         }
         return list;
     }
 
-    public ArrayList<TaiKhoan> QuanLyNhanSu(int PHONGBAN){
+    public ArrayList<TaiKhoan> QuanLyNhanSu(int BOPHAN, int PHONGBAN){
         ArrayList<TaiKhoan> list = new ArrayList<>();
-        Cursor cursor = Getdata("SELECT * FROM TAIKHOAN WHERE PHONGBAN =" + PHONGBAN);
+        Cursor cursor = Getdata("SELECT * FROM TAIKHOAN WHERE BOPHAN = " + BOPHAN + " AND PHONGBAN =" + PHONGBAN);
         while (cursor.moveToNext()){
             list.add(new TaiKhoan(
                     cursor.getInt(0),
@@ -149,16 +171,17 @@ public class Database extends SQLiteOpenHelper {
                     cursor.getInt(7),
                     cursor.getInt(9),
                     cursor.getInt(10),
-                    cursor.getInt(11)
+                    cursor.getInt(11),
+                    cursor.getInt(12)
             ));
         }
         return list;
     }
 
     //region Video
-    public ArrayList<TaiKhoan> QuanLyNhanSu_TimKiem(String Tennhanvien, int PHONGBAN){
+    public ArrayList<TaiKhoan> QuanLyNhanSu_TimKiem(String Tennhanvien, int BOPHAN, int PHONGBAN){
         ArrayList<TaiKhoan> list = new ArrayList<>();
-        Cursor cursor = Getdata("SELECT * FROM TAIKHOAN WHERE PHONGBAN = " + PHONGBAN + " AND TENNGUOIDUNG LIKE '%" + Tennhanvien +"%'");
+        Cursor cursor = Getdata("SELECT * FROM TAIKHOAN WHERE BOPHAN = " + BOPHAN + " AND PHONGBAN = " + PHONGBAN + " AND TENNGUOIDUNG LIKE '%" + Tennhanvien +"%'");
         while (cursor.moveToNext()){
             list.add(new TaiKhoan(
                     cursor.getInt(0),
@@ -171,10 +194,52 @@ public class Database extends SQLiteOpenHelper {
                     cursor.getInt(7),
                     cursor.getInt(9),
                     cursor.getInt(10),
-                    cursor.getInt(11)
+                    cursor.getInt(11),
+                    cursor.getInt(12)
             ));
         }
         return list;
+    }
+
+    public ArrayList<ChamCong> QuanLyChamCong(){
+        ArrayList<ChamCong> list = new ArrayList<>();
+        Cursor cursor = Getdata("SELECT * FROM CHAMCONG");
+        while (cursor.moveToNext()){
+            list.add(new ChamCong(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getString(5),
+                    cursor.getString(6),
+                    cursor.getInt(7)
+            ));
+        }
+        return list;
+    }
+
+    //region Video
+    public ArrayList<ChamCong> QuanLyChamCong_TimKiem(String Tennhanvien){
+        ArrayList<ChamCong> list = new ArrayList<>();
+        Cursor cursor = Getdata("SELECT * FROM CHAMCONG WHERE TENNHANVIEN LIKE '%" + Tennhanvien +"%'");
+        while (cursor.moveToNext()){
+            list.add(new ChamCong(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getString(5),
+                    cursor.getString(6),
+                    cursor.getInt(7)
+            ));
+        }
+        return list;
+    }
+
+    public void XoaCong(int ID){
+        QueryData("DELETE FROM CHAMCONG WHERE ID = '" + ID + "'");
     }
 
     public void NhanSuNghiViec(int IDTAIKHOAN){
@@ -191,10 +256,15 @@ public class Database extends SQLiteOpenHelper {
                 "' , " + CreateDatabase.tbl_TAIKHOAN_TENNGUOIDUNG + " = '" + TENNGUOIDUNG + "' WHERE " + CreateDatabase.tbl_TAIKHOAN_IDTK + " = '" + IDTAIKHOAN +"'");
     }
 
-    public void CapNhatNhanSu_QL(int IDTAIKHOAN, String TENND, int SDT, String DIACHI, int QUYEN, int CHUCVU, int PHONGBAN, int TINHTRANG){
-        QueryData("UPDATE " + CreateDatabase.tbl_TAIKHOAN + " SET " + CreateDatabase.tbl_TAIKHOAN_TENNGUOIDUNG + " = '" + TENND + "'," + CreateDatabase.tbl_TAIKHOAN_SDT + " = '" + SDT + "',"
-                + CreateDatabase.tbl_TAIKHOAN_DIACHI + " = '" + DIACHI + "', " + CreateDatabase.tbl_TAIKHOAN_QUYEN + " = '" + QUYEN + "'," + CreateDatabase.tbl_TAIKHOAN_CHUCVU + " = '" + CHUCVU + "', "
+    public void CapNhatNhanSu_QL(int IDTAIKHOAN, String MANV, String TENND, int SDT, String DIACHI, int QUYEN, int CHUCVU, int BOPHAN, int PHONGBAN, int TINHTRANG){
+        QueryData("UPDATE " + CreateDatabase.tbl_TAIKHOAN + " SET " + CreateDatabase.tbl_TAIKHOAN_TENTAIKHOAN + " = '" + MANV + "'," + CreateDatabase.tbl_TAIKHOAN_TENNGUOIDUNG + " = '" + TENND + "'," + CreateDatabase.tbl_TAIKHOAN_SDT + " = '" + SDT + "',"
+                + CreateDatabase.tbl_TAIKHOAN_DIACHI + " = '" + DIACHI + "', " + CreateDatabase.tbl_TAIKHOAN_QUYEN + " = '" + QUYEN + "'," + CreateDatabase.tbl_TAIKHOAN_CHUCVU + " = '" + CHUCVU + "', "+ CreateDatabase.tbl_TAIKHOAN_BOPHAN + " = '" + BOPHAN + "', "
                 + CreateDatabase.tbl_TAIKHOAN_PHONGBAN + " = '" + PHONGBAN + "' , " + CreateDatabase.tbl_TAIKHOAN_TINHTRANG + " = '" + TINHTRANG + "' WHERE " + CreateDatabase.tbl_TAIKHOAN_IDTK + " = '" + IDTAIKHOAN +"'");
+    }
+
+    public void CapNhatCong_QL(int ID, String MANV, String TENNV, String PHONGBAN, String NGAYCONG, String GIOVAO, String GIORA, int GIOCONG){
+        QueryData("UPDATE CHAMCONG SET MANHANVIEN = '" + MANV + "', TENNHANVIEN = '" + TENNV + "', PHONGBAN = '" + PHONGBAN + "', NGAYCONG = '" + NGAYCONG +
+                "' , GIOVAO = '" + GIOVAO + "', GIORA = '" + GIORA + "', GIOCONG = '" + GIOCONG + "' WHERE ID = '" + ID +"'");
     }
 
     public void XoaTK(int IDTAIKHOAN){

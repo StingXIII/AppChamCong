@@ -12,19 +12,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppChamCong">
         <activity
+            android:name=".QuanLy.ThongTinChamCong"
+            android:exported="true" />
+        <activity
+            android:name=".QuanLy.BOPHAN.BP_QC"
+            android:exported="true" />
+        <activity
+            android:name=".QuanLy.BOPHAN.BP_Production"
+            android:exported="true" />
+        <activity
             android:name=".NhanSu.QL_PhanAnhActivity"
             android:exported="true" />
         <activity
             android:name=".NhanVien.TracNghiem_NhanVien"
             android:exported="true" />
         <activity
-            android:name=".QuanLy.CapNhat_NhanSu"
+            android:name=".QuanLy.ThongTinNhanSu"
             android:exported="true" />
         <activity
-            android:name=".NhanSu.ThongTinNhanSu"
-            android:exported="true" />
-        <activity
-            android:name=".NhanSu.PhongBan"
+            android:name=".QuanLy.PhongBan"
             android:exported="true" />
         <activity
             android:name=".QuanLy.CapNhat_TaiKhoan"
@@ -42,10 +48,7 @@
             android:name=".NhanVien.TrangChu_NhanVien"
             android:exported="true" />
         <activity
-            android:name=".CaiDatActivity"
-            android:exported="true" />
-        <activity
-            android:name=".GopYActivity"
+            android:name=".NhanVien.GopYActivity"
             android:exported="true" />
         <activity
             android:name=".NhanSu.ChamCongActivity"

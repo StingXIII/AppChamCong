@@ -62,14 +62,23 @@ public class QuanLyTaiKhoanAdapter extends RecyclerView.Adapter<QuanLyTaiKhoanAd
 
         if (taiKhoan.getQUYEN() == 1) {
             if (taiKhoan.getCHUCVU() == 1) {
-                holder.txtV_Chucvu_qlTaikhoan.setText("CN Sản Xuất");
+                holder.txtV_Chucvu_qlTaikhoan.setText("Staff");
             } else if (taiKhoan.getCHUCVU() == 2) {
-                holder.txtV_Chucvu_qlTaikhoan.setText("CN Văn Phòng");
+                holder.txtV_Chucvu_qlTaikhoan.setText("Supervisor");
             } else if (taiKhoan.getCHUCVU() == 3) {
-                holder.txtV_Chucvu_qlTaikhoan.setText("Tổ Trưởng");
+                holder.txtV_Chucvu_qlTaikhoan.setText("Manager");
+            } else if (taiKhoan.getCHUCVU() == 4) {
+                holder.txtV_Chucvu_qlTaikhoan.setText("BOD");
+            } else if (taiKhoan.getCHUCVU() == 5) {
+                holder.txtV_Chucvu_qlTaikhoan.setText("Leader");
+            } else if (taiKhoan.getCHUCVU() == 6) {
+                holder.txtV_Chucvu_qlTaikhoan.setText("Senior Leader");
+            } else if (taiKhoan.getCHUCVU() == 7) {
+                holder.txtV_Chucvu_qlTaikhoan.setText("Operator");
             }
+
         } else if (taiKhoan.getQUYEN() == 2){
-            holder.txtV_Chucvu_qlTaikhoan.setText("Nhân Sự");
+            holder.txtV_Chucvu_qlTaikhoan.setText("Management");
         }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

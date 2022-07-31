@@ -1,7 +1,7 @@
 package com.example.appchamcong.DTO;
 
 public class TaiKhoan {
-    int MATK,QUYEN,SDT,CHUCVU,PHONGBAN,TINHTRANG;
+    int MATK,QUYEN,SDT,CHUCVU,PHONGBAN,TINHTRANG,BOPHAN;
     String TENTK,TENNGUOIDUNG,MATKHAU,DIACHI;
     byte[] HINHANH;
 
@@ -10,7 +10,7 @@ public class TaiKhoan {
     }
 
     public TaiKhoan(int MATK, String TENTK, String TENNGUOIDUNG, String MATKHAU, byte[] HINHANH, int SDT,
-                    String DIACHI, int QUYEN, int CHUCVU, int PHONGBAN, int TINHTRANG) {
+                    String DIACHI, int QUYEN, int CHUCVU, int BOPHAN, int PHONGBAN, int TINHTRANG) {
         this.MATK = MATK;
         this.TENTK = TENTK;
         this.TENNGUOIDUNG = TENNGUOIDUNG;
@@ -20,6 +20,7 @@ public class TaiKhoan {
         this.DIACHI = DIACHI;
         this.QUYEN = QUYEN;
         this.CHUCVU = CHUCVU;
+        this.BOPHAN = BOPHAN;
         this.PHONGBAN = PHONGBAN;
         this.TINHTRANG = TINHTRANG;
     }
@@ -111,5 +112,13 @@ public class TaiKhoan {
 
     public void setTINHTRANG(int TINHTRANG) {
         this.TINHTRANG = TINHTRANG;
+    }
+
+    public int getBOPHAN() {
+        return BOPHAN;
+    }
+
+    public void setBOPHAN(int BOPHAN) {
+        this.BOPHAN = BOPHAN;
     }
 }

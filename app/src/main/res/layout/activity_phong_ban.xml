@@ -10,14 +10,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/danguoi">
+        android:background="@color/xanhdam">
 
         <ImageButton
             android:id="@+id/ibtn_Exit_phongnhansu"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@null"
-            app:srcCompat="?attr/actionModeCloseDrawable"
+            android:src="@drawable/ic_baseline_arrow_back_24"
             tools:ignore="SpeakableTextPresentCheck"
             android:contentDescription="TODO" />
 
@@ -30,6 +30,7 @@
             android:gravity="center|left"
             android:text="Quản lý nhân sự"
             android:textSize="20dp"
+            android:textColor="@color/white"
             android:fontFamily="serif"
             android:textStyle="bold"/>
 

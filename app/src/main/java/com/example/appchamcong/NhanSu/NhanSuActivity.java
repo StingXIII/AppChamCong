@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.appchamcong.QuanLy.PhongBan;
 import com.example.appchamcong.R;
 
 public class NhanSuActivity extends AppCompatActivity {

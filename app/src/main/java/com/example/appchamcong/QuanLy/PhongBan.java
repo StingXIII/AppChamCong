@@ -1,4 +1,4 @@
-package com.example.appchamcong.NhanSu;
+package com.example.appchamcong.QuanLy;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -18,11 +18,9 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.appchamcong.Adapter.QuanLyNhanSuAdapter;
-import com.example.appchamcong.Adapter.QuanLyTaiKhoanAdapter;
 import com.example.appchamcong.BatDauActivity;
 import com.example.appchamcong.DTO.TaiKhoan;
 import com.example.appchamcong.Database.Database;
-import com.example.appchamcong.QuanLy.CapNhat_TaiKhoan;
 import com.example.appchamcong.R;
 
 import java.util.ArrayList;
@@ -35,7 +33,7 @@ public class PhongBan extends AppCompatActivity {
     QuanLyNhanSuAdapter adapter;
     EditText edt_timkiemtaikhoan_qlns;
     ImageButton ibtn_Exit_phongnhansu;
-    int phongban;
+    int phongban, bophan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +43,7 @@ public class PhongBan extends AppCompatActivity {
         BatDauActivity.database = new Database(PhongBan.this);
         Intent intent = getIntent();
         phongban = intent.getIntExtra("phongban",1);
+        bophan = intent.getIntExtra("bophan",1);
         AnhXa();
 
         listTaiKhoan = new ArrayList<>();
@@ -64,13 +63,13 @@ public class PhongBan extends AppCompatActivity {
 
     private void Load() {
         listTaiKhoan.clear();
-        listTaiKhoan.addAll(BatDauActivity.database.QuanLyNhanSu(phongban));
+        listTaiKhoan.addAll(BatDauActivity.database.QuanLyNhanSu(bophan, phongban));
         adapter.notifyDataSetChanged();
     }
 
     private void Load_TimKiem() {
         listTaiKhoan.clear();
-        listTaiKhoan.addAll(BatDauActivity.database.QuanLyNhanSu_TimKiem(edt_timkiemtaikhoan_qlns.getText().toString(), phongban));
+        listTaiKhoan.addAll(BatDauActivity.database.QuanLyNhanSu_TimKiem(edt_timkiemtaikhoan_qlns.getText().toString(), bophan, phongban));
         adapter.notifyDataSetChanged();
     }
 

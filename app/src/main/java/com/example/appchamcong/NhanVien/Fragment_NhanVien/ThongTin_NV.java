@@ -69,11 +69,19 @@ public class ThongTin_NV extends Fragment {
     private void HienThiThongTin() {
         if (BatDauActivity.taiKhoanDTO.getQUYEN() == 1) {
             if (BatDauActivity.taiKhoanDTO.getCHUCVU() == 1) {
-                txt_Chucvunguoidung_nv.setText("Chức vụ: CN Sản Xuất");
+                txt_Chucvunguoidung_nv.setText("Chức vụ: Staff");
             } else if (BatDauActivity.taiKhoanDTO.getCHUCVU() == 2) {
-                txt_Chucvunguoidung_nv.setText("Chức vụ: CN Văn Phòng");
+                txt_Chucvunguoidung_nv.setText("Chức vụ: Supervisor");
             } else if (BatDauActivity.taiKhoanDTO.getCHUCVU() == 3) {
-                txt_Chucvunguoidung_nv.setText("Chức vụ: Tổ Trưởng");
+                txt_Chucvunguoidung_nv.setText("Chức vụ: Manager");
+            } else if (BatDauActivity.taiKhoanDTO.getCHUCVU() == 4) {
+                txt_Chucvunguoidung_nv.setText("Chức vụ: BOD");
+            } else if (BatDauActivity.taiKhoanDTO.getCHUCVU() == 5) {
+                txt_Chucvunguoidung_nv.setText("Chức vụ: Leader");
+            } else if (BatDauActivity.taiKhoanDTO.getCHUCVU() == 6) {
+                txt_Chucvunguoidung_nv.setText("Chức vụ: Senior Leader");
+            } else if (BatDauActivity.taiKhoanDTO.getCHUCVU() == 7) {
+                txt_Chucvunguoidung_nv.setText("Chức vụ: Operator");
             }
         }
 

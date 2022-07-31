@@ -13,8 +13,6 @@ import android.widget.Toast;
 
 import com.example.appchamcong.BatDauActivity;
 import com.example.appchamcong.DTO.TaiKhoan;
-import com.example.appchamcong.Database.Database;
-import com.example.appchamcong.NhanSu.ThongTinNhanSu;
 import com.example.appchamcong.R;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -22,7 +20,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class CapNhat_TaiKhoan extends AppCompatActivity {
 
     EditText edt_Idtaikhoan_qltk, edt_Tentaikhoan_qltk, edt_Matkhau_qltk, edt_Tennguoidung_qltk;
-
     Button btnCapnhat_qltk, btnHuyCN_qltk;
     CircleImageView img_HinhDaiDien_qltk;
     ImageButton ibtnExit_qltk;

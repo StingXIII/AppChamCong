@@ -14,13 +14,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.appchamcong.BatDauActivity;
-import com.example.appchamcong.CaiDatActivity;
 import com.example.appchamcong.NhanSu.ChamCongActivity;
-import com.example.appchamcong.GopYActivity;
-import com.example.appchamcong.NhanSu.NhanSuActivity;
 import com.example.appchamcong.NhanSu.QL_PhanAnhActivity;
 import com.example.appchamcong.R;
-import com.example.appchamcong.NhanSu.TrangChuActivity;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -64,9 +60,9 @@ public class TrangChu extends Fragment {
 
     private void HienThiThongTin() {
         if (BatDauActivity.taiKhoanDTO.getQUYEN() == 1) {
-            txt_Chucvunguoidung_tt.setText("Chức vụ: Nhân viên");
+            txt_Chucvunguoidung_tt.setText("Chức vụ: Staff");
         } else if (BatDauActivity.taiKhoanDTO.getQUYEN() == 2) {
-            txt_Chucvunguoidung_tt.setText("Chức vụ: Phòng Nhân Sự");
+            txt_Chucvunguoidung_tt.setText("Chức vụ: Management");
         }
 
         txt_Tennguoidung_tt.setText("Họ tên: " + BatDauActivity.taiKhoanDTO.getTENNGUOIDUNG());

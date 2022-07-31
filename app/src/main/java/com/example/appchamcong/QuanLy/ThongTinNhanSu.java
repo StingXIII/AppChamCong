@@ -13,15 +13,14 @@ import android.widget.Toast;
 
 import com.example.appchamcong.BatDauActivity;
 import com.example.appchamcong.DTO.TaiKhoan;
-import com.example.appchamcong.NhanSu.ThongTinNhanSu;
 import com.example.appchamcong.R;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class CapNhat_NhanSu extends AppCompatActivity {
+public class ThongTinNhanSu extends AppCompatActivity {
 
     EditText edtTennguoidung_ttns, edtSdt_ttns, edtDiachi_ttns, edt_Chucvu_ttns, edt_Phongban_ttns,
-            edt_Tinhtrang_ttns, edt_Quyen_ttns;
+            edt_Tinhtrang_ttns, edtManhanvien_ttns, edt_Bophan_ttns, edt_Quyen_ttns;
     Button btnCapnhat_ttns, btnHuyCN_ttns;
     ImageButton ibtnExit_ttns;
     CircleImageView imgHinhDaiDien_ttns;
@@ -31,7 +30,7 @@ public class CapNhat_NhanSu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cap_nhat_nhan_su);
+        setContentView(R.layout.activity_thong_tin_nhan_su);
 
         Anhxa();
         Intent intent = getIntent();
@@ -53,10 +52,12 @@ public class CapNhat_NhanSu extends AppCompatActivity {
     private void GetData() {
         //get data
         TaiKhoan taiKhoanDTO = BatDauActivity.database.Load(IDTK);
+        String manhanvien = taiKhoanDTO.getTENTK();
         String tennguoidung = taiKhoanDTO.getTENNGUOIDUNG();
         int sdt = taiKhoanDTO.getSDT();
         String diachi = taiKhoanDTO.getDIACHI();
         int chucvu = taiKhoanDTO.getCHUCVU();
+        int bophan = taiKhoanDTO.getBOPHAN();
         int phongban = taiKhoanDTO.getPHONGBAN();
         int tinhtrang = taiKhoanDTO.getTINHTRANG();
         int quyen = taiKhoanDTO.getQUYEN();
@@ -68,7 +69,14 @@ public class CapNhat_NhanSu extends AppCompatActivity {
         edt_Chucvu_ttns.setText(String.valueOf(chucvu));
         edt_Phongban_ttns.setText(String.valueOf(phongban));
         edt_Tinhtrang_ttns.setText(String.valueOf(tinhtrang));
+        edtManhanvien_ttns.setText(String.valueOf(manhanvien));
+        edt_Bophan_ttns.setText(String.valueOf(bophan));
         edt_Quyen_ttns.setText(String.valueOf(quyen));
+
+        imgHinhDaiDien_ttns.setEnabled(false);
+        edtTennguoidung_ttns.setEnabled(false);
+        edtSdt_ttns.setEnabled(false);
+        edtDiachi_ttns.setEnabled(false);
 
         if (BatDauActivity.taiKhoanDTO.getHINHANH() == null){
             imgHinhDaiDien_ttns.setImageResource(R.drawable.ic_baseline_account_circle_24);
@@ -86,11 +94,13 @@ public class CapNhat_NhanSu extends AppCompatActivity {
         edt_Chucvu_ttns = findViewById(R.id.edt_Chucvu_ttns);
         edt_Phongban_ttns = findViewById(R.id.edt_Phongban_ttns);
         edt_Tinhtrang_ttns = findViewById(R.id.edt_Tinhtrang_ttns);
-        edt_Quyen_ttns = findViewById(R.id.edt_Quyen_ttns);
         btnCapnhat_ttns = findViewById(R.id.btnCapnhat_ttns);
         btnHuyCN_ttns = findViewById(R.id.btnHuyCN_ttns);
         ibtnExit_ttns = findViewById(R.id.ibtnExit_ttns);
         imgHinhDaiDien_ttns = findViewById(R.id.imgHinhDaiDien_ttns);
+        edt_Bophan_ttns = findViewById(R.id.edt_Bophan_ttns);
+        edtManhanvien_ttns = findViewById(R.id.edtManhanvien_ttns);
+        edt_Quyen_ttns = findViewById(R.id.edt_Quyen_ttns);
 
         ibtnExit_ttns.setOnClickListener(view -> {
             onBackPressed();
@@ -103,10 +113,12 @@ public class CapNhat_NhanSu extends AppCompatActivity {
         btnCapnhat_ttns.setOnClickListener(view -> {
             isEnabled = !isEnabled;
             enableControl();
+            String MANV = edtManhanvien_ttns.getText().toString().trim();
             String TENND = edtTennguoidung_ttns.getText().toString().trim();
             int SDT = Integer.parseInt(edtSdt_ttns.getText().toString().trim());
             String DC = edtDiachi_ttns.getText().toString().trim();
             int CV = Integer.parseInt(edt_Chucvu_ttns.getText().toString().trim());
+            int BP = Integer.parseInt(edt_Bophan_ttns.getText().toString().trim());
             int PB = Integer.parseInt(edt_Phongban_ttns.getText().toString().trim());
             int TT = Integer.parseInt(edt_Tinhtrang_ttns.getText().toString().trim());
             int QU = Integer.parseInt(edt_Quyen_ttns.getText().toString().trim());
@@ -117,20 +129,23 @@ public class CapNhat_NhanSu extends AppCompatActivity {
             else{
                 btnCapnhat_ttns.setText("Cập nhật");
 
-                BatDauActivity.database.CapNhatNhanSu_QL(IDTK, TENND, SDT, DC, QU, CV, PB, TT);
-                Toast.makeText(CapNhat_NhanSu.this, "Cập nhật thành công !", Toast.LENGTH_SHORT).show();
+                BatDauActivity.database.CapNhatNhanSu_QL(IDTK, MANV, TENND, SDT, DC, QU, CV, BP, PB, TT);
+                Toast.makeText(ThongTinNhanSu.this, "Cập nhật thành công !", Toast.LENGTH_SHORT).show();
                 onBackPressed();
             }
         });
     }
 
     private void enableControl() {
-        edtTennguoidung_ttns.setEnabled(isEnabled);
-        edtSdt_ttns.setEnabled(isEnabled);
-        edtDiachi_ttns.setEnabled(isEnabled);
         edt_Chucvu_ttns.setEnabled(isEnabled);
         edt_Phongban_ttns.setEnabled(isEnabled);
         edt_Tinhtrang_ttns.setEnabled(isEnabled);
+        edtManhanvien_ttns.setEnabled(isEnabled);
+        edt_Bophan_ttns.setEnabled(isEnabled);
+        edtDiachi_ttns.setEnabled(isEnabled);
+        edtSdt_ttns.setEnabled(isEnabled);
+        edtTennguoidung_ttns.setEnabled(isEnabled);
+        imgHinhDaiDien_ttns.setEnabled(isEnabled);
         edt_Quyen_ttns.setEnabled(isEnabled);
     }
 }

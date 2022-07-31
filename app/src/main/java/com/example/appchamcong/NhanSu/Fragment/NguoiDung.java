@@ -69,9 +69,9 @@ public class NguoiDung extends Fragment {
 
     private void HienThiThongTin() {
         if (BatDauActivity.taiKhoanDTO.getQUYEN() == 1) {
-            txt_Chucvunguoidung_us.setText("Chức vụ: Nhân viên");
+            txt_Chucvunguoidung_us.setText("Chức vụ: Staff");
         } else if (BatDauActivity.taiKhoanDTO.getQUYEN() == 2) {
-            txt_Chucvunguoidung_us.setText("Chức vụ: Phòng Nhân Sự");
+            txt_Chucvunguoidung_us.setText("Chức vụ: Management");
         }
 
         txt_Tennguoidung_us.setText("Họ tên: " + BatDauActivity.taiKhoanDTO.getTENNGUOIDUNG());

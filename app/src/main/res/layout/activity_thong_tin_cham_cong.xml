@@ -10,14 +10,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/danguoi">
+        android:background="@color/xanhdam">
 
         <ImageButton
-            android:id="@+id/ibtnExit_ttns"
+            android:id="@+id/ibtnExit_qlcong"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@null"
-            app:srcCompat="?attr/actionModeCloseDrawable"
+            android:src="@drawable/ic_baseline_arrow_back_24"
             tools:ignore="SpeakableTextPresentCheck"
             android:contentDescription="TODO" />
 
@@ -28,8 +28,9 @@
             android:layout_weight="1"
             android:paddingLeft="20dp"
             android:gravity="center|left"
-            android:text="Thông tin nhân sự"
+            android:text="Thông tin chấm công"
             android:textSize="20dp"
+            android:textColor="@color/white"
             android:fontFamily="serif"
             android:textStyle="bold"/>
 
@@ -44,21 +45,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/imgHinhDaiDien_ttns"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/ic_baseline_account_circle_24"
-                android:layout_gravity="center"/>
-
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
 
                 <EditText
-                    android:id="@+id/edtTennguoidung_ttns"
+                    android:id="@+id/edt_Manhanvien_qlcong"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:layout_gravity="center"
@@ -68,32 +61,30 @@
                     android:background="@color/white"
                     android:ems="10"
                     android:fontFamily="serif"
-                    android:hint="Tên người dùng"
+                    android:hint="Mã nhân viên"
                     android:inputType="textPersonName"
                     android:paddingLeft="20dp"
                     tools:ignore="SpeakableTextPresentCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/edtSdt_ttns"
+                    android:id="@+id/edt_Tennhanvien_qlcong"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="30dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginRight="30dp"
                     android:background="@color/white"
                     android:ems="10"
                     android:fontFamily="serif"
-                    android:hint="Số điện thoại"
-                    android:inputType="phone"
-                    android:maxLength="10"
+                    android:hint="Tên nhân viên"
+                    android:inputType="textPersonName"
                     android:paddingLeft="20dp"
                     tools:ignore="SpeakableTextPresentCheck" />
 
@@ -104,83 +95,18 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/edtDiachi_ttns"
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:paddingTop="10dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="30dp"
-                    android:background="@color/white"
-                    android:fontFamily="serif"
-                    android:hint="Địa chỉ"
-                    android:textSize="15sp"
-                    tools:ignore="SpeakableTextPresentCheck" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/edt_Quyen_ttns"
+                    android:id="@+id/edt_phongban_qlcong"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="30dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="30dp"
-                    android:background="@color/white"
-                    android:ems="10"
-                    android:fontFamily="serif"
-                    android:hint="Quyền hạn"
-                    android:inputType="textEmailAddress"
-                    android:paddingLeft="20dp"
-                    tools:ignore="SpeakableTextPresentCheck" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/edt_Chucvu_ttns"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="30dp"
-                    android:background="@color/white"
-                    android:ems="10"
-                    android:fontFamily="serif"
-                    android:hint="Chức vụ"
-                    android:inputType="textEmailAddress"
-                    android:paddingLeft="20dp"
-                    tools:ignore="SpeakableTextPresentCheck" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/edt_Phongban_ttns"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginRight="30dp"
                     android:background="@color/white"
                     android:ems="10"
                     android:fontFamily="serif"
                     android:hint="Phòng ban"
-                    android:inputType="textEmailAddress"
+                    android:inputType="textPersonName"
                     android:paddingLeft="20dp"
                     tools:ignore="SpeakableTextPresentCheck" />
 
@@ -191,18 +117,84 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/edt_Tinhtrang_ttns"
+                    android:id="@+id/edt_Ngaycong_qlcong"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="30dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginRight="30dp"
                     android:background="@color/white"
                     android:ems="10"
                     android:fontFamily="serif"
-                    android:hint="Tình trạng"
-                    android:inputType="textEmailAddress"
+                    android:hint="Ngày công"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="20dp"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/edt_Giovao_qlcong"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@color/white"
+                    android:ems="10"
+                    android:fontFamily="serif"
+                    android:hint="Giờ vào"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="20dp"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/edt_Giora_qlcong"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@color/white"
+                    android:ems="10"
+                    android:fontFamily="serif"
+                    android:hint="Giờ ra"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="20dp"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/edt_Giocong_qlcong"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@color/white"
+                    android:ems="10"
+                    android:fontFamily="serif"
+                    android:hint="Giờ công"
+                    android:inputType="textPersonName"
                     android:paddingLeft="20dp"
                     tools:ignore="SpeakableTextPresentCheck" />
 
@@ -216,7 +208,7 @@
                 android:weightSum="4">
 
                 <Button
-                    android:id="@+id/btnCapnhat_ttns"
+                    android:id="@+id/btnCapnhat_qlcong"
                     android:layout_width="110dp"
                     android:layout_height="60dp"
                     android:layout_weight="1"
@@ -230,7 +222,7 @@
                     android:textStyle="bold" />
 
                 <Button
-                    android:id="@+id/btnHuyCN_ttns"
+                    android:id="@+id/btnHuyCN_qlcong"
                     android:layout_width="100dp"
                     android:layout_height="60dp"
                     android:layout_weight="1"

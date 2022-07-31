@@ -83,13 +83,13 @@ public class QuanLyActivity extends AppCompatActivity implements NavigationView.
         navigationView.setCheckedItem(R.id.nav_quanly_nhansu);
         // Drawer
 
-        replaceFragment(new QL_TaiKhoan());
+        replaceFragment(new QL_NhanSu());
 
         animateNavigation();
     }
 
     private void animateNavigation() {
-        drawerLayout.setScrimColor(getResources().getColor(R.color.danguoi));
+        drawerLayout.setScrimColor(getResources().getColor(R.color.xanhdam));
         drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
