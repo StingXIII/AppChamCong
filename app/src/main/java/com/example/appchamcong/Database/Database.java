@@ -219,6 +219,24 @@ public class Database extends SQLiteOpenHelper {
         return list;
     }
 
+    public ArrayList<ChamCong> XemCong(String MANV){
+        ArrayList<ChamCong> list = new ArrayList<>();
+        Cursor cursor = Getdata("SELECT * FROM CHAMCONG WHERE MANHANVIEN = '" + MANV + "'");
+        while (cursor.moveToNext()){
+            list.add(new ChamCong(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getString(5),
+                    cursor.getString(6),
+                    cursor.getInt(7)
+            ));
+        }
+        return list;
+    }
+
     //region Video
     public ArrayList<ChamCong> QuanLyChamCong_TimKiem(String Tennhanvien){
         ArrayList<ChamCong> list = new ArrayList<>();

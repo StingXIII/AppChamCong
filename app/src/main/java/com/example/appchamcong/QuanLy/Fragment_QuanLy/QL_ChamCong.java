@@ -109,7 +109,7 @@ public class QL_ChamCong extends Fragment {
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         int position = -1;
         try {
-            position = QuanLyTaiKhoanAdapter.getPosition();
+            position = QuanLyGioCongAdapter.getPosition();
         } catch (Exception e) {
             Log.d("TAG", e.getLocalizedMessage(), e);
             return super.onContextItemSelected(item);
