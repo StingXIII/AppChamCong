@@ -113,7 +113,7 @@ public class QuanLyNhanSuAdapter extends RecyclerView.Adapter<QuanLyNhanSuAdapte
         @Override
         public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
             menu.add(menu.NONE, R.id.iXem,
-                    menu.NONE, "Chỉnh sữa");
+                    menu.NONE, "Chỉnh sửa");
             menu.add(menu.NONE, R.id.iNghi,
                     menu.NONE, "Nghĩ việc");
         }

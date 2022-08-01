@@ -100,7 +100,7 @@ public class QuanLyGioCongAdapter extends RecyclerView.Adapter<QuanLyGioCongAdap
         @Override
         public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
             menu.add(menu.NONE, R.id.iXemcong,
-                    menu.NONE, "Chỉnh sữa");
+                    menu.NONE, "Chỉnh sửa");
             menu.add(menu.NONE, R.id.iXoacong,
                     menu.NONE, "Xóa");
         }

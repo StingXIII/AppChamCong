@@ -26,7 +26,9 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.appchamcong.Adapter.ChamCongAdapter;
 import com.example.appchamcong.BatDauActivity;
+import com.example.appchamcong.DTO.ChamCong;
 import com.example.appchamcong.R;
 import com.example.appchamcong.helpers.DBHelper;
 import com.example.appchamcong.helpers.ExcelHelper;
@@ -62,11 +64,13 @@ public class ChamCongActivity extends AppCompatActivity {
                 "com.fasterxml.aalto.stax.EventFactoryImpl"
         );
     }
-
+    ArrayList<ChamCong> chamCongArrayList;
     TextView lbl;
     DBHelper controller = new DBHelper(this);
     Button btn_import;
     ListView lv;
+    ChamCongAdapter adapter;
+
 
     private static final int PERMISSION_REQUEST_MEMORY_ACCESS = 0;
     private static final int requestcode = 1;
@@ -80,11 +84,19 @@ public class ChamCongActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cham_cong);
+        AnhXa();
 
         lv = findViewById(R.id.lstView);
         mLayout = findViewById(R.id.main_layout);
         btn_import = findViewById(R.id.btn_import);
 
+        chamCongArrayList = new ArrayList<>();
+
+        chamCongArrayList = BatDauActivity.database.LOADCHAMCONGREAL();
+
+
+        adapter = new ChamCongAdapter(ChamCongActivity.this, R.layout.lst_template, chamCongArrayList);
+        lv.setAdapter(adapter);
         btn_import.setOnClickListener(view -> {
             Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
             intent.setType("gagt/sdf");
@@ -113,6 +125,10 @@ public class ChamCongActivity extends AppCompatActivity {
         FillList();
     }
 
+    private void AnhXa() {
+        lv = findViewById(R.id.lstView);
+    }
+
     private boolean CheckPermission() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
                 == PackageManager.PERMISSION_GRANTED) {
@@ -132,38 +148,54 @@ public class ChamCongActivity extends AppCompatActivity {
     }
 
     public void FillList() {
-//        try {
-//            Cursor cursor = BatDauActivity.database.Getdata("SELECT ID,NGAYCONG FROM CHAMCONG");
-//            while (cursor.moveToNext()) {
-//                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//                Calendar c = Calendar.getInstance();
-//                try {
-//                    c.setTime(sdf.parse("1899-12-30"));
-//                } catch (ParseException e) {
-//                    e.printStackTrace();
-//                }
-//                c.add(Calendar.DATE, Integer.parseInt(cursor.getString(1)));
-//                sdf = new SimpleDateFormat("MM/yyyy");
-//                Date resultdate = new Date(c.getTimeInMillis());
-//                String dateInString = sdf.format(resultdate);
-//                BatDauActivity.database.CAPNHATNGAYCONG(cursor.getInt(0), dateInString);
-//            }
-//        } catch (Exception e){
-//            Toast.makeText(ChamCongActivity.this, "cccc", Toast.LENGTH_SHORT).show();
-//        }
+
         try {
             if (controller == null) {
                 DBHelper controller = new DBHelper(ChamCongActivity.this);
             }
             ArrayList<HashMap<String, String>> myList = controller.getProducts();
             if (myList.size() != 0) {
-                lv = findViewById(R.id.lstView);
-                ListAdapter adapter = new SimpleAdapter(ChamCongActivity.this, myList,
-                        R.layout.lst_template, new String[]{DBHelper.MANHANVIEN, DBHelper.TENNHANVIEN,
-                        DBHelper.PHONGBAN, DBHelper.NGAYCONG, DBHelper.GIOCONG},
-                        new int[]{R.id.txtManhanvien,R.id.txtTennhanvien, R.id.txtPhongban,R.id.txtNgayCong,
-                                R.id.txtGiocong});
-                lv.setAdapter(adapter);
+//                ListAdapter adapter = new SimpleAdapter(ChamCongActivity.this, myList,
+//                        R.layout.lst_template, new String[]{DBHelper.MANHANVIEN, DBHelper.TENNHANVIEN,
+//                        DBHelper.PHONGBAN,DBHelper.NGAYCONG , DBHelper.GIOCONG},
+//                        new int[]{R.id.txtManhanvien,R.id.txtTennhanvien, R.id.txtPhongban,R.id.txtNgayCong,
+//                                R.id.txtGiocong});
+                btn_import.setText("SAVE");
+                btn_import.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        try {
+                            Cursor cursor = BatDauActivity.database.Getdata("SELECT * FROM CHAMCONG");
+                            while (cursor.moveToNext()) {
+
+                                Log.e("TTTTT",cursor.getString(1) + " "
+                                        + " " + cursor.getString(2)
+                                        + " " + cursor.getString(3)
+                                        + " " +  cursor.getString(4)
+                                        + " " + cursor.getString(5)
+                                        + " " + cursor.getString(6)
+                                        + " " + cursor.getInt(7) );
+                                BatDauActivity.database.INSERT_CHAMCONG(
+                                        cursor.getString(1),
+                                        cursor.getString(2),
+                                        cursor.getString(3),
+                                        cursor.getString(4),
+                                        cursor.getString(5),
+                                        cursor.getString(6),
+                                        cursor.getInt(7)
+                                );
+                            }
+                        } catch (Exception e)
+                        {
+
+                        }
+                        BatDauActivity.database.DELETE_CHAMCONG();
+                        startActivity(new Intent(ChamCongActivity.this,TrangChuActivity.class));
+
+
+                    }
+                });
+                lv.deferNotifyDataSetChanged();
             }
         } catch (Exception ex) {
             Toast("FillList error: " + ex.getMessage(), ex);
@@ -292,5 +324,20 @@ public class ChamCongActivity extends AppCompatActivity {
 
         }
 
+    }
+    public String ChuyenDate(String ngay)
+    {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar c = Calendar.getInstance();
+        try {
+            c.setTime(sdf.parse("1899-12-30"));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        c.add(Calendar.DATE, Integer.parseInt(ngay));
+        sdf = new SimpleDateFormat("MM/yyyy");
+        Date resultdate = new Date(c.getTimeInMillis());
+        String dateInString = sdf.format(resultdate);
+        return dateInString;
     }
 }

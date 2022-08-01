@@ -12,7 +12,11 @@ import com.example.appchamcong.DTO.ChamCong;
 import com.example.appchamcong.DTO.GopY;
 import com.example.appchamcong.DTO.TaiKhoan;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Database extends SQLiteOpenHelper {
     public Database(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
@@ -42,7 +46,71 @@ public class Database extends SQLiteOpenHelper {
         }
         return false;
     }
+    public ArrayList<ChamCong> LOADCHAMCONGREAL(){
+        ArrayList<ChamCong> list = new ArrayList<>();
+        Cursor cursor = Getdata("SELECT * FROM CHAMCONGREAL");
+        while (cursor.moveToNext()){
+            list.add(new ChamCong(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getString(6),
+                    cursor.getString(7),
+                    cursor.getInt(8)
+            ));
+        }
+        return list;
+    }
+    public void DELETE_CHAMCONG(){
+        SQLiteDatabase database = getWritableDatabase();
+        String sql = "DELETE  FROM CHAMCONG" ;
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
 
+
+        statement.executeInsert();
+    }
+    public void INSERT_CHAMCONG(String MANV
+            ,String TENNV
+            , String PHONGBAN
+            , String NGAYCONG
+            , String GIOVAO
+            , String GIORA
+            , int GIOCONG){
+        SQLiteDatabase database = getWritableDatabase();
+        String sql = "INSERT INTO CHAMCONGREAL VALUES(null,?,?,?,?,?,?,?,?)";
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
+        //----------------------chuyen ngay-------------------
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdm = new SimpleDateFormat("MM/yyyy");
+        Calendar c = Calendar.getInstance();
+        try {
+            c.setTime(sdf.parse("1899-12-30"));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        c.add(Calendar.DATE, Integer.parseInt(NGAYCONG));
+        sdf = new SimpleDateFormat("MM/dd/yyyy");
+        Date resultdate = new Date(c.getTimeInMillis());
+        String ngaycong = sdf.format(resultdate);
+        String thangcong = sdm.format(resultdate);
+        //----------------------chuyen ngay-------------------
+
+        statement.bindString(1, MANV);
+        statement.bindString(2, TENNV);
+        statement.bindString(3, PHONGBAN);
+        statement.bindString(4, ngaycong);
+        statement.bindString(5, thangcong);
+        statement.bindString(6, GIOVAO);
+        statement.bindString(7, GIORA);
+        statement.bindDouble(8, GIOCONG);
+
+        statement.executeInsert();
+    }
     public TaiKhoan Load(int IDTK)
     {
         Cursor cursor = Getdata("SELECT * FROM TAIKHOAN WHERE IDTAIKHOAN = " + IDTK );
