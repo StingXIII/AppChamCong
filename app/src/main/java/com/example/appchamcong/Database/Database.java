@@ -56,6 +56,7 @@ public class Database extends SQLiteOpenHelper {
                     cursor.getString(2),
                     cursor.getString(3),
                     cursor.getString(4),
+                    cursor.getString(5),
                     cursor.getString(6),
                     cursor.getString(7),
                     cursor.getInt(8)
@@ -124,10 +125,10 @@ public class Database extends SQLiteOpenHelper {
                     cursor.getInt(5),
                     cursor.getString(6),
                     cursor.getInt(7),
+                    cursor.getInt(8),
                     cursor.getInt(9),
                     cursor.getInt(10),
-                    cursor.getInt(11),
-                    cursor.getInt(12)
+                    cursor.getInt(11)
             );
         }
         return null;
@@ -135,7 +136,7 @@ public class Database extends SQLiteOpenHelper {
 
     public ChamCong Load_ChamCong(int IDCHAMCONG)
     {
-        Cursor cursor = Getdata("SELECT * FROM CHAMCONG WHERE ID = " + IDCHAMCONG );
+        Cursor cursor = Getdata("SELECT * FROM CHAMCONGREAL WHERE ID = " + IDCHAMCONG );
         while (cursor.moveToNext()) {
             return new ChamCong(
                     cursor.getInt(0),
@@ -145,7 +146,8 @@ public class Database extends SQLiteOpenHelper {
                     cursor.getString(4),
                     cursor.getString(5),
                     cursor.getString(6),
-                    cursor.getInt(7)
+                    cursor.getString(7),
+                    cursor.getInt(8)
             );
         }
         return null;
@@ -176,7 +178,7 @@ public class Database extends SQLiteOpenHelper {
         QueryData("UPDATE " + CreateDatabase.tbl_TAIKHOAN + " SET " + CreateDatabase.tbl_TAIKHOAN_MATKHAU + " = '" + MATKHAU + "' WHERE " + CreateDatabase.tbl_TAIKHOAN_IDTK + " = " + IDTAIKHOAN);
     }
     public void CAPNHATNGAYCONG(int ID, String NGAYCONG){
-        QueryData("UPDATE CHAMCONG SET NGAYCONG = '" + NGAYCONG + "' WHERE ID = " + ID);
+        QueryData("UPDATE CHAMCONGREAL SET NGAYCONG = '" + NGAYCONG + "' WHERE ID = " + ID);
     }
 
     public ArrayList<TaiKhoan> QuanLyTaiKhoan(int QUYEN){
@@ -192,10 +194,10 @@ public class Database extends SQLiteOpenHelper {
                     cursor.getInt(5),
                     cursor.getString(6),
                     cursor.getInt(7),
+                    cursor.getInt(8),
                     cursor.getInt(9),
                     cursor.getInt(10),
-                    cursor.getInt(11),
-                    cursor.getInt(12)
+                    cursor.getInt(11)
             ));
         }
         return list;
@@ -215,10 +217,10 @@ public class Database extends SQLiteOpenHelper {
                     cursor.getInt(5),
                     cursor.getString(6),
                     cursor.getInt(7),
+                    cursor.getInt(8),
                     cursor.getInt(9),
                     cursor.getInt(10),
-                    cursor.getInt(11),
-                    cursor.getInt(12)
+                    cursor.getInt(11)
             ));
         }
         return list;
@@ -237,10 +239,10 @@ public class Database extends SQLiteOpenHelper {
                     cursor.getInt(5),
                     cursor.getString(6),
                     cursor.getInt(7),
+                    cursor.getInt(8),
                     cursor.getInt(9),
                     cursor.getInt(10),
-                    cursor.getInt(11),
-                    cursor.getInt(12)
+                    cursor.getInt(11)
             ));
         }
         return list;
@@ -260,10 +262,10 @@ public class Database extends SQLiteOpenHelper {
                     cursor.getInt(5),
                     cursor.getString(6),
                     cursor.getInt(7),
+                    cursor.getInt(8),
                     cursor.getInt(9),
                     cursor.getInt(10),
-                    cursor.getInt(11),
-                    cursor.getInt(12)
+                    cursor.getInt(11)
             ));
         }
         return list;
@@ -271,7 +273,7 @@ public class Database extends SQLiteOpenHelper {
 
     public ArrayList<ChamCong> QuanLyChamCong(){
         ArrayList<ChamCong> list = new ArrayList<>();
-        Cursor cursor = Getdata("SELECT * FROM CHAMCONG");
+        Cursor cursor = Getdata("SELECT * FROM CHAMCONGREAL");
         while (cursor.moveToNext()){
             list.add(new ChamCong(
                     cursor.getInt(0),
@@ -281,7 +283,8 @@ public class Database extends SQLiteOpenHelper {
                     cursor.getString(4),
                     cursor.getString(5),
                     cursor.getString(6),
-                    cursor.getInt(7)
+                    cursor.getString(7),
+                    cursor.getInt(8)
             ));
         }
         return list;
@@ -289,7 +292,7 @@ public class Database extends SQLiteOpenHelper {
 
     public ArrayList<ChamCong> XemCong(String MANV){
         ArrayList<ChamCong> list = new ArrayList<>();
-        Cursor cursor = Getdata("SELECT * FROM CHAMCONG WHERE MANHANVIEN = '" + MANV + "'");
+        Cursor cursor = Getdata("SELECT * FROM CHAMCONGREAL WHERE MANHANVIEN = '" + MANV + "'");
         while (cursor.moveToNext()){
             list.add(new ChamCong(
                     cursor.getInt(0),
@@ -299,7 +302,8 @@ public class Database extends SQLiteOpenHelper {
                     cursor.getString(4),
                     cursor.getString(5),
                     cursor.getString(6),
-                    cursor.getInt(7)
+                    cursor.getString(7),
+                    cursor.getInt(8)
             ));
         }
         return list;
@@ -308,7 +312,7 @@ public class Database extends SQLiteOpenHelper {
     //region Video
     public ArrayList<ChamCong> QuanLyChamCong_TimKiem(String Tennhanvien){
         ArrayList<ChamCong> list = new ArrayList<>();
-        Cursor cursor = Getdata("SELECT * FROM CHAMCONG WHERE TENNHANVIEN LIKE '%" + Tennhanvien +"%'");
+        Cursor cursor = Getdata("SELECT * FROM CHAMCONGREAL WHERE TENNHANVIEN LIKE '%" + Tennhanvien +"%'");
         while (cursor.moveToNext()){
             list.add(new ChamCong(
                     cursor.getInt(0),
@@ -318,14 +322,15 @@ public class Database extends SQLiteOpenHelper {
                     cursor.getString(4),
                     cursor.getString(5),
                     cursor.getString(6),
-                    cursor.getInt(7)
+                    cursor.getString(7),
+                    cursor.getInt(8)
             ));
         }
         return list;
     }
 
     public void XoaCong(int ID){
-        QueryData("DELETE FROM CHAMCONG WHERE ID = '" + ID + "'");
+        QueryData("DELETE FROM CHAMCONGREAL WHERE ID = '" + ID + "'");
     }
 
     public void NhanSuNghiViec(int IDTAIKHOAN){
@@ -349,7 +354,7 @@ public class Database extends SQLiteOpenHelper {
     }
 
     public void CapNhatCong_QL(int ID, String MANV, String TENNV, String PHONGBAN, String NGAYCONG, String GIOVAO, String GIORA, int GIOCONG){
-        QueryData("UPDATE CHAMCONG SET MANHANVIEN = '" + MANV + "', TENNHANVIEN = '" + TENNV + "', PHONGBAN = '" + PHONGBAN + "', NGAYCONG = '" + NGAYCONG +
+        QueryData("UPDATE CHAMCONGREAL SET MANHANVIEN = '" + MANV + "', TENNHANVIEN = '" + TENNV + "', PHONGBAN = '" + PHONGBAN + "', NGAYCONG = '" + NGAYCONG +
                 "' , GIOVAO = '" + GIOVAO + "', GIORA = '" + GIORA + "', GIOCONG = '" + GIOCONG + "' WHERE ID = '" + ID +"'");
     }
 

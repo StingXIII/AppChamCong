@@ -6,16 +6,18 @@ public class ChamCong {
     String TENNV;
     String PHONGBAN;
     String NGAYCONG;
+    String THANGCONG;
     String GIOVAO;
     String GIORA;
     int GIOCONG;
 
-    public ChamCong(int ID,String MANV, String TENNV, String PHONGBAN, String NGAYCONG, String GIOVAO, String GIORA, int GIOCONG) {
+    public ChamCong(int ID,String MANV, String TENNV, String PHONGBAN, String NGAYCONG, String THANGCONG, String GIOVAO, String GIORA, int GIOCONG) {
         this.ID = ID;
         this.MANV = MANV;
         this.TENNV = TENNV;
         this.PHONGBAN = PHONGBAN;
         this.NGAYCONG = NGAYCONG;
+        this.THANGCONG = THANGCONG;
         this.GIOVAO = GIOVAO;
         this.GIORA = GIORA;
         this.GIOCONG = GIOCONG;
@@ -59,6 +61,14 @@ public class ChamCong {
 
     public void setNGAYCONG(String NGAYCONG) {
         this.NGAYCONG = NGAYCONG;
+    }
+
+    public String getTHANGCONG() {
+        return THANGCONG;
+    }
+
+    public void setTHANGCONG(String THANGCONG) {
+        this.THANGCONG = THANGCONG;
     }
 
     public String getGIOVAO() {

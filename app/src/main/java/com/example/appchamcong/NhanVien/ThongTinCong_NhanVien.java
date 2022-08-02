@@ -47,7 +47,6 @@ public class ThongTinCong_NhanVien extends AppCompatActivity {
     private void GetData() {
         //get data
         ChamCong chamCong = BatDauActivity.database.Load_ChamCong(IDCHAMCONG);
-        int idchamcong = chamCong.getID();
         String manv = chamCong.getMANV();
         String tennv = chamCong.getTENNV();
         String phongban = chamCong.getPHONGBAN();
