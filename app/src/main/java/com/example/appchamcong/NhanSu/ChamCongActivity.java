@@ -8,18 +8,24 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.GridView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -29,6 +35,7 @@ import android.widget.Toast;
 import com.example.appchamcong.Adapter.ChamCongAdapter;
 import com.example.appchamcong.BatDauActivity;
 import com.example.appchamcong.DTO.ChamCong;
+import com.example.appchamcong.QuanLy.ThongTinChamCong;
 import com.example.appchamcong.R;
 import com.example.appchamcong.helpers.DBHelper;
 import com.example.appchamcong.helpers.ExcelHelper;
@@ -64,12 +71,15 @@ public class ChamCongActivity extends AppCompatActivity {
                 "com.fasterxml.aalto.stax.EventFactoryImpl"
         );
     }
+    DatePickerDialog.OnDateSetListener setListener;
     ArrayList<ChamCong> chamCongArrayList;
-    TextView lbl;
+    TextView tb;
     DBHelper controller = new DBHelper(this);
     Button btn_import;
-    ListView lv;
+    GridView lv;
     ChamCongAdapter adapter;
+    TextView thangnam;
+    Button chonngay,btn_Xoa;
 
 
     private static final int PERMISSION_REQUEST_MEMORY_ACCESS = 0;
@@ -85,18 +95,53 @@ public class ChamCongActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cham_cong);
         AnhXa();
-
+        chamCongArrayList = new ArrayList<>();
         lv = findViewById(R.id.lstView);
         mLayout = findViewById(R.id.main_layout);
         btn_import = findViewById(R.id.btn_import);
 
-        chamCongArrayList = new ArrayList<>();
+        Calendar today = Calendar.getInstance();
 
-        chamCongArrayList = BatDauActivity.database.LOADCHAMCONGREAL();
+        final int year = today.get(Calendar.YEAR);
+        final int month = today.get(Calendar.MONTH);
+        final int day = today.get(Calendar.DAY_OF_MONTH);
+        setListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                i1 += 1;
+                String date = i1 + "/" + i;
+                thangnam.setText(date);
+                chamCongArrayList.clear();
+                Log.e("ThNAGNAM", "0" + thangnam.getText().toString());
+                chamCongArrayList = BatDauActivity.database.LOADCHAMCONG("0" + thangnam.getText().toString());
+                adapter = new ChamCongAdapter(ChamCongActivity.this, R.layout.lst_template, chamCongArrayList);
+                lv.setAdapter(adapter);
+                lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        Intent iCapnhat = new Intent(ChamCongActivity.this, ThongTinChamCong.class);
+                        iCapnhat.putExtra("IDCHAMCONG", chamCongArrayList.get(i).getID());
+                        Toast.makeText(ChamCongActivity.this, "Mã NV là: " + chamCongArrayList.get(i).getMANV(), Toast.LENGTH_SHORT).show();
+                        startActivity(iCapnhat);
+                    }
+                });
+
+            }
+        };
 
 
-        adapter = new ChamCongAdapter(ChamCongActivity.this, R.layout.lst_template, chamCongArrayList);
-        lv.setAdapter(adapter);
+        chonngay.setOnClickListener(view -> {
+            DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                    android.R.style.Theme_Holo_Dialog_MinWidth, setListener, year, month, day);
+
+            datePickerDialog.getDatePicker().setMaxDate(today.getTime().getTime());
+            datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            datePickerDialog.show();
+        });
+
+
+
+
         btn_import.setOnClickListener(view -> {
             Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
             intent.setType("gagt/sdf");
@@ -106,6 +151,25 @@ public class ChamCongActivity extends AppCompatActivity {
 
             }
         });
+        btn_Xoa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (BatDauActivity.database.KIEMTRACHAMCONG("0" + thangnam.getText().toString()))
+                {
+                    BatDauActivity.database.DELETE_CHAMCONGREAL("0" + thangnam.getText().toString());
+                    Toast.makeText(ChamCongActivity.this, "Xoá thành công !", Toast.LENGTH_SHORT).show();
+                    chamCongArrayList.clear();
+                    adapter.notifyDataSetChanged();
+                }
+                else
+                {
+                    Toast.makeText(ChamCongActivity.this, "Không có dữ liệu!", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
+
 
         filePicker = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
@@ -127,6 +191,9 @@ public class ChamCongActivity extends AppCompatActivity {
 
     private void AnhXa() {
         lv = findViewById(R.id.lstView);
+        chonngay = findViewById(R.id.chonngay);
+        thangnam = findViewById(R.id.thangnam);
+        btn_Xoa = findViewById(R.id.btn_Xoa);
     }
 
     private boolean CheckPermission() {
@@ -160,11 +227,13 @@ public class ChamCongActivity extends AppCompatActivity {
 //                        DBHelper.PHONGBAN,DBHelper.NGAYCONG , DBHelper.GIOCONG},
 //                        new int[]{R.id.txtManhanvien,R.id.txtTennhanvien, R.id.txtPhongban,R.id.txtNgayCong,
 //                                R.id.txtGiocong});
-                btn_import.setText("SAVE");
+
+                btn_import.setText("LƯU");
                 btn_import.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         try {
+                            Toast.makeText(ChamCongActivity.this, "Đang lưu......", Toast.LENGTH_LONG).show();
                             Cursor cursor = BatDauActivity.database.Getdata("SELECT * FROM CHAMCONG");
                             while (cursor.moveToNext()) {
 
@@ -185,13 +254,15 @@ public class ChamCongActivity extends AppCompatActivity {
                                         cursor.getInt(7)
                                 );
                             }
+
                         } catch (Exception e)
                         {
 
                         }
-                        BatDauActivity.database.DELETE_CHAMCONG();
-                        startActivity(new Intent(ChamCongActivity.this,TrangChuActivity.class));
 
+                        BatDauActivity.database.DELETE_CHAMCONG();
+                        Toast.makeText(ChamCongActivity.this, "Lưu thành công !", Toast.LENGTH_SHORT).show();
+                        btn_import.setText("TẢI FILE");
 
                     }
                 });
@@ -204,6 +275,7 @@ public class ChamCongActivity extends AppCompatActivity {
 
     public void ReadExcelFile(Context context, Uri uri) {
         try {
+            Toast.makeText(context, "Đang tải.....", Toast.LENGTH_LONG).show();
             InputStream inStream;
             Workbook wb = null;
 

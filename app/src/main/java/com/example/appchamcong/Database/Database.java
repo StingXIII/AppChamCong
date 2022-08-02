@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -46,9 +47,35 @@ public class Database extends SQLiteOpenHelper {
         }
         return false;
     }
-    public ArrayList<ChamCong> LOADCHAMCONGREAL(){
+//    public ArrayList<ChamCong> LOADCHAMCONGFILE(){
+//        ArrayList<ChamCong> list = new ArrayList<>();
+//        Cursor cursor = Getdata("SELECT * FROM CHAMCONG ");
+//        while (cursor.moveToNext()){
+//            list.add(new ChamCong(
+//                    cursor.getInt(0),
+//                    cursor.getString(1),
+//                    cursor.getString(2),
+//                    cursor.getString(3),
+//                    cursor.getString(4),
+//                    cursor.getString(5),
+//                    cursor.getString(6),
+//                    cursor.getInt(7)
+//            ));
+////            Log.e("THANGNAM",cursor.getString(1) + " "
+////                    + " " + cursor.getString(2)
+////                    + " " + cursor.getString(3)
+////                    + " " +  cursor.getString(4)
+////                    + " " + cursor.getString(5)
+////                    + " " + cursor.getString(6)
+////                    + " " + cursor.getString(7)
+////                    + " " + cursor.getInt(8) );
+//        }
+//        return list;
+//    }
+    public ArrayList<ChamCong> LOADCHAMCONG(String thangcong){
         ArrayList<ChamCong> list = new ArrayList<>();
-        Cursor cursor = Getdata("SELECT * FROM CHAMCONGREAL");
+        Cursor cursor = Getdata("SELECT * FROM CHAMCONGREAL WHERE THANGCONG = '"+ thangcong + "'");
+
         while (cursor.moveToNext()){
             list.add(new ChamCong(
                     cursor.getInt(0),
@@ -61,12 +88,29 @@ public class Database extends SQLiteOpenHelper {
                     cursor.getString(7),
                     cursor.getInt(8)
             ));
+//            Log.e("THANGNAM",cursor.getString(1) + " "
+//                    + " " + cursor.getString(2)
+//                    + " " + cursor.getString(3)
+//                    + " " +  cursor.getString(4)
+//                    + " " + cursor.getString(5)
+//                    + " " + cursor.getString(6)
+//                    + " " + cursor.getString(7)
+//                    + " " + cursor.getInt(8) );
         }
         return list;
     }
     public void DELETE_CHAMCONG(){
         SQLiteDatabase database = getWritableDatabase();
         String sql = "DELETE  FROM CHAMCONG" ;
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
+
+
+        statement.executeInsert();
+    }
+    public void DELETE_CHAMCONGREAL(String thangcong){
+        SQLiteDatabase database = getWritableDatabase();
+        String sql = "DELETE  FROM CHAMCONGREAL WHERE THANGCONG = '" + thangcong + "'" ;
         SQLiteStatement statement = database.compileStatement(sql);
         statement.clearBindings();
 
@@ -288,6 +332,13 @@ public class Database extends SQLiteOpenHelper {
             ));
         }
         return list;
+    }
+    public boolean KIEMTRACHAMCONG(String thangcong){
+        Cursor cursor = Getdata("SELECT * FROM CHAMCONGREAL WHERE THANGCONG = '" + thangcong+ "'" );
+        while (cursor.moveToNext()){
+            return true;
+        }
+        return false;
     }
 
     public ArrayList<ChamCong> XemCong(String MANV){

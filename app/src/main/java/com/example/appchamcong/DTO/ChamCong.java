@@ -22,6 +22,16 @@ public class ChamCong {
         this.GIORA = GIORA;
         this.GIOCONG = GIOCONG;
     }
+    public ChamCong(int ID,String MANV, String TENNV, String PHONGBAN, String NGAYCONG, String GIOVAO, String GIORA, int GIOCONG) {
+        this.ID = ID;
+        this.MANV = MANV;
+        this.TENNV = TENNV;
+        this.PHONGBAN = PHONGBAN;
+        this.NGAYCONG = NGAYCONG;
+        this.GIOVAO = GIOVAO;
+        this.GIORA = GIORA;
+        this.GIOCONG = GIOCONG;
+    }
 
     public int getID() {
         return ID;
