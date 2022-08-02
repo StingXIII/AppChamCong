@@ -112,7 +112,6 @@ public class TracNghiem_NhanVien extends AppCompatActivity implements View.OnCli
                 onBackPressed();
             }
         });
-        diem_tk_tng = findViewById(R.id.diem_tk_tng);
         ten_tk_tng = findViewById(R.id.ten_tk_tng);
         img_tk_tng = findViewById(R.id.img_tk_tng);
         tv_question = findViewById(R.id.tv_question);

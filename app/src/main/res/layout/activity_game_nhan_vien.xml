@@ -6,12 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center|top"
+    android:background="#DFEFF4"
     tools:context=".NhanVien.Game_NhanVien">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/danguoi">
+        android:background="@color/teal_700">
 
         <ImageButton
             android:id="@+id/quaylai_choingay"
@@ -27,16 +28,19 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:paddingLeft="20dp"
-            android:gravity="center|left"
-            android:text="Phần thi trắc nghiệm"
-            android:textSize="20dp"
             android:fontFamily="serif"
-            android:textStyle="bold"/>
+            android:gravity="center|left"
+            android:paddingLeft="20dp"
+            android:text="Phần thi trắc nghiệm"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
     <LinearLayout
+        android:layout_margin="10dp"
+        android:background="@drawable/custom_cau"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="20dp"
@@ -69,124 +73,187 @@
 
         <TextView
             android:id="@+id/diem_tk_choingay"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
+            android:gravity="center"
             android:padding="5dp"
-            android:textSize="16sp"
-            android:text=""
-            android:textColor="#EC0101"
+            android:textSize="15sp"
+            android:text="Không Đạt"
+            android:background="@drawable/custom_huongdan"
+            android:textColor="#FFFFFF"
+
             android:fontFamily="serif"
             android:textStyle="bold" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp" >
-
-        <Button
-            android:id="@+id/lythuyetchung"
-            android:layout_width="250dp"
-            android:layout_height="60dp"
-            android:gravity="center"
-            android:fontFamily="serif"
-            android:text=" Phần lý thuyết chung"/>
-
-        <TextView
-            android:id="@+id/txt_lythuyetchung"
-            android:textSize="20sp"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:gravity="center"
-
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:background="@drawable/custom_btn"
-            android:text="0/15"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="470dp"
         android:gravity="center"
-        android:layout_marginTop="10dp"
-        >
-        <Button
-            android:id="@+id/ngoaiquan"
-            android:layout_width="250dp"
-            android:layout_height="60dp"
-            android:fontFamily="serif"
-            android:text=" Phần dành cho QC kiểm tra ngoại quan"/>
-        <EditText
-            android:id="@+id/txt_ngoaiquan"
-            android:textSize="20sp"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_cau"
+            android:orientation="vertical">
+            <TextView
+                android:paddingTop="20dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kết quả sẽ 'Đạt' nếu người đánh giá thoả mãn tất cả các điều kiện sau:"
+                android:textColor="@color/black" />
+            <TextView
+                android:paddingLeft="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Phần 1: 12/15 câu"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:paddingLeft="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Phần 2: 4/5 câu"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:paddingLeft="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Phần 3: 4/5 câu"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:paddingLeft="20dp"
+                android:paddingBottom="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Phần 4: 8/10 câu"
+                android:textColor="@color/black" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp" >
+
+            <Button
+                android:id="@+id/lythuyetchung"
+                android:layout_width="250dp"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:fontFamily="serif"
+                android:textStyle="bold"
+                android:text=" Phần lý thuyết chung"/>
+
+            <TextView
+                android:id="@+id/txt_lythuyetchung"
+                android:textSize="17dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/custom_diem"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+
+                android:text="0/15"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:gravity="center"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:background="@drawable/custom_btn"
-            android:text="0/5"/>
+            android:layout_marginTop="10dp"
+            >
+            <Button
+                android:id="@+id/ngoaiquan"
+                android:layout_width="250dp"
+                android:layout_height="60dp"
+                android:fontFamily="serif"
+                android:textStyle="bold"
+                android:text=" Phần dành cho QC kiểm tra ngoại quan"/>
+            <EditText
+                android:id="@+id/txt_ngoaiquan"
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginTop="10dp"
-        >
-        <Button
-            android:id="@+id/doluong"
-            android:layout_width="250dp"
-            android:layout_height="60dp"
-            android:fontFamily="serif"
-            android:text=" Phần dành cho QC đo lường"/>
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="17dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/custom_diem"
+                android:text="0/5"/>
 
-        <EditText
-            android:id="@+id/txt_doluong"
-            android:textSize="20sp"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:gravity="center"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:background="@drawable/custom_btn"
-            android:text="0/5"/>
+            android:layout_marginTop="10dp"
+            >
+            <Button
+                android:id="@+id/doluong"
+                android:layout_width="250dp"
+                android:layout_height="60dp"
+                android:fontFamily="serif"
+                android:textStyle="bold"
+                android:text=" Phần dành cho QC đo lường"/>
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginTop="10dp"
-        >
-        <Button
-            android:id="@+id/thuchanh"
-            android:layout_width="250dp"
-            android:layout_height="60dp"
-            android:fontFamily="serif"
-            android:text=" Thực Hành"/>
-        <EditText
-            android:id="@+id/txt_thuchanh"
-            android:textSize="20sp"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            <EditText
+                android:id="@+id/txt_doluong"
+
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="17dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/custom_diem"
+                android:text="0/5"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:gravity="center"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:background="@drawable/custom_btn"
-            android:text="0/10"/>
+            android:layout_marginTop="10dp"
+            >
+            <Button
+                android:id="@+id/thuchanh"
+                android:layout_width="250dp"
+                android:layout_height="60dp"
+                android:fontFamily="serif"
+                android:textStyle="bold"
+                android:text=" Thực Hành"/>
+            <EditText
+                android:id="@+id/txt_thuchanh"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="17dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/custom_diem"
+                android:text="0/10"/>
 
 
+        </LinearLayout>
     </LinearLayout>
+
 
 
 

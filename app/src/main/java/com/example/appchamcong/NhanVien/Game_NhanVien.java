@@ -135,6 +135,7 @@ public class Game_NhanVien extends AppCompatActivity {
                     && a.get(3).getSOCAU()>=8)
             {
                 diem_tk_choingay.setText("Đạt");
+
             } else {
                 diem_tk_choingay.setText("Chưa đạt");
             }
@@ -152,7 +153,7 @@ public class Game_NhanVien extends AppCompatActivity {
         }catch (Exception e){
             txt_lythuyetchung.setText("0/15");
             lythuyetchung.setEnabled(true);
-            lythuyetchung.setBackgroundResource(R.color.purple_700);
+            lythuyetchung.setBackgroundResource(R.color.teal_700);
 
 
             return;
@@ -165,7 +166,7 @@ public class Game_NhanVien extends AppCompatActivity {
         }catch (Exception e){
             txt_ngoaiquan.setText("0/5");
             ngoaiquan.setEnabled(true);
-            ngoaiquan.setBackgroundResource(R.color.purple_700);
+            ngoaiquan.setBackgroundResource(R.color.teal_700);
             return;
         }
         //---------------------------
@@ -176,7 +177,7 @@ public class Game_NhanVien extends AppCompatActivity {
         }catch (Exception e){
             txt_doluong.setText("0/5");
             doluong.setEnabled(true);
-            doluong.setBackgroundResource(R.color.purple_700);
+            doluong.setBackgroundResource(R.color.teal_700);
             return;
         };
         //---------------------------
@@ -187,7 +188,7 @@ public class Game_NhanVien extends AppCompatActivity {
         }catch (Exception e){
             txt_thuchanh.setText("0/10");
             thuchanh.setEnabled(true);
-            thuchanh.setBackgroundResource(R.color.purple_700);
+            thuchanh.setBackgroundResource(R.color.teal_700);
             return;
         };
 
