@@ -160,7 +160,7 @@ public class DangNhapActivity extends AppCompatActivity implements View.OnClickL
 
         if (kiemtra != null){
             BatDauActivity.taiKhoanDTO = kiemtra;
-            if (BatDauActivity.taiKhoanDTO.getTINHTRANG() != 1) {
+            if (BatDauActivity.taiKhoanDTO.getQUYEN() == 1 && BatDauActivity.taiKhoanDTO.getTINHTRANG() != 1) {
                 Toast.makeText(DangNhapActivity.this, "Tài khoản không khả dụng !", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(DangNhapActivity.this, "Đăng Nhập Thành Công ! ", Toast.LENGTH_SHORT).show();
