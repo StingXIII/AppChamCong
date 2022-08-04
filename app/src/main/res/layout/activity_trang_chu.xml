@@ -18,12 +18,12 @@
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:mbn_circleColor="@color/xanhdam"
+        app:mbn_circleColor="@color/mauchude"
         app:mbn_selectedIconColor="@color/white"
         app:mbn_countTextColor="@color/white"
         app:mbn_countBackgroundColor="@color/black"
         app:mbn_defaultIconColor="@color/white"
-        app:mbn_backgroundBottomColor="@color/xanhdam"
+        app:mbn_backgroundBottomColor="@color/mauchude"
         tools:ignore="MissingClass" />
 
 

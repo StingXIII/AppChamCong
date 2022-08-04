@@ -160,13 +160,17 @@ public class DangNhapActivity extends AppCompatActivity implements View.OnClickL
 
         if (kiemtra != null){
             BatDauActivity.taiKhoanDTO = kiemtra;
-            Toast.makeText(DangNhapActivity.this, "Đăng Nhập Thành Công ! ", Toast.LENGTH_SHORT).show();
-            if (BatDauActivity.taiKhoanDTO.getQUYEN() == 0){
-                startActivity(new Intent(DangNhapActivity.this, QuanLyActivity.class));
-            } else if (BatDauActivity.taiKhoanDTO.getQUYEN() == 1) {
-                startActivity(new Intent(DangNhapActivity.this, TrangChu_NhanVien.class));
-            } else if (BatDauActivity.taiKhoanDTO.getQUYEN() == 2) {
-                startActivity(new Intent(DangNhapActivity.this, TrangChuActivity.class));
+            if (BatDauActivity.taiKhoanDTO.getTINHTRANG() != 1) {
+                Toast.makeText(DangNhapActivity.this, "Tài khoản không khả dụng !", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(DangNhapActivity.this, "Đăng Nhập Thành Công ! ", Toast.LENGTH_SHORT).show();
+                if (BatDauActivity.taiKhoanDTO.getQUYEN() == 0){
+                    startActivity(new Intent(DangNhapActivity.this, QuanLyActivity.class));
+                } else if (BatDauActivity.taiKhoanDTO.getQUYEN() == 1) {
+                    startActivity(new Intent(DangNhapActivity.this, TrangChu_NhanVien.class));
+                } else if (BatDauActivity.taiKhoanDTO.getQUYEN() == 2) {
+                    startActivity(new Intent(DangNhapActivity.this, TrangChuActivity.class));
+                }
             }
         } else {
             Toast.makeText(DangNhapActivity.this, "Đăng Nhập Thất Bại !", Toast.LENGTH_SHORT).show();

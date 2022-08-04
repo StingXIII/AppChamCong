@@ -1,7 +1,11 @@
 package com.example.appchamcong.QuanLy.Fragment_QuanLy;
 
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,6 +21,8 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -29,8 +35,11 @@ import com.example.appchamcong.Database.Database;
 import com.example.appchamcong.QuanLy.CapNhat_TaiKhoan;
 import com.example.appchamcong.QuanLy.ThongTinChamCong;
 import com.example.appchamcong.R;
+import com.whiteelephant.monthpicker.MonthPickerDialog;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class QL_ChamCong extends Fragment {
 
@@ -40,6 +49,9 @@ public class QL_ChamCong extends Fragment {
     ArrayList<ChamCong> listChamCong;
     QuanLyGioCongAdapter adapter;
     EditText edt_timkiemtaikhoan_qlcong;
+    Button btn_Chonngay, btn_Chonthang;
+
+    DatePickerDialog.OnDateSetListener setListener;
 
     public QL_ChamCong() {
         // Required empty public constructor
@@ -52,6 +64,12 @@ public class QL_ChamCong extends Fragment {
         view = inflater.inflate(R.layout.fragment_q_l__cham_cong, container, false);
 
         BatDauActivity.database = new Database(getActivity());
+
+        Calendar calendar = Calendar.getInstance();
+        final int yearNow = calendar.get(Calendar.YEAR);
+        final int monthNow = calendar.get(Calendar.MONTH);
+        final int dayNow = calendar.get(Calendar.DAY_OF_MONTH);
+
         AnhXa();
 
         listChamCong = new ArrayList<>();
@@ -61,6 +79,35 @@ public class QL_ChamCong extends Fragment {
 
         recV_DanhSachChamCong_qlcong.setLayoutManager( new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL,false));
         recV_DanhSachChamCong_qlcong.setAdapter(adapter);
+
+        btn_Chonngay.setOnClickListener(view -> {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                    calendar.set(year, month, dayOfMonth);
+                    edt_timkiemtaikhoan_qlcong.setText(simpleDateFormat.format(calendar.getTime()));
+                }
+            }, yearNow, monthNow, dayNow);
+            datePickerDialog.setTitle("Chọn ngày");
+            datePickerDialog.show();
+        });
+
+        btn_Chonthang.setOnClickListener(view -> {
+            MonthPickerDialog.Builder builder = new MonthPickerDialog.Builder(getActivity(), new MonthPickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(int selectedMonth, int selectedYear) {
+                    edt_timkiemtaikhoan_qlcong.setText("0" + (selectedMonth + 1) + "/" + selectedYear);
+                }
+            }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH));
+
+            builder.setActivatedMonth(Calendar.JULY)
+                    .setMinYear(1990)
+                    .setActivatedYear(calendar.get(Calendar.YEAR))
+                    .setMaxYear(2030)
+                    .setTitle("Chọn tháng")
+                    .build().show();
+        });
 
         return view;
     }
@@ -85,6 +132,9 @@ public class QL_ChamCong extends Fragment {
 
             }
         });
+
+        btn_Chonngay = view.findViewById(R.id.btn_Chonngay);
+        btn_Chonthang = view.findViewById(R.id.btn_Chonthang);
     }
 
     @Override
@@ -101,7 +151,7 @@ public class QL_ChamCong extends Fragment {
 
     private void Load_TimKiem() {
         listChamCong.clear();
-        listChamCong.addAll(BatDauActivity.database.QuanLyChamCong_TimKiem(edt_timkiemtaikhoan_qlcong.getText().toString()));
+        listChamCong.addAll(BatDauActivity.database.QuanLyChamCong_TimKiem(edt_timkiemtaikhoan_qlcong.getText().toString(), edt_timkiemtaikhoan_qlcong.getText().toString(), edt_timkiemtaikhoan_qlcong.getText().toString()));
         adapter.notifyDataSetChanged();
     }
 

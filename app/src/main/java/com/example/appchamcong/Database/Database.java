@@ -75,7 +75,6 @@ public class Database extends SQLiteOpenHelper {
     public ArrayList<ChamCong> LOADCHAMCONG(String thangcong){
         ArrayList<ChamCong> list = new ArrayList<>();
         Cursor cursor = Getdata("SELECT * FROM CHAMCONGREAL WHERE THANGCONG = '"+ thangcong + "'");
-
         while (cursor.moveToNext()){
             list.add(new ChamCong(
                     cursor.getInt(0),
@@ -139,7 +138,7 @@ public class Database extends SQLiteOpenHelper {
         }
 
         c.add(Calendar.DATE, Integer.parseInt(NGAYCONG));
-        sdf = new SimpleDateFormat("MM/dd/yyyy");
+        sdf = new SimpleDateFormat("dd/MM/yyyy");
         Date resultdate = new Date(c.getTimeInMillis());
         String ngaycong = sdf.format(resultdate);
         String thangcong = sdm.format(resultdate);
@@ -156,6 +155,7 @@ public class Database extends SQLiteOpenHelper {
 
         statement.executeInsert();
     }
+
     public TaiKhoan Load(int IDTK)
     {
         Cursor cursor = Getdata("SELECT * FROM TAIKHOAN WHERE IDTAIKHOAN = " + IDTK );
@@ -361,9 +361,9 @@ public class Database extends SQLiteOpenHelper {
     }
 
     //region Video
-    public ArrayList<ChamCong> QuanLyChamCong_TimKiem(String Tennhanvien){
+    public ArrayList<ChamCong> QuanLyChamCong_TimKiem(String Tennhanvien, String Ngay, String Thang){
         ArrayList<ChamCong> list = new ArrayList<>();
-        Cursor cursor = Getdata("SELECT * FROM CHAMCONGREAL WHERE TENNHANVIEN LIKE '%" + Tennhanvien +"%'");
+        Cursor cursor = Getdata("SELECT * FROM CHAMCONGREAL WHERE (TENNHANVIEN LIKE '%" + Tennhanvien +"%') OR (NGAYCONG LIKE '%" + Ngay +"%') OR (THANGCONG LIKE '%" + Thang +"%')");
         while (cursor.moveToNext()){
             list.add(new ChamCong(
                     cursor.getInt(0),

@@ -12,6 +12,11 @@
             android:title="Quản Lý Công" />
 
         <item
+            android:id="@+id/nav_quanly_thongke"
+            android:icon="@drawable/ic_baseline_bar_chart_24"
+            android:title="Quản Lý Thống Kê" />
+
+        <item
             android:id="@+id/nav_logging_manager"
             android:icon="@drawable/ic_baseline_login_24"
             android:title="Đăng Nhập" />
