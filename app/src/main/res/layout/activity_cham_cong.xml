@@ -40,7 +40,7 @@
         android:layout_alignParentTop="true"
         android:layout_weight="0.5"
         android:gravity="center"
-        android:background="@color/danguoi"
+        android:background="@color/mauchude"
         android:orientation="horizontal"
         android:padding="1dp"
         android:weightSum="5">

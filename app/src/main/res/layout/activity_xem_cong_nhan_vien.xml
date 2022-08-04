@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/xanhdam">
+        android:background="@color/mauchude">
 
         <ImageButton
             android:id="@+id/ibtnExit"
