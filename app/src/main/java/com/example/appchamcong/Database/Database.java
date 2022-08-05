@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 
 import com.example.appchamcong.DTO.ChamCong;
 import com.example.appchamcong.DTO.GopY;
+import com.example.appchamcong.DTO.Nangluc;
 import com.example.appchamcong.DTO.TaiKhoan;
 
 import java.text.ParseException;
@@ -196,6 +197,26 @@ public class Database extends SQLiteOpenHelper {
         }
         return null;
     }
+    public Nangluc Load_Thongtin(String MANHANVIEN)
+    {
+        Cursor cursor = Getdata("SELECT * FROM NANGLUC WHERE MANHANVIEN = '" + MANHANVIEN + "'" );
+        while (cursor.moveToNext()) {
+            Log.e("ABCD",cursor.getString(0) + " , "
+                    + cursor.getString(1) + " , "
+                    + cursor.getString(2) + " , "
+                    + cursor.getString(3) + " , "
+                    + cursor.getString(4));
+
+            return new Nangluc(
+                    cursor.getString(0),
+                    cursor.getString(1),
+                    cursor.getInt(2),
+                    cursor.getInt(3),
+                    cursor.getInt(4)
+            );
+        }
+        return null;
+    }
 
     public void CapNhatTaiKhoan(int IDTAIKHOAN, byte[] HINHANH, int SDT, String TENNGUOIDUNG, String DIACHI){
         QueryData("UPDATE " + CreateDatabase.tbl_TAIKHOAN + " SET " + CreateDatabase.tbl_TAIKHOAN_SDT + " = '" + SDT + "', " + CreateDatabase.tbl_TAIKHOAN_TENNGUOIDUNG + " = '" + TENNGUOIDUNG +
@@ -224,7 +245,10 @@ public class Database extends SQLiteOpenHelper {
     public void CAPNHATNGAYCONG(int ID, String NGAYCONG){
         QueryData("UPDATE CHAMCONGREAL SET NGAYCONG = '" + NGAYCONG + "' WHERE ID = " + ID);
     }
-
+    public void CAPNHATDIEMQL(String MANHANVIEN, int DIEMQL, int XEPLOAI){
+        QueryData("UPDATE NANGLUC SET DIEMQL = " + DIEMQL + " , XEPLOAI = "
+                + XEPLOAI + " WHERE MANHANVIEN = '"+ MANHANVIEN +"'"  );
+    }
     public ArrayList<TaiKhoan> QuanLyTaiKhoan(int QUYEN){
         ArrayList<TaiKhoan> list = new ArrayList<>();
         Cursor cursor = Getdata("SELECT * FROM TAIKHOAN WHERE QUYEN >=" + QUYEN);
@@ -340,7 +364,25 @@ public class Database extends SQLiteOpenHelper {
         }
         return false;
     }
+    public boolean KIEMTRANANGLUC(String MANHANVIEN){
+        Cursor cursor = Getdata("SELECT * FROM NANGLUC WHERE MANHANVIEN = '" + MANHANVIEN + "'" );
+        while (cursor.moveToNext()){
+            return false;
+        }
+        return true;
+    }
+    public void INSERT_NANGLUC(String MANHANVIEN, String TENNHANVIEN,int KQ){
+        SQLiteDatabase database = getWritableDatabase();
+        String sql = "INSERT INTO NANGLUC VALUES(?,?,?,null,null)";
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.clearBindings();
 
+        statement.bindString(1, MANHANVIEN);
+        statement.bindString(2, TENNHANVIEN);
+        statement.bindDouble(3, KQ);
+
+        statement.executeInsert();
+    }
     public ArrayList<ChamCong> XemCong(String MANV){
         ArrayList<ChamCong> list = new ArrayList<>();
         Cursor cursor = Getdata("SELECT * FROM CHAMCONGREAL WHERE MANHANVIEN = '" + MANV + "'");

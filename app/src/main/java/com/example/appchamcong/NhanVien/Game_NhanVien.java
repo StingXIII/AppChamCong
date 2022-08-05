@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -128,22 +129,7 @@ public class Game_NhanVien extends AppCompatActivity {
             ));
 
         }
-        try {
-            if (a.get(0).getSOCAU()>=12
-                    && a.get(1).getSOCAU()>=4
-                    && a.get(2).getSOCAU()>=4
-                    && a.get(3).getSOCAU()>=8)
-            {
-                diem_tk_choingay.setText("Đạt");
 
-            } else {
-                diem_tk_choingay.setText("Chưa đạt");
-            }
-
-        }catch (Exception e){
-            diem_tk_choingay.setText("Chưa đạt");
-
-        };
         //---------------------------
         try {
 
@@ -185,6 +171,37 @@ public class Game_NhanVien extends AppCompatActivity {
             txt_thuchanh.setText(a.get(3).getSOCAU()+"/10");
             thuchanh.setEnabled(false);
             thuchanh.setBackgroundResource(R.color.xam);
+
+            try {
+                if (a.get(0).getSOCAU()>=12
+                        && a.get(1).getSOCAU()>=4
+                        && a.get(2).getSOCAU()>=4
+                        && a.get(3).getSOCAU()>=8)
+                {
+                    diem_tk_choingay.setText("Đạt");
+                    if (BatDauActivity.database.KIEMTRANANGLUC(BatDauActivity.taiKhoanDTO.getTENTK()))
+                    {
+                        Log.e("DAT",BatDauActivity.taiKhoanDTO.getMATK() + " , " +
+                                BatDauActivity.taiKhoanDTO.getTENNGUOIDUNG() );
+                        BatDauActivity.database.INSERT_NANGLUC(BatDauActivity.taiKhoanDTO.getTENTK(),
+                                BatDauActivity.taiKhoanDTO.getTENNGUOIDUNG(),1);
+                    }
+
+                } else {
+                    diem_tk_choingay.setText("Chưa đạt");
+                    if (BatDauActivity.database.KIEMTRANANGLUC(BatDauActivity.taiKhoanDTO.getTENTK()))
+                    {
+                        Log.e("CHUADAT",BatDauActivity.taiKhoanDTO.getMATK() + " , " +
+                                BatDauActivity.taiKhoanDTO.getTENNGUOIDUNG() );
+                        BatDauActivity.database.INSERT_NANGLUC(BatDauActivity.taiKhoanDTO.getTENTK(),
+                                BatDauActivity.taiKhoanDTO.getTENNGUOIDUNG(),0);
+                    }
+                }
+
+            }catch (Exception e){
+                diem_tk_choingay.setText("Không đủ điều kiện");
+
+            };
         }catch (Exception e){
             txt_thuchanh.setText("0/10");
             thuchanh.setEnabled(true);

@@ -30,7 +30,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class TracNghiem_NhanVien extends AppCompatActivity implements View.OnClickListener {
     private TextView tv_question;
     private TextView tv_content_question;
-    private TextView tv_answer1,tv_answer2,tv_answer3,tv_answer4,ten_tk_tng,diem_tk_tng;
+    private TextView tv_answer1,tv_answer2,tv_answer3,tv_answer4,ten_tk_tng;
     CircleImageView img_tk_tng;
     private List<Question> questionList;
     private Question mQuestion;
@@ -186,7 +186,6 @@ public class TracNghiem_NhanVien extends AppCompatActivity implements View.OnCli
                     textView.setBackgroundResource(R.drawable.custom_cautraloi_dung);
                     dung = dung +1;
                     Toast.makeText(TracNghiem_NhanVien.this, " Số câu đúng: " + dung , Toast.LENGTH_SHORT).show();
-                    Log.e("Diem",dung + " and " + diem_tk_tng.getText().toString() );
 
                     nextQuestion();
 
@@ -252,7 +251,7 @@ public class TracNghiem_NhanVien extends AppCompatActivity implements View.OnCli
 
                 }
             },1000);
-            diem_tk_tng.setText("0");
+
         }
 
     }

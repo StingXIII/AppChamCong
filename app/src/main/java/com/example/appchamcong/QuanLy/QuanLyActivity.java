@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.example.appchamcong.BatDauActivity;
 import com.example.appchamcong.DTO.TaiKhoan;
 import com.example.appchamcong.DangNhapActivity;
+import com.example.appchamcong.QuanLy.Fragment_QuanLy.NangLuc_Fragment;
 import com.example.appchamcong.QuanLy.Fragment_QuanLy.QL_ChamCong;
 import com.example.appchamcong.QuanLy.Fragment_QuanLy.QL_NhanSu;
 import com.example.appchamcong.QuanLy.Fragment_QuanLy.QL_TaiKhoan;
@@ -158,6 +159,10 @@ public class QuanLyActivity extends AppCompatActivity implements NavigationView.
                 replaceFragment(new QL_ThongKe());
                 currentFragment = FRAGMENT_QL_THONGKE;
             }
+        } else if (id == R.id.nav_rank_manager) {
+            replaceFragment(new NangLuc_Fragment());
+
+
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
