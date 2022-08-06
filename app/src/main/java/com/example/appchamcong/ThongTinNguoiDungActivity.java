@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -16,6 +17,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -25,12 +27,14 @@ import com.example.appchamcong.DTO.TaiKhoan;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ThongTinNguoiDungActivity extends AppCompatActivity {
 
-    EditText edt_Tentaikhoan, edt_Sdtnguoidung, edt_Tennguoidung, edt_Diachinguoidung;
+    EditText edt_Tentaikhoan, edt_Sdtnguoidung, edt_Tennguoidung, edt_Diachinguoidung, edt_Ngaysinh, edt_Email;
     Button btn_Capnhatthongtin, btn_Huycapnhatthongtin;
     ImageButton ibtn_Exit;
     CircleImageView cimg_HinhDaiDien;
@@ -69,12 +73,16 @@ public class ThongTinNguoiDungActivity extends AppCompatActivity {
             int sdt = taiKhoanDTO.getSDT();
             String tennguoidung = taiKhoanDTO.getTENNGUOIDUNG();
             String diachi = taiKhoanDTO.getDIACHI();
+            String ngaysinh = taiKhoanDTO.getNGAYSINH();
+            String email = taiKhoanDTO.getEMAIL();
             enableControl();
 
             edt_Tentaikhoan.setText(tentaikhoan);
             edt_Sdtnguoidung.setText("0" + sdt);
             edt_Tennguoidung.setText(tennguoidung);
             edt_Diachinguoidung.setText(diachi);
+            edt_Ngaysinh.setText(ngaysinh);
+            edt_Email.setText(email);
             edt_Tentaikhoan.setEnabled(false);
             if (taiKhoanDTO.getHINHANH() == null){
                 cimg_HinhDaiDien.setImageResource(R.drawable.baseline_account_circle_white_24);
@@ -91,6 +99,8 @@ public class ThongTinNguoiDungActivity extends AppCompatActivity {
         edt_Sdtnguoidung = findViewById(R.id.edt_Sdtnguoidung);
         edt_Tennguoidung = findViewById(R.id.edt_Tennguoidung);
         edt_Diachinguoidung = findViewById(R.id.edt_Diachinguoidung);
+        edt_Ngaysinh = findViewById(R.id.edt_Ngaysinh);
+        edt_Email = findViewById(R.id.edt_Email);
         cimg_HinhDaiDien = findViewById(R.id.cimg_HinhDaiDien);
 
         ibtn_Exit = findViewById(R.id.ibtn_Exit);
@@ -98,6 +108,24 @@ public class ThongTinNguoiDungActivity extends AppCompatActivity {
         btn_Capnhatthongtin = findViewById(R.id.btn_Capnhatthongtin);
 
         registerForContextMenu(cimg_HinhDaiDien);
+
+        edt_Ngaysinh.setOnClickListener(view -> {
+            Calendar calendar = Calendar.getInstance();
+            final int yearNow = calendar.get(Calendar.YEAR);
+            final int monthNow = calendar.get(Calendar.MONTH);
+            final int dayNow = calendar.get(Calendar.DAY_OF_MONTH);
+
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            DatePickerDialog datePickerDialog = new DatePickerDialog(ThongTinNguoiDungActivity.this, new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                    calendar.set(year, month, dayOfMonth);
+                    edt_Ngaysinh.setText(simpleDateFormat.format(calendar.getTime()));
+                }
+            }, yearNow, monthNow, dayNow);
+            datePickerDialog.setTitle("Chọn ngày");
+            datePickerDialog.show();
+        });
 
         cimg_HinhDaiDien.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,6 +156,8 @@ public class ThongTinNguoiDungActivity extends AppCompatActivity {
                 int Sdt = Integer.parseInt(edt_Sdtnguoidung.getText().toString().trim());
                 String TenNguoiDung = edt_Tennguoidung.getText().toString();
                 String DiaChi = edt_Diachinguoidung.getText().toString();
+                String NgaySinh = edt_Ngaysinh.getText().toString();
+                String Email = edt_Email.getText().toString();
 
                 if (isEnabled){
                     btn_Capnhatthongtin.setText("Lưu");
@@ -141,7 +171,7 @@ public class ThongTinNguoiDungActivity extends AppCompatActivity {
                     bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArray);
                     byte[] hinhAnh = byteArray.toByteArray();
 
-                    BatDauActivity.database.CapNhatTaiKhoan(BatDauActivity.taiKhoanDTO.getMATK(), hinhAnh, Sdt, TenNguoiDung, DiaChi);
+                    BatDauActivity.database.CapNhatTaiKhoan(BatDauActivity.taiKhoanDTO.getMATK(), hinhAnh, Sdt, TenNguoiDung, DiaChi, NgaySinh, Email);
                     Toast.makeText(ThongTinNguoiDungActivity.this, "Cập nhật thành công !", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(ThongTinNguoiDungActivity.this, DangNhapActivity.class);
                     BatDauActivity.taiKhoanDTO = new TaiKhoan();
@@ -157,6 +187,8 @@ public class ThongTinNguoiDungActivity extends AppCompatActivity {
         edt_Sdtnguoidung.setEnabled(isEnabled);
         edt_Tennguoidung.setEnabled(isEnabled);
         edt_Diachinguoidung.setEnabled(isEnabled);
+        edt_Ngaysinh.setEnabled(isEnabled);
+        edt_Email.setEnabled(isEnabled);
     }
 
     @Override

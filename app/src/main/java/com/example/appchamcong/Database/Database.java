@@ -169,11 +169,13 @@ public class Database extends SQLiteOpenHelper {
                     cursor.getBlob(4),
                     cursor.getInt(5),
                     cursor.getString(6),
-                    cursor.getInt(7),
-                    cursor.getInt(8),
+                    cursor.getString(7),
+                    cursor.getString(8),
                     cursor.getInt(9),
                     cursor.getInt(10),
-                    cursor.getInt(11)
+                    cursor.getInt(11),
+                    cursor.getInt(12),
+                    cursor.getInt(13)
             );
         }
         return null;
@@ -218,9 +220,9 @@ public class Database extends SQLiteOpenHelper {
         return null;
     }
 
-    public void CapNhatTaiKhoan(int IDTAIKHOAN, byte[] HINHANH, int SDT, String TENNGUOIDUNG, String DIACHI){
-        QueryData("UPDATE " + CreateDatabase.tbl_TAIKHOAN + " SET " + CreateDatabase.tbl_TAIKHOAN_SDT + " = '" + SDT + "', " + CreateDatabase.tbl_TAIKHOAN_TENNGUOIDUNG + " = '" + TENNGUOIDUNG +
-                "' , " + CreateDatabase.tbl_TAIKHOAN_DIACHI + " = '" + DIACHI + "' WHERE " + CreateDatabase.tbl_TAIKHOAN_IDTK + " = '" + IDTAIKHOAN +"'");
+    public void CapNhatTaiKhoan(int IDTAIKHOAN, byte[] HINHANH, int SDT, String TENNGUOIDUNG, String DIACHI, String NGAYSINH, String EMAIL){
+        QueryData("UPDATE TAIKHOAN SET SDT = '" + SDT + "', TENNGUOIDUNG = '" + TENNGUOIDUNG + "' , DIACHI = '" + DIACHI + "', " +
+                "NGAYSINH = '" + NGAYSINH + "', EMAIL = '" + EMAIL + "' WHERE " + CreateDatabase.tbl_TAIKHOAN_IDTK + " = '" + IDTAIKHOAN +"'");
 
         String sql = "UPDATE TAIKHOAN SET HINHANH = ? WHERE IDTAIKHOAN= " + IDTAIKHOAN ;
         SQLiteDatabase database = getWritableDatabase();
@@ -261,11 +263,13 @@ public class Database extends SQLiteOpenHelper {
                     cursor.getBlob(4),
                     cursor.getInt(5),
                     cursor.getString(6),
-                    cursor.getInt(7),
-                    cursor.getInt(8),
+                    cursor.getString(7),
+                    cursor.getString(8),
                     cursor.getInt(9),
                     cursor.getInt(10),
-                    cursor.getInt(11)
+                    cursor.getInt(11),
+                    cursor.getInt(12),
+                    cursor.getInt(13)
             ));
         }
         return list;
@@ -284,11 +288,13 @@ public class Database extends SQLiteOpenHelper {
                     cursor.getBlob(4),
                     cursor.getInt(5),
                     cursor.getString(6),
-                    cursor.getInt(7),
-                    cursor.getInt(8),
+                    cursor.getString(7),
+                    cursor.getString(8),
                     cursor.getInt(9),
                     cursor.getInt(10),
-                    cursor.getInt(11)
+                    cursor.getInt(11),
+                    cursor.getInt(12),
+                    cursor.getInt(13)
             ));
         }
         return list;
@@ -306,11 +312,13 @@ public class Database extends SQLiteOpenHelper {
                     cursor.getBlob(4),
                     cursor.getInt(5),
                     cursor.getString(6),
-                    cursor.getInt(7),
-                    cursor.getInt(8),
+                    cursor.getString(7),
+                    cursor.getString(8),
                     cursor.getInt(9),
                     cursor.getInt(10),
-                    cursor.getInt(11)
+                    cursor.getInt(11),
+                    cursor.getInt(12),
+                    cursor.getInt(13)
             ));
         }
         return list;
@@ -329,11 +337,13 @@ public class Database extends SQLiteOpenHelper {
                     cursor.getBlob(4),
                     cursor.getInt(5),
                     cursor.getString(6),
-                    cursor.getInt(7),
-                    cursor.getInt(8),
+                    cursor.getString(7),
+                    cursor.getString(8),
                     cursor.getInt(9),
                     cursor.getInt(10),
-                    cursor.getInt(11)
+                    cursor.getInt(11),
+                    cursor.getInt(12),
+                    cursor.getInt(13)
             ));
         }
         return list;
@@ -440,10 +450,10 @@ public class Database extends SQLiteOpenHelper {
                 "' , " + CreateDatabase.tbl_TAIKHOAN_TENNGUOIDUNG + " = '" + TENNGUOIDUNG + "' WHERE " + CreateDatabase.tbl_TAIKHOAN_IDTK + " = '" + IDTAIKHOAN +"'");
     }
 
-    public void CapNhatNhanSu_QL(int IDTAIKHOAN, String MANV, String TENND, int SDT, String DIACHI, int QUYEN, int CHUCVU, int BOPHAN, int PHONGBAN, int TINHTRANG){
+    public void CapNhatNhanSu_QL(int IDTAIKHOAN, String MANV, String TENND, int SDT, String DIACHI, int QUYEN, int CHUCVU, int BOPHAN, int PHONGBAN, int TINHTRANG, String NGAYSINH, String EMAIL){
         QueryData("UPDATE " + CreateDatabase.tbl_TAIKHOAN + " SET " + CreateDatabase.tbl_TAIKHOAN_TENTAIKHOAN + " = '" + MANV + "'," + CreateDatabase.tbl_TAIKHOAN_TENNGUOIDUNG + " = '" + TENND + "'," + CreateDatabase.tbl_TAIKHOAN_SDT + " = '" + SDT + "',"
                 + CreateDatabase.tbl_TAIKHOAN_DIACHI + " = '" + DIACHI + "', " + CreateDatabase.tbl_TAIKHOAN_QUYEN + " = '" + QUYEN + "'," + CreateDatabase.tbl_TAIKHOAN_CHUCVU + " = '" + CHUCVU + "', "+ CreateDatabase.tbl_TAIKHOAN_BOPHAN + " = '" + BOPHAN + "', "
-                + CreateDatabase.tbl_TAIKHOAN_PHONGBAN + " = '" + PHONGBAN + "' , " + CreateDatabase.tbl_TAIKHOAN_TINHTRANG + " = '" + TINHTRANG + "' WHERE " + CreateDatabase.tbl_TAIKHOAN_IDTK + " = '" + IDTAIKHOAN +"'");
+                + CreateDatabase.tbl_TAIKHOAN_PHONGBAN + " = '" + PHONGBAN + "' , " + CreateDatabase.tbl_TAIKHOAN_TINHTRANG + " = '" + TINHTRANG + "', NGAYSINH = '" + NGAYSINH + "', EMAIL = '" + EMAIL + "' WHERE " + CreateDatabase.tbl_TAIKHOAN_IDTK + " = '" + IDTAIKHOAN +"'");
     }
 
     public void CapNhatCong_QL(int ID, String MANV, String TENNV, String PHONGBAN, String NGAYCONG, String GIOVAO, String GIORA, int GIOCONG){

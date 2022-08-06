@@ -20,7 +20,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ThongTinNhanSu extends AppCompatActivity {
 
     EditText edtTennguoidung_ttns, edtSdt_ttns, edtDiachi_ttns, edt_Chucvu_ttns, edt_Phongban_ttns,
-            edt_Tinhtrang_ttns, edtManhanvien_ttns, edt_Bophan_ttns, edt_Quyen_ttns;
+            edt_Tinhtrang_ttns, edtManhanvien_ttns, edt_Bophan_ttns, edt_Quyen_ttns, edtNgaysinh_ttns, edtEmail_ttns;
     Button btnCapnhat_ttns, btnHuyCN_ttns;
     ImageButton ibtnExit_ttns;
     CircleImageView imgHinhDaiDien_ttns;
@@ -54,6 +54,8 @@ public class ThongTinNhanSu extends AppCompatActivity {
         TaiKhoan taiKhoanDTO = BatDauActivity.database.Load(IDTK);
         String manhanvien = taiKhoanDTO.getTENTK();
         String tennguoidung = taiKhoanDTO.getTENNGUOIDUNG();
+        String ngaysinh = taiKhoanDTO.getNGAYSINH();
+        String email = taiKhoanDTO.getEMAIL();
         int sdt = taiKhoanDTO.getSDT();
         String diachi = taiKhoanDTO.getDIACHI();
         int chucvu = taiKhoanDTO.getCHUCVU();
@@ -66,6 +68,8 @@ public class ThongTinNhanSu extends AppCompatActivity {
         edtTennguoidung_ttns.setText(tennguoidung);
         edtSdt_ttns.setText(String.valueOf(sdt));
         edtDiachi_ttns.setText(diachi);
+        edtNgaysinh_ttns.setText(ngaysinh);
+        edtEmail_ttns.setText(email);
         edt_Chucvu_ttns.setText(String.valueOf(chucvu));
         edt_Phongban_ttns.setText(String.valueOf(phongban));
         edt_Tinhtrang_ttns.setText(String.valueOf(tinhtrang));
@@ -101,6 +105,8 @@ public class ThongTinNhanSu extends AppCompatActivity {
         edt_Bophan_ttns = findViewById(R.id.edt_Bophan_ttns);
         edtManhanvien_ttns = findViewById(R.id.edtManhanvien_ttns);
         edt_Quyen_ttns = findViewById(R.id.edt_Quyen_ttns);
+        edtNgaysinh_ttns = findViewById(R.id.edtNgaysinh_ttns);
+        edtEmail_ttns = findViewById(R.id.edtEmail_ttns);
 
         ibtnExit_ttns.setOnClickListener(view -> {
             onBackPressed();
@@ -122,6 +128,8 @@ public class ThongTinNhanSu extends AppCompatActivity {
             int PB = Integer.parseInt(edt_Phongban_ttns.getText().toString().trim());
             int TT = Integer.parseInt(edt_Tinhtrang_ttns.getText().toString().trim());
             int QU = Integer.parseInt(edt_Quyen_ttns.getText().toString().trim());
+            String NS = edtNgaysinh_ttns.getText().toString().trim();
+            String EM = edtEmail_ttns.getText().toString().trim();
 
             if (isEnabled){
                 btnCapnhat_ttns.setText("Lưu");
@@ -129,7 +137,7 @@ public class ThongTinNhanSu extends AppCompatActivity {
             else{
                 btnCapnhat_ttns.setText("Cập nhật");
 
-                BatDauActivity.database.CapNhatNhanSu_QL(IDTK, MANV, TENND, SDT, DC, QU, CV, BP, PB, TT);
+                BatDauActivity.database.CapNhatNhanSu_QL(IDTK, MANV, TENND, SDT, DC, QU, CV, BP, PB, TT, NS, EM);
                 Toast.makeText(ThongTinNhanSu.this, "Cập nhật thành công !", Toast.LENGTH_SHORT).show();
                 onBackPressed();
             }
@@ -147,5 +155,7 @@ public class ThongTinNhanSu extends AppCompatActivity {
         edtTennguoidung_ttns.setEnabled(isEnabled);
         imgHinhDaiDien_ttns.setEnabled(isEnabled);
         edt_Quyen_ttns.setEnabled(isEnabled);
+        edtNgaysinh_ttns.setEnabled(isEnabled);
+        edtEmail_ttns.setEnabled(isEnabled);
     }
 }

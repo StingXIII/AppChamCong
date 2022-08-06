@@ -2,14 +2,14 @@ package com.example.appchamcong.DTO;
 
 public class TaiKhoan {
     int MATK,QUYEN,SDT,CHUCVU,PHONGBAN,TINHTRANG,BOPHAN;
-    String TENTK,TENNGUOIDUNG,MATKHAU,DIACHI;
+    String TENTK,TENNGUOIDUNG,MATKHAU,DIACHI,EMAIL, NGAYSINH;
     byte[] HINHANH;
 
     public TaiKhoan(){
         this.MATK = -1;
     }
 
-    public TaiKhoan(int MATK, String TENTK, String TENNGUOIDUNG, String MATKHAU, byte[] HINHANH, int SDT,
+    public TaiKhoan(int MATK, String TENTK, String TENNGUOIDUNG, String MATKHAU, byte[] HINHANH, int SDT, String NGAYSINH, String EMAIL,
                     String DIACHI, int QUYEN, int CHUCVU, int BOPHAN, int PHONGBAN, int TINHTRANG) {
         this.MATK = MATK;
         this.TENTK = TENTK;
@@ -17,6 +17,8 @@ public class TaiKhoan {
         this.MATKHAU = MATKHAU;
         this.HINHANH = HINHANH;
         this.SDT = SDT;
+        this.NGAYSINH = NGAYSINH;
+        this.EMAIL = EMAIL;
         this.DIACHI = DIACHI;
         this.QUYEN = QUYEN;
         this.CHUCVU = CHUCVU;
@@ -56,6 +58,22 @@ public class TaiKhoan {
 
     public void setSDT(int SDT) {
         this.SDT = SDT;
+    }
+
+    public String getEMAIL() {
+        return EMAIL;
+    }
+
+    public void setEMAIL(String EMAIL) {
+        this.EMAIL = EMAIL;
+    }
+
+    public String getNGAYSINH() {
+        return NGAYSINH;
+    }
+
+    public void setNGAYSINH(String NGAYSINH) {
+        this.NGAYSINH = NGAYSINH;
     }
 
     public String getDIACHI() {

@@ -132,7 +132,7 @@
                 <TextView
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
-                    android:text="Production 1"
+                    android:text="Production 2"
                     android:textAlignment="center"
                     android:textStyle="bold" />
 

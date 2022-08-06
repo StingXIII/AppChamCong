@@ -12,6 +12,7 @@ import android.widget.ImageView;
 
 import com.example.appchamcong.QuanLy.BOPHAN.BP_Production;
 import com.example.appchamcong.QuanLy.BOPHAN.BP_QC;
+import com.example.appchamcong.QuanLy.ThongKeGioCong;
 import com.example.appchamcong.QuanLy.ThongKeNhanSu;
 import com.example.appchamcong.R;
 
@@ -44,6 +45,10 @@ public class QL_ThongKe extends Fragment {
     private void SuKien() {
         img_Thongkenhansu.setOnClickListener(view -> {
             startActivity(new Intent(getActivity(), ThongKeNhanSu.class));
+        });
+
+        img_Thongkecong.setOnClickListener(view -> {
+            startActivity(new Intent(getActivity(), ThongKeGioCong.class));
         });
 
     }
