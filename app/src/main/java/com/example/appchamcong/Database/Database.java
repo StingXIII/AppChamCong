@@ -412,6 +412,25 @@ public class Database extends SQLiteOpenHelper {
         return list;
     }
 
+    public ArrayList<ChamCong> XemCong_TimKiem(String MANHANVIEN, String THANG){
+        ArrayList<ChamCong> list = new ArrayList<>();
+        Cursor cursor = Getdata("SELECT * FROM CHAMCONGREAL WHERE (MANHANVIEN LIKE '%" + MANHANVIEN +"%') AND (THANGCONG LIKE '%" + THANG +"%')");
+        while (cursor.moveToNext()){
+            list.add(new ChamCong(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getString(5),
+                    cursor.getString(6),
+                    cursor.getString(7),
+                    cursor.getInt(8)
+            ));
+        }
+        return list;
+    }
+
     //region Video
     public ArrayList<ChamCong> QuanLyChamCong_TimKiem(String Tennhanvien, String Ngay, String Thang){
         ArrayList<ChamCong> list = new ArrayList<>();

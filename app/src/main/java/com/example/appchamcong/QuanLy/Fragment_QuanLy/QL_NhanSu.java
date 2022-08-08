@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.appchamcong.QuanLy.BOPHAN.BP_Production;
-import com.example.appchamcong.QuanLy.BOPHAN.BP_QC;
+import com.example.appchamcong.QuanLy.BOPHAN.BP_QA;
 import com.example.appchamcong.R;
 
 public class QL_NhanSu extends Fragment {
@@ -56,23 +56,7 @@ public class QL_NhanSu extends Fragment {
         });
 
         img_QA.setOnClickListener(view -> {
-            startActivity(new Intent(getActivity(), BP_QC.class));
-        });
-
-        img_QC.setOnClickListener(view -> {
-            startActivity(new Intent(getActivity(), BP_QC.class));
-        });
-
-        img_HR.setOnClickListener(view -> {
-            startActivity(new Intent(getActivity(), BP_QC.class));
-        });
-
-        img_Accounting.setOnClickListener(view -> {
-            startActivity(new Intent(getActivity(), BP_QC.class));
-        });
-
-        img_Pur.setOnClickListener(view -> {
-            startActivity(new Intent(getActivity(), BP_QC.class));
+            startActivity(new Intent(getActivity(), BP_QA.class));
         });
     }
 }

@@ -12,7 +12,7 @@ import com.example.appchamcong.R;
 
 public class BP_Production extends AppCompatActivity {
 
-    ImageView img_Production1, img_Production2, img_Production3, img_Production4, img_Production5, img_Production6;
+    ImageView img_Production1, img_Production2, img_Production3, img_Production4;
     ImageButton ibtn_Exit_bophan;
 
     @Override
@@ -53,20 +53,6 @@ public class BP_Production extends AppCompatActivity {
             startActivity(phongban);
         });
 
-        img_Production5.setOnClickListener(view -> {
-            Intent phongban = new Intent(BP_Production.this, PhongBan.class);
-            phongban.putExtra("phongban", 5);
-            phongban.putExtra("bophan", 1);
-            startActivity(phongban);
-        });
-
-        img_Production6.setOnClickListener(view -> {
-            Intent phongban = new Intent(BP_Production.this, PhongBan.class);
-            phongban.putExtra("phongban", 6);
-            phongban.putExtra("bophan", 1);
-            startActivity(phongban);
-        });
-
         ibtn_Exit_bophan.setOnClickListener(view -> {
             onBackPressed();
         });
@@ -77,8 +63,6 @@ public class BP_Production extends AppCompatActivity {
         img_Production2 = findViewById(R.id.img_Production2);
         img_Production3 = findViewById(R.id.img_Production3);
         img_Production4 = findViewById(R.id.img_Production4);
-        img_Production5 = findViewById(R.id.img_Production5);
-        img_Production6 = findViewById(R.id.img_Production6);
         ibtn_Exit_bophan = findViewById(R.id.ibtn_Exit_bophan);
     }
 }

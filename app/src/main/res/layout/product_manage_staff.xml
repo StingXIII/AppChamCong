@@ -34,26 +34,48 @@
             android:layout_marginBottom="5dp"
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
+            android:textColor="@color/black"
             android:text="Tên nhân viên"
             android:fontFamily="serif"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imgV_Hinh_qlnhansu"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/txtV_Tinhtrang_qlnhansu"
+
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:orientation="vertical"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:gravity="center"
-            android:text="Tình trạng"
-            android:fontFamily="serif"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/txtV_Tennhanvien_qlnhansu"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/txtV_Tinhtrang_qlnhansu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:text="Tình trạng"
+                android:textColor="@color/black"
+                android:fontFamily="serif" />
+
+            <TextView
+                android:id="@+id/txtV_Chucvu_qlnhansu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:text="Chức vụ"
+                android:fontFamily="serif" />
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -13,7 +13,7 @@
             android:id="@+id/toolbar_manager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/mauchude"
+            android:background="@color/white"
             android:elevation="4dp"
             app:navigationIcon="@drawable/ic_baseline_format_list_bulleted_24" >
 

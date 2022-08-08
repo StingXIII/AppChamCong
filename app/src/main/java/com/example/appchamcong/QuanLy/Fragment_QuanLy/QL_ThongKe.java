@@ -10,8 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.example.appchamcong.QuanLy.BOPHAN.BP_Production;
-import com.example.appchamcong.QuanLy.BOPHAN.BP_QC;
 import com.example.appchamcong.QuanLy.ThongKeGioCong;
 import com.example.appchamcong.QuanLy.ThongKeNhanSu;
 import com.example.appchamcong.R;

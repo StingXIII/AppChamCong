@@ -64,9 +64,17 @@
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/drawable-v24/custom_cautraloi_chon.xml" value="0.22552083333333334" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/drawable-v24/wave.xml" value="0.22552083333333334" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/drawable/custom_bg_main.xml" value="0.22552083333333334" />
+        <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/drawable/ic_baseline_arrow_back_black_24.xml" value="0.22552083333333334" />
+        <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/drawable/ic_baseline_book_24.xml" value="0.22552083333333334" />
+        <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/drawable/ic_baseline_feedback_24.xml" value="0.22552083333333334" />
+        <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/drawable/ic_baseline_fingerprint_24.xml" value="0.22552083333333334" />
+        <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/drawable/ic_baseline_group_24.xml" value="0.22552083333333334" />
+        <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/drawable/ic_baseline_group_25.xml" value="0.22552083333333334" />
+        <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/drawable/ic_baseline_note_add_24.xml" value="0.22552083333333334" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/drawable/person.xml" value="0.22552083333333334" />
-        <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/activity_bat_dau.xml" value="0.33" />
+        <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/activity_bat_dau.xml" value="0.22" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/activity_bp_production.xml" value="0.209375" />
+        <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/activity_bp_qa.xml" value="0.2842430484037075" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/activity_bp_qc.xml" value="0.17" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/activity_cap_nhat_nhan_su.xml" value="0.209375" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/activity_cap_nhat_tai_khoan.xml" value="0.25" />
@@ -96,7 +104,7 @@
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/activity_xem_phan_anh.xml" value="0.209375" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/chucmung.xml" value="0.209375" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/content_main_manager.xml" value="0.209375" />
-        <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/fragment_nguoi_dung.xml" value="0.209375" />
+        <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/fragment_nguoi_dung.xml" value="0.33" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/fragment_q_l__cham_cong.xml" value="0.209375" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/fragment_q_l__gop_y.xml" value="0.209375" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/fragment_q_l__nhan_su.xml" value="0.209375" />
@@ -106,13 +114,13 @@
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/fragment_thong_bao.xml" value="0.209375" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/fragment_thong_bao__n_v.xml" value="0.209375" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/fragment_thong_tin__n_v.xml" value="0.209375" />
-        <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/fragment_trang_chu.xml" value="0.22" />
+        <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/fragment_trang_chu.xml" value="0.25" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/fragment_trang_chu__n_v.xml" value="0.25" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/header_manager.xml" value="0.209375" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/lst_template.xml" value="0.209375" />
-        <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/product_manage_chamcong.xml" value="0.33" />
+        <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/product_manage_chamcong.xml" value="0.25" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/product_manage_gopy.xml" value="0.209375" />
-        <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/product_manage_staff.xml" value="0.209375" />
+        <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/product_manage_staff.xml" value="0.33" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/product_manage_user.xml" value="0.209375" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/toolbar_manager.xml" value="0.209375" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/menu/menu_nguoidung.xml" value="0.209375" />

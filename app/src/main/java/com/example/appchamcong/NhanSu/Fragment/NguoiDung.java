@@ -74,7 +74,7 @@ public class NguoiDung extends Fragment {
             txt_Chucvunguoidung_us.setText("Chức vụ: Management");
         }
 
-        txt_Tennguoidung_us.setText("Họ tên: " + BatDauActivity.taiKhoanDTO.getTENNGUOIDUNG());
+        txt_Tennguoidung_us.setText(BatDauActivity.taiKhoanDTO.getTENNGUOIDUNG());
 
         if (BatDauActivity.taiKhoanDTO.getHINHANH() == null){
             img_Hinhanhnguoidung_us.setImageResource(R.drawable.ic_baseline_account_circle_24);

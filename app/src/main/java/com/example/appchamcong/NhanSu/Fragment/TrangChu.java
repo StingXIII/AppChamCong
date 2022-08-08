@@ -65,7 +65,7 @@ public class TrangChu extends Fragment {
             txt_Chucvunguoidung_tt.setText("Chức vụ: Management");
         }
 
-        txt_Tennguoidung_tt.setText("Họ tên: " + BatDauActivity.taiKhoanDTO.getTENNGUOIDUNG());
+        txt_Tennguoidung_tt.setText(BatDauActivity.taiKhoanDTO.getTENNGUOIDUNG());
 
         if (BatDauActivity.taiKhoanDTO.getHINHANH() == null){
             img_hinhanhnguoidung_tt.setImageResource(R.drawable.ic_baseline_account_circle_24);

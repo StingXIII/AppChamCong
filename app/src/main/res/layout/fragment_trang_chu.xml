@@ -13,6 +13,7 @@
         android:layout_height="100dp"
         android:background="@color/mauchude"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,11 +28,11 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/img_hinhanhnguoidung_tt"
-        android:layout_width="85dp"
-        android:layout_height="100dp"
+        android:layout_width="100dp"
+        android:layout_height="120dp"
         android:layout_marginStart="10dp"
         android:contentDescription="@string/todo"
-        android:src="@drawable/ic_baseline_account_circle_24"
+        android:src="@drawable/baseline_account_circle_white_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,10 +40,14 @@
         android:id="@+id/txt_Tennguoidung_tt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="18dp"
+        android:fontFamily="serif"
+        android:textStyle="bold"
         android:text="Tên người dùng"
-        android:textColor="@color/white"
+        android:padding="10dp"
+        android:background="@drawable/custom_btn"
+        android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@+id/img_hinhanhnguoidung_tt"
         app:layout_constraintTop_toTopOf="@+id/view" />
 
@@ -50,9 +55,13 @@
         android:id="@+id/txt_Chucvunguoidung_tt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="serif"
         android:text="Chức vụ"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:background="@drawable/custom_huongdan"
         android:textColor="@color/white"
         app:layout_constraintStart_toEndOf="@+id/img_hinhanhnguoidung_tt"
         app:layout_constraintTop_toBottomOf="@+id/txt_Tennguoidung_tt" />
@@ -98,7 +107,8 @@
                     android:layout_height="wrap_content"
                     android:text="Chấm Công"
                     android:textStyle="bold"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textColor="@color/black"/>
 
             </LinearLayout>
 
@@ -135,7 +145,8 @@
                     android:layout_height="wrap_content"
                     android:text="QL Phản Ánh"
                     android:textStyle="bold"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textColor="@color/black"/>
 
             </LinearLayout>
 

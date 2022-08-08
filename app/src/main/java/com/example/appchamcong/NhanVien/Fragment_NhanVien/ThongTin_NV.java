@@ -85,7 +85,7 @@ public class ThongTin_NV extends Fragment {
             }
         }
 
-        txt_Tennguoidung_nv.setText("Họ tên: " + BatDauActivity.taiKhoanDTO.getTENNGUOIDUNG());
+        txt_Tennguoidung_nv.setText(BatDauActivity.taiKhoanDTO.getTENNGUOIDUNG());
 
         if (BatDauActivity.taiKhoanDTO.getHINHANH() == null){
             img_Hinhanhnguoidung_nv.setImageResource(R.drawable.ic_baseline_account_circle_24);

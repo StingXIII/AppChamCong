@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center|top"
-    android:background="#DFEFF4"
+    android:background="@color/mauchung"
     tools:context=".NhanVien.Game_NhanVien">
 
     <LinearLayout

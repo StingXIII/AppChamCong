@@ -27,7 +27,7 @@
             android:name=".QuanLy.ThongTinChamCong"
             android:exported="true" />
         <activity
-            android:name=".QuanLy.BOPHAN.BP_QC"
+            android:name=".QuanLy.BOPHAN.BP_QA"
             android:exported="true" />
         <activity
             android:name=".QuanLy.BOPHAN.BP_Production"

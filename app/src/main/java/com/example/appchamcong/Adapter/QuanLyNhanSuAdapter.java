@@ -61,10 +61,28 @@ public class QuanLyNhanSuAdapter extends RecyclerView.Adapter<QuanLyNhanSuAdapte
         }
         holder.txtV_Tennhanvien_qlnhansu.setText(taiKhoan.getTENNGUOIDUNG());
 
+        if (taiKhoan.getQUYEN() == 1) {
+            if (taiKhoan.getCHUCVU() == 1) {
+                holder.txtV_Chucvu_qlnhansu.setText("Staff");
+            } else if (taiKhoan.getCHUCVU() == 2) {
+                holder.txtV_Chucvu_qlnhansu.setText("Supervisor");
+            } else if (taiKhoan.getCHUCVU() == 3) {
+                holder.txtV_Chucvu_qlnhansu.setText("Manager");
+            } else if (taiKhoan.getCHUCVU() == 4) {
+                holder.txtV_Chucvu_qlnhansu.setText("BOD");
+            } else if (taiKhoan.getCHUCVU() == 5) {
+                holder.txtV_Chucvu_qlnhansu.setText("Leader");
+            } else if (taiKhoan.getCHUCVU() == 6) {
+                holder.txtV_Chucvu_qlnhansu.setText("Senior Leader");
+            } else if (taiKhoan.getCHUCVU() == 7) {
+                holder.txtV_Chucvu_qlnhansu.setText("Operator");
+            }
+        }
+
         if (taiKhoan.getTINHTRANG() == 1) {
             holder.txtV_Tinhtrang_qlnhansu.setText("Còn làm");
         } else {
-            holder.txtV_Tinhtrang_qlnhansu.setText("Đã nghĩ");
+            holder.txtV_Tinhtrang_qlnhansu.setText("Đã nghỉ");
         }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -89,13 +107,14 @@ public class QuanLyNhanSuAdapter extends RecyclerView.Adapter<QuanLyNhanSuAdapte
 
     public class Viewholder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener{
         ImageView imgV_Hinh_qlnhansu;
-        TextView txtV_Tennhanvien_qlnhansu, txtV_Tinhtrang_qlnhansu;
+        TextView txtV_Tennhanvien_qlnhansu, txtV_Tinhtrang_qlnhansu, txtV_Chucvu_qlnhansu;
         CardView viewholder_qlnhansu;
 
         public Viewholder(@NonNull View itemView) {
             super(itemView);
             txtV_Tennhanvien_qlnhansu = itemView.findViewById(R.id.txtV_Tennhanvien_qlnhansu);
             txtV_Tinhtrang_qlnhansu = itemView.findViewById(R.id.txtV_Tinhtrang_qlnhansu);
+            txtV_Chucvu_qlnhansu = itemView.findViewById(R.id.txtV_Chucvu_qlnhansu);
             imgV_Hinh_qlnhansu = itemView.findViewById(R.id.imgV_Hinh_qlnhansu);
             viewholder_qlnhansu = itemView.findViewById(R.id.viewholder_qlnhansu);
 

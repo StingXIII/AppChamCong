@@ -67,8 +67,8 @@ public class DangNhapActivity extends AppCompatActivity implements View.OnClickL
             public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
                 super.onAuthenticationSucceeded(result);
                 Log.e("Vân tay ", result + "" );
-
-                startActivity(new Intent(DangNhapActivity.this, TrangChuActivity.class));
+                BatDauActivity.taiKhoanDTO =  taiKhoanDAO.VANTAY();
+                startActivity(new Intent(DangNhapActivity.this, QuanLyActivity.class));
                 Toast.makeText(getApplicationContext(), "Đăng nhập thành công!",
                         Toast.LENGTH_SHORT)
                         .show();

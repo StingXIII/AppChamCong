@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +40,31 @@ public class TaiKhoanDAO extends BaseAdapter {
         return kiemtra;
     }
 
+    public TaiKhoan VANTAY (){
+        String truyvan = "SELECT * FROM TAIKHOAN WHERE QUYEN = 0";
 
+        Cursor cursor = database.rawQuery(truyvan, null);
+        while(cursor.moveToNext()){
+            Log.e("Vân tay ", cursor.getString(1) + "" );
+            return new TaiKhoan(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getBlob(4),
+                    cursor.getInt(5),
+                    cursor.getString(6),
+                    cursor.getString(7),
+                    cursor.getString(8),
+                    cursor.getInt(9),
+                    cursor.getInt(10),
+                    cursor.getInt(11),
+                    cursor.getInt(12),
+                    cursor.getInt(13)
+            );
+        }
+        return null;
+    }
 
     public TaiKhoan KiemTraDangNhap(String tendangnhap, String matkhau){
         String truyvan = "SELECT * FROM " + CreateDatabase.tbl_TAIKHOAN + " WHERE " + CreateDatabase.tbl_TAIKHOAN_TENTAIKHOAN + " = '" + tendangnhap
