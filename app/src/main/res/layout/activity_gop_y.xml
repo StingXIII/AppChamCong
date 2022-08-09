@@ -26,13 +26,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:paddingLeft="20dp"
-            android:gravity="center|left"
-            android:text="Góp Ý"
-            android:textSize="20dp"
-            android:textColor="@color/white"
             android:fontFamily="serif"
-            android:textStyle="bold"/>
+            android:gravity="center|left"
+            android:paddingLeft="20dp"
+            android:text="Phản ánh"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -47,7 +47,7 @@
             android:layout_width="350dp"
             android:layout_height="58dp"
             android:gravity="center"
-            android:text="Góp Ý"
+            android:text="Phản ánh"
             android:fontFamily="serif"
             android:textStyle="bold"
             android:textColor="#000000"
@@ -109,7 +109,7 @@
             <EditText
                 android:id="@+id/edtNoidunggopy"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="30dp"
@@ -117,7 +117,7 @@
                 android:ems="10"
                 android:fontFamily="serif"
                 android:hint="Nhập nội dung ..."
-                android:inputType="textPersonName"
+                android:inputType="textMultiLine"
                 android:paddingLeft="20dp"
                 android:paddingTop="20dp"
                 tools:ignore="SpeakableTextPresentCheck" />

@@ -53,7 +53,12 @@ public class QuanLyActivity extends AppCompatActivity implements NavigationView.
         setContentView(R.layout.activity_quan_ly);
 
         AnhXa();
-
+        Intent intent = getIntent();
+        int GioHangIntent = intent.getIntExtra("nangluc", R.id.home_nav_view_manager);
+        if(GioHangIntent == R.id.nav_rank_manager){
+            navigationView.setCheckedItem(GioHangIntent);
+            replaceFragment(new NangLuc_Fragment());
+        }
         HienThiTen();
     }
 

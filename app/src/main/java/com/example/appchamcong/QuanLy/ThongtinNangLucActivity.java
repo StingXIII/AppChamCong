@@ -143,7 +143,9 @@ public class ThongtinNangLucActivity extends AppCompatActivity {
                                 DIEMQL
                         );
                     }
-
+                    Intent intent = new Intent(ThongtinNangLucActivity.this, QuanLyActivity.class);
+                    intent.putExtra("nangluc", R.id.nav_rank_manager);
+                    startActivity(intent);
                     Toast.makeText(ThongtinNangLucActivity.this, "Cập nhật thành công !", Toast.LENGTH_SHORT).show();
                     Getdata();
                 }else
