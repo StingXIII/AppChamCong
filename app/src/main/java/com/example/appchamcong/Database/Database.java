@@ -456,7 +456,7 @@ public class Database extends SQLiteOpenHelper {
     }
 
     public void NhanSuNghiViec(int IDTAIKHOAN){
-        QueryData("UPDATE " + CreateDatabase.tbl_TAIKHOAN + " SET " + CreateDatabase.tbl_TAIKHOAN_TINHTRANG + " = 0 WHERE " + CreateDatabase.tbl_TAIKHOAN_IDTK + " = " + IDTAIKHOAN);
+        QueryData("UPDATE " + CreateDatabase.tbl_TAIKHOAN + " SET " + CreateDatabase.tbl_TAIKHOAN_TINHTRANG + " = 2 WHERE " + CreateDatabase.tbl_TAIKHOAN_IDTK + " = " + IDTAIKHOAN);
     }
 
     public void CapNhatNhanSu(int IDTAIKHOAN, int CHUCVU, int PHONGBAN, int TINHTRANG){
