@@ -104,6 +104,7 @@
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/activity_xem_phan_anh.xml" value="0.209375" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/chucmung.xml" value="0.209375" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/content_main_manager.xml" value="0.209375" />
+        <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/fragment_nang_luc_.xml" value="0.25" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/fragment_nguoi_dung.xml" value="0.33" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/fragment_q_l__cham_cong.xml" value="0.209375" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/fragment_q_l__gop_y.xml" value="0.209375" />
@@ -122,6 +123,7 @@
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/product_manage_gopy.xml" value="0.209375" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/product_manage_staff.xml" value="0.33" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/product_manage_user.xml" value="0.209375" />
+        <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/product_manage_xeploai.xml" value="0.209375" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/layout/toolbar_manager.xml" value="0.209375" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/menu/menu_nguoidung.xml" value="0.209375" />
         <entry key="..\:/Nam4/LienThong/BaoCaoTotNghiep/AppChamCong/app/src/main/res/menu/menu_quanly.xml" value="0.209375" />

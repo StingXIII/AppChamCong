@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.appchamcong.Adapter.QuanLyGopYAdapter;
@@ -27,6 +28,7 @@ public class QL_PhanAnhActivity extends AppCompatActivity {
     GopY gopYDTO;
     ArrayList<GopY> listGopy;
     QuanLyGopYAdapter adapter;
+    ImageButton quaylai_phananh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,11 @@ public class QL_PhanAnhActivity extends AppCompatActivity {
         BatDauActivity.database = new Database(QL_PhanAnhActivity.this);
         recV_DanhSachPhanAnh = findViewById(R.id.recV_DanhSachPhanAnh);
         registerForContextMenu(recV_DanhSachPhanAnh);
+
+        quaylai_phananh = findViewById(R.id.quaylai_phananh);
+        quaylai_phananh.setOnClickListener(view -> {
+            onBackPressed();
+        });
 
         listGopy = new ArrayList<>();
         adapter = new QuanLyGopYAdapter(QL_PhanAnhActivity.this, listGopy);

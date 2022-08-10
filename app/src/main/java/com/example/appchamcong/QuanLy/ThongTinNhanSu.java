@@ -82,10 +82,10 @@ public class ThongTinNhanSu extends AppCompatActivity {
         edtSdt_ttns.setEnabled(false);
         edtDiachi_ttns.setEnabled(false);
 
-        if (BatDauActivity.taiKhoanDTO.getHINHANH() == null){
+        if (taiKhoanDTO.getHINHANH() == null){
             imgHinhDaiDien_ttns.setImageResource(R.drawable.ic_baseline_account_circle_24);
         } else {
-            byte[] hinhAnh = BatDauActivity.taiKhoanDTO.getHINHANH();
+            byte[] hinhAnh = taiKhoanDTO.getHINHANH();
             Bitmap bitmap = BitmapFactory.decodeByteArray(hinhAnh,0, hinhAnh.length);
             imgHinhDaiDien_ttns.setImageBitmap(bitmap);
         }

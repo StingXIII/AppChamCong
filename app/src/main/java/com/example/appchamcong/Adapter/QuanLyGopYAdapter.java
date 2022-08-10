@@ -1,6 +1,8 @@
 package com.example.appchamcong.Adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appchamcong.DTO.GopY;
+import com.example.appchamcong.DTO.TaiKhoan;
 import com.example.appchamcong.R;
 
 import java.util.ArrayList;
@@ -48,7 +51,14 @@ public class QuanLyGopYAdapter extends RecyclerView.Adapter<QuanLyGopYAdapter.Vi
     public void onBindViewHolder(@NonNull Viewholder holder, int position) {
         GopY gopYDTO = listGopy.get(position);
 
-        holder.imgV_Hinh_qlgopy.setImageResource(R.drawable.baseline_account_circle_24);
+        if (gopYDTO.getHINHANH() == null){
+            holder.imgV_Hinh_qlgopy.setImageResource(R.drawable.baseline_account_circle_24);
+        } else {
+            // chuyen byte[] -> ve bitmap
+            byte[] hinhAnh = gopYDTO.getHINHANH();
+            Bitmap bitmap = BitmapFactory.decodeByteArray(hinhAnh,0, hinhAnh.length);
+            holder.imgV_Hinh_qlgopy.setImageBitmap(bitmap);
+        }
         holder.txtV_Tennguoidung_qlgopy.setText(gopYDTO.getTENNGUOIDUNG());
         holder.txtV_Noidung_qlgopy.setText(gopYDTO.getNOIDUNG());
 

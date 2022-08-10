@@ -5,10 +5,13 @@ public class GopY {
     String TENNGUOIDUNG;
     int SDT;
     String NOIDUNG;
+    byte[] HINHANH;
 
-    public GopY(int IDGY, String TENNGUOIDUNG, int SDT, String NOIDUNG) {
+
+    public GopY(int IDGY, String TENNGUOIDUNG, byte[] HINHANH, int SDT, String NOIDUNG) {
         this.IDGY = IDGY;
         this.TENNGUOIDUNG = TENNGUOIDUNG;
+        this.HINHANH = HINHANH;
         this.SDT = SDT;
         this.NOIDUNG = NOIDUNG;
     }
@@ -27,6 +30,14 @@ public class GopY {
 
     public void setTENNGUOIDUNG(String TENTK) {
         this.TENNGUOIDUNG = TENTK;
+    }
+
+    public byte[] getHINHANH() {
+        return HINHANH;
+    }
+
+    public void setHINHANH(byte[] HINHANH) {
+        this.HINHANH = HINHANH;
     }
 
     public int getSDT() {

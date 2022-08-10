@@ -70,7 +70,7 @@ public class ThongKeGioCong extends AppCompatActivity {
                     LineData lineData = new LineData(lineDataSet);
                     mLineChart.setData(lineData);
 
-                    String[] Bophan = new String[] {"Production", "QC", "QA", "HR", "Accounting", "Pur"};
+                    String[] Bophan = new String[] {"Production", "QA", "QC", "HR", "Accounting", "Pur"};
                     XAxis xAxis = mLineChart.getXAxis();
                     xAxis.setValueFormatter(new IndexAxisValueFormatter(Bophan));
                     xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
@@ -104,8 +104,8 @@ public class ThongKeGioCong extends AppCompatActivity {
 
         ArrayList<Entry> entries = new ArrayList<>();
         entries.add(new Entry(0, Production_1));
-        entries.add(new Entry(1, QC_1));
-        entries.add(new Entry(2, QA_1));
+        entries.add(new Entry(1, QA_1));
+        entries.add(new Entry(2, QC_1));
         entries.add(new Entry(3, HR_1));
         entries.add(new Entry(4, Accounting_1));
         entries.add(new Entry(5, Pur_1));
@@ -119,16 +119,16 @@ public class ThongKeGioCong extends AppCompatActivity {
         Production_1 = cursor.getInt(0);
     }
 
-    private void ThongKe_GioCong_QC(String Thang) {
+    private void ThongKe_GioCong_QA(String Thang) {
         Cursor cursor = BatDauActivity.database.Getdata("SELECT SUM ( A.GIOCONG ) FROM CHAMCONGREAL A, TAIKHOAN B WHERE A.MANHANVIEN = B.TENTAIKHOAN AND B.BOPHAN = 2 AND A.THANGCONG = '" + Thang + "'");
         cursor.moveToNext();
-        QC_1 = cursor.getInt(0);
+        QA_1 = cursor.getInt(0);
     }
 
-    private void ThongKe_GioCong_QA(String Thang) {
+    private void ThongKe_GioCong_QC(String Thang) {
         Cursor cursor = BatDauActivity.database.Getdata("SELECT SUM ( A.GIOCONG ) FROM CHAMCONGREAL A, TAIKHOAN B WHERE A.MANHANVIEN = B.TENTAIKHOAN AND B.BOPHAN = 3 AND A.THANGCONG = '" + Thang + "'");
         cursor.moveToNext();
-        QA_1 = cursor.getInt(0);
+        QC_1 = cursor.getInt(0);
     }
 
     private void ThongKe_GioCong_HR(String Thang) {

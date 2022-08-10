@@ -13,7 +13,7 @@
         android:background="@color/mauchude">
 
         <ImageButton
-            android:id="@+id/quaylai_choingay"
+            android:id="@+id/quaylai_phananh"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@null"

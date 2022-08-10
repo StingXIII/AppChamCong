@@ -46,6 +46,7 @@ public class GopYActivity extends AppCompatActivity {
             public void onClick(View v) {
                 BatDauActivity.database.INSERT_GOPY(
                         edt_Tennhanvien.getText().toString().trim(),
+                        BatDauActivity.taiKhoanDTO.getHINHANH(),
                         Integer.parseInt(edt_Sdt.getText().toString().trim()),
                         edt_NoiDunggopy.getText().toString().trim()
                 );

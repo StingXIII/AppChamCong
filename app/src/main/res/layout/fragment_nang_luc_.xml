@@ -3,8 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="66dp"
+    android:background="@color/mauchung"
     android:orientation="vertical"
     tools:context=".QuanLy.Fragment_QuanLy.NangLuc_Fragment">
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
@@ -16,59 +19,13 @@
         android:textSize="24dp"
         android:textColor="@color/black"
         android:textStyle="bold"/>
-    <LinearLayout
-        android:id="@+id/lvcontainer"
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recV_DanhSachXepLoai_nl"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_alignParentTop="true"
-        android:layout_weight="0.5"
-        android:gravity="center"
-        android:background="@color/mauchude"
-        android:orientation="horizontal"
-        android:padding="1dp"
-        android:weightSum="6">
-
-        <TextView
-            android:id="@+id/txtManhanvien"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:gravity="left"
-            android:text="Mã NV"
-            android:textColor="#fff"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/txtTennhanvien"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:gravity="left"
-            android:text="Họ Tên"
-            android:textColor="#fff"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/txtXepLoai"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:gravity="left"
-            android:text="Xếp Loại"
-            android:textColor="#fff"
-            android:textSize="16sp" />
-
-
-    </LinearLayout>
-
-    <GridView
-        android:id="@+id/lstView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_below="@+id/lvcontainer"
-        android:layout_weight="9.5">
-
-    </GridView>
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:numColumns="2"/>
 
 
 </LinearLayout>

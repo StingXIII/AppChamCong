@@ -43,52 +43,52 @@ public class ThongtinNangLucActivity extends AppCompatActivity {
 
     private void Getdata() {
 
-        Nangluc nangluc = BatDauActivity.database.Load_Thongtin(NangLucAdapter.nanglucList.get(position).getMANHANVIEN());
-
-        edt_Manhanvien.setText(nangluc.getMANHANVIEN());
-        edt_Tennhanvien.setText(nangluc.getTENNHANVIEN());
-        if (nangluc.getKQ()==1)
-        {
-            edt_KQ.setText("Đạt");
-        }
-        else if (nangluc.getKQ()==0)
-        {
-            edt_KQ.setText("Chưa Đạt");
-        }
-        else
-        {
-            edt_KQ.setText("Chưa làm bài kiểm tra");
-        }
-
-        if (nangluc.getDIEM()>=0)
-        {
-            edt_DIEMQL.setText(nangluc.getDIEM()+"");
-            thongbao.setText("");
-        }
-        else
-        {
-            edt_DIEMQL.setText("");
-            Toast.makeText(ThongtinNangLucActivity.this, "Vui lòng cập nhật điểm Quản lý", Toast.LENGTH_SHORT).show();
-
-        }
-        if (nangluc.getXEPLOAI()>=80)
-        {
-            edt_XEPLOAI.setText("A");
-
-        }else  if (nangluc.getXEPLOAI()>=60)
-        {
-            edt_XEPLOAI.setText("B");
-        }else  if (nangluc.getXEPLOAI()>=40)
-        {
-            edt_XEPLOAI.setText("C");
-        }else  if (nangluc.getXEPLOAI()>=1)
-        {
-            edt_XEPLOAI.setText("D");
-        }
-        else {
-            edt_XEPLOAI.setText("Chưa đủ điều kiện");
-        }
-        enableControl();
+//        Nangluc nangluc = BatDauActivity.database.Load_Thongtin(NangLucAdapter.nanglucList.get(position).getMANHANVIEN());
+//
+//        edt_Manhanvien.setText(nangluc.getMANHANVIEN());
+//        edt_Tennhanvien.setText(nangluc.getTENNHANVIEN());
+//        if (nangluc.getKQ()==1)
+//        {
+//            edt_KQ.setText("Đạt");
+//        }
+//        else if (nangluc.getKQ()==0)
+//        {
+//            edt_KQ.setText("Chưa Đạt");
+//        }
+//        else
+//        {
+//            edt_KQ.setText("Chưa làm bài kiểm tra");
+//        }
+//
+//        if (nangluc.getDIEM()>=0)
+//        {
+//            edt_DIEMQL.setText(nangluc.getDIEM()+"");
+//            thongbao.setText("");
+//        }
+//        else
+//        {
+//            edt_DIEMQL.setText("");
+//            Toast.makeText(ThongtinNangLucActivity.this, "Vui lòng cập nhật điểm Quản lý", Toast.LENGTH_SHORT).show();
+//
+//        }
+//        if (nangluc.getXEPLOAI()>=80)
+//        {
+//            edt_XEPLOAI.setText("A");
+//
+//        }else  if (nangluc.getXEPLOAI()>=60)
+//        {
+//            edt_XEPLOAI.setText("B");
+//        }else  if (nangluc.getXEPLOAI()>=40)
+//        {
+//            edt_XEPLOAI.setText("C");
+//        }else  if (nangluc.getXEPLOAI()>=1)
+//        {
+//            edt_XEPLOAI.setText("D");
+//        }
+//        else {
+//            edt_XEPLOAI.setText("Chưa đủ điều kiện");
+//        }
+//        enableControl();
 
 
     }

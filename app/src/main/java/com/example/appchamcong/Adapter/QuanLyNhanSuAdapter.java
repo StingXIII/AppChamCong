@@ -51,7 +51,7 @@ public class QuanLyNhanSuAdapter extends RecyclerView.Adapter<QuanLyNhanSuAdapte
     public void onBindViewHolder(@NonNull QuanLyNhanSuAdapter.Viewholder holder, int position) {
         TaiKhoan taiKhoan = listTaiKhoan.get(position);
 
-        if (BatDauActivity.taiKhoanDTO.getHINHANH() == null){
+        if (taiKhoan.getHINHANH() == null){
             holder.imgV_Hinh_qlnhansu.setImageResource(R.drawable.ic_baseline_account_circle_24);
         } else {
             // chuyen byte[] -> ve bitmap
@@ -134,7 +134,7 @@ public class QuanLyNhanSuAdapter extends RecyclerView.Adapter<QuanLyNhanSuAdapte
             menu.add(menu.NONE, R.id.iXem,
                     menu.NONE, "Chỉnh sửa");
             menu.add(menu.NONE, R.id.iNghi,
-                    menu.NONE, "Nghĩ việc");
+                    menu.NONE, "Nghỉ việc");
         }
     }
 }

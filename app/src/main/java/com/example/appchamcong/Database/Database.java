@@ -324,6 +324,21 @@ public class Database extends SQLiteOpenHelper {
         return list;
     }
 
+    public ArrayList<Nangluc> XepLoaiNangLuc(){
+        ArrayList<Nangluc> list = new ArrayList<>();
+        Cursor cursor = Getdata("SELECT * FROM NANGLUC");
+        while (cursor.moveToNext()){
+            list.add(new Nangluc(
+                    cursor.getString(0),
+                    cursor.getString(1),
+                    cursor.getInt(2),
+                    cursor.getInt(3),
+                    cursor.getInt(4)
+            ));
+        }
+        return list;
+    }
+
     //region Video
     public ArrayList<TaiKhoan> QuanLyNhanSu_TimKiem(String Tennhanvien, int BOPHAN, int PHONGBAN){
         ArrayList<TaiKhoan> list = new ArrayList<>();
@@ -484,15 +499,16 @@ public class Database extends SQLiteOpenHelper {
         QueryData("DELETE FROM TAIKHOAN WHERE IDTAIKHOAN = '" + IDTAIKHOAN + "'");
     }
 
-    public void INSERT_GOPY(String tennhanvien, int sdt, String noidung){
+    public void INSERT_GOPY(String tennhanvien, byte[] HINHANH, int sdt, String noidung){
         SQLiteDatabase database = getWritableDatabase();
-        String sql = "INSERT INTO GOPY VALUES(null,?,?,?)";
+        String sql = "INSERT INTO GOPY VALUES(null,?,?,?,?)";
         SQLiteStatement statement = database.compileStatement(sql);
         statement.clearBindings();
 
         statement.bindString(1, tennhanvien);
-        statement.bindDouble(2, sdt);
-        statement.bindString(3, noidung);
+        statement.bindBlob(2, HINHANH);
+        statement.bindDouble(3, sdt);
+        statement.bindString(4, noidung);
 
         statement.executeInsert();
     }
@@ -504,8 +520,9 @@ public class Database extends SQLiteOpenHelper {
             list.add(new GopY(
                     cursor.getInt(0),
                     cursor.getString(1),
-                    cursor.getInt(2),
-                    cursor.getString(3)
+                    cursor.getBlob(2),
+                    cursor.getInt(3),
+                    cursor.getString(4)
             ));
         }
         return list;
