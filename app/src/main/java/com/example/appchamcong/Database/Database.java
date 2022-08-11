@@ -466,6 +466,32 @@ public class Database extends SQLiteOpenHelper {
         return list;
     }
 
+    public ArrayList<ChamCong> ThongKeNhanSu(String BOPHAN){
+        ArrayList<ChamCong> list = new ArrayList<>();
+        Cursor cursor = Getdata("SELECT TENNHANVIEN,THANGCONG,SUM(GIOCONG) FROM CHAMCONGREAL WHERE PHONGBAN = '" + BOPHAN + "' GROUP BY TENNHANVIEN, THANGCONG");
+        while (cursor.moveToNext()){
+            list.add(new ChamCong(
+                    cursor.getString(0),
+                    cursor.getString(1),
+                    cursor.getInt(2)
+            ));
+        }
+        return list;
+    }
+
+    public ArrayList<ChamCong> ThongKeNhanSu_TimKiem(String BOPHAN, String THANG){
+        ArrayList<ChamCong> list = new ArrayList<>();
+        Cursor cursor = Getdata("SELECT TENNHANVIEN,THANGCONG,SUM(GIOCONG) FROM CHAMCONGREAL WHERE PHONGBAN = '" + BOPHAN + "' AND (THANGCONG LIKE '%" + THANG +"%') GROUP BY TENNHANVIEN ORDER BY SUM(GIOCONG) DESC");
+        while (cursor.moveToNext()){
+            list.add(new ChamCong(
+                    cursor.getString(0),
+                    cursor.getString(1),
+                    cursor.getInt(2)
+            ));
+        }
+        return list;
+    }
+
     public void XoaCong(int ID){
         QueryData("DELETE FROM CHAMCONGREAL WHERE ID = '" + ID + "'");
     }

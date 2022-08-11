@@ -34,7 +34,6 @@ import java.util.Calendar;
 public class XemCong_NhanVien extends AppCompatActivity {
 
     RecyclerView recV_DanhSachGioCong;
-    ChamCong chamCong;
     ArrayList<ChamCong> listChamCong;
     QuanLyXemCongAdapter adapter;
     EditText edt_timkiemtaikhoan_xemcong;

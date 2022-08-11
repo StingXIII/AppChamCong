@@ -128,12 +128,12 @@ public class PhongBan extends AppCompatActivity {
     private void ShowDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(PhongBan.this);
         builder.setTitle("Thông Báo");
-        builder.setMessage("Bạn có chắc muốn xóa nó hay không ?");
+        builder.setMessage("Bạn có chắc muốn cho nghỉ việc không ?");
         builder.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 BatDauActivity.database.NhanSuNghiViec(taiKhoanDTO.getMATK());
-                Toast.makeText(PhongBan.this, "Xóa thành công !", Toast.LENGTH_SHORT).show();
+                Toast.makeText(PhongBan.this, "Thành công !", Toast.LENGTH_SHORT).show();
                 Load();
             }
         });

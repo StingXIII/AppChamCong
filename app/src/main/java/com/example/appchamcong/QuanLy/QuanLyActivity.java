@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.example.appchamcong.BatDauActivity;
 import com.example.appchamcong.DTO.TaiKhoan;
 import com.example.appchamcong.DangNhapActivity;
+import com.example.appchamcong.QuanLy.Fragment_QuanLy.Duyet_TaiKhoan;
 import com.example.appchamcong.QuanLy.Fragment_QuanLy.NangLuc_Fragment;
 import com.example.appchamcong.QuanLy.Fragment_QuanLy.QL_ChamCong;
 import com.example.appchamcong.QuanLy.Fragment_QuanLy.QL_NhanSu;
@@ -36,6 +37,7 @@ public class QuanLyActivity extends AppCompatActivity implements NavigationView.
     private static final int FRAGMENT_QL_NHANSU = 1;
     private static final int FRAGMENT_QL_CONG = 2;
     private static final int FRAGMENT_QL_THONGKE = 3;
+    private static final int FRAGMENT_QL_XEPLOAI = 4;
     private int currentFragment = FRAGMENT_QL_NHANSU;
 
     // Drawer
@@ -150,24 +152,15 @@ public class QuanLyActivity extends AppCompatActivity implements NavigationView.
             BatDauActivity.taiKhoanDTO = new TaiKhoan();
             startActivity(intent);
         }else if (id == R.id.nav_quanly_chamcong) {
-            if (FRAGMENT_QL_CONG != currentFragment) {
-                replaceFragment(new QL_ChamCong());
-                currentFragment = FRAGMENT_QL_CONG;
-            }
+            replaceFragment(new QL_ChamCong());
         }else if (id == R.id.nav_quanly_nhansu) {
-            if (FRAGMENT_QL_NHANSU != currentFragment) {
-                replaceFragment(new QL_NhanSu());
-                currentFragment = FRAGMENT_QL_NHANSU;
-            }
+            replaceFragment(new QL_NhanSu());
         }else if (id == R.id.nav_quanly_thongke) {
-            if (FRAGMENT_QL_THONGKE != currentFragment) {
-                replaceFragment(new QL_ThongKe());
-                currentFragment = FRAGMENT_QL_THONGKE;
-            }
+            replaceFragment(new QL_ThongKe());
         } else if (id == R.id.nav_rank_manager) {
             replaceFragment(new NangLuc_Fragment());
-
-
+        } else if (id == R.id.nav_duyet_tai_khoan) {
+            replaceFragment(new Duyet_TaiKhoan());
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);

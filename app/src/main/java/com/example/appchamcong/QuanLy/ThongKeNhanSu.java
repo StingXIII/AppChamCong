@@ -44,7 +44,7 @@ public class ThongKeNhanSu extends AppCompatActivity {
         BarData barData = new BarData(barDataSet_ConLam, barDataSet_DaNghi);
         mBarChart.setData(barData);
 
-        String[] Bophan = new String[] {"Production", "QA", "QC", "HR", "Accounting", "Pur"};
+        String[] Bophan = new String[] {"Production", "QC", "QA", "HR", "Accounting", "Pur"};
         XAxis xAxis = mBarChart.getXAxis();
         xAxis.setValueFormatter(new IndexAxisValueFormatter(Bophan));
         xAxis.setCenterAxisLabels(true);
@@ -83,8 +83,8 @@ public class ThongKeNhanSu extends AppCompatActivity {
 
         ArrayList<BarEntry> barEntries = new ArrayList<>();
         barEntries.add(new BarEntry(0, Production_1));
-        barEntries.add(new BarEntry(1, QA_1));
-        barEntries.add(new BarEntry(2, QC_1));
+        barEntries.add(new BarEntry(1, QC_1));
+        barEntries.add(new BarEntry(2, QA_1));
         barEntries.add(new BarEntry(3, HR_1));
         barEntries.add(new BarEntry(4, Accounting_1));
         barEntries.add(new BarEntry(5, Pur_1));
@@ -102,8 +102,8 @@ public class ThongKeNhanSu extends AppCompatActivity {
 
         ArrayList<BarEntry> barEntries = new ArrayList<>();
         barEntries.add(new BarEntry(0, Production_2));
-        barEntries.add(new BarEntry(1, QA_2));
-        barEntries.add(new BarEntry(2, QC_2));
+        barEntries.add(new BarEntry(1, QC_2));
+        barEntries.add(new BarEntry(2, QA_2));
         barEntries.add(new BarEntry(3, HR_2));
         barEntries.add(new BarEntry(4, Accounting_2));
         barEntries.add(new BarEntry(5, Pur_2));
@@ -117,16 +117,16 @@ public class ThongKeNhanSu extends AppCompatActivity {
         Production_1 = cursor.getInt(0);
     }
 
-    private void ThongKe_ConLam_QA() {
+    private void ThongKe_ConLam_QC() {
         Cursor cursor = BatDauActivity.database.Getdata("SELECT COUNT (*) FROM TAIKHOAN WHERE TINHTRANG = 1 AND BOPHAN = 2");
         cursor.moveToNext();
-        QA_1 = cursor.getInt(0);
+        QC_1 = cursor.getInt(0);
     }
 
-    private void ThongKe_ConLam_QC() {
+    private void ThongKe_ConLam_QA() {
         Cursor cursor = BatDauActivity.database.Getdata("SELECT COUNT (*) FROM TAIKHOAN WHERE TINHTRANG = 1 AND BOPHAN = 3");
         cursor.moveToNext();
-        QC_1 = cursor.getInt(0);
+        QA_1 = cursor.getInt(0);
     }
 
     private void ThongKe_ConLam_HR() {
@@ -153,16 +153,16 @@ public class ThongKeNhanSu extends AppCompatActivity {
         Production_2 = cursor.getInt(0);
     }
 
-    private void ThongKe_NghiLam_QA() {
+    private void ThongKe_NghiLam_QC() {
         Cursor cursor = BatDauActivity.database.Getdata("SELECT COUNT (*) FROM TAIKHOAN WHERE TINHTRANG = 2 AND BOPHAN = 2");
         cursor.moveToNext();
-        QA_2 = cursor.getInt(0);
+        QC_2 = cursor.getInt(0);
     }
 
-    private void ThongKe_NghiLam_QC() {
+    private void ThongKe_NghiLam_QA() {
         Cursor cursor = BatDauActivity.database.Getdata("SELECT COUNT (*) FROM TAIKHOAN WHERE TINHTRANG = 2 AND BOPHAN = 3");
         cursor.moveToNext();
-        QC_2 = cursor.getInt(0);
+        QA_2 = cursor.getInt(0);
     }
 
     private void ThongKe_NghiLam_HR() {

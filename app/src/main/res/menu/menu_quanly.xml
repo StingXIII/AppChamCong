@@ -17,13 +17,20 @@
             android:title="Quản Lý Thống Kê" />
 
         <item
-            android:id="@+id/nav_logging_manager"
-            android:icon="@drawable/ic_baseline_login_24"
-            android:title="Đăng Nhập" />
-        <item
             android:id="@+id/nav_rank_manager"
             android:icon="@drawable/xephang"
             android:title="Xếp Loại" />
+
+        <item
+            android:id="@+id/nav_duyet_tai_khoan"
+            android:icon="@drawable/ic_baseline_person_add_24"
+            android:title="Duyệt Tài Khoản" />
+
+        <item
+            android:id="@+id/nav_logging_manager"
+            android:icon="@drawable/ic_baseline_login_24"
+            android:title="Đăng Nhập" />
+
         <item
             android:id="@+id/nav_logout_manager"
             android:icon="@drawable/ic_baseline_exit_to_app_24"

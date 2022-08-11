@@ -12,13 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppChamCong">
         <activity
-            android:name=".QuanLy.ThongKeGioCong"
+            android:name=".QuanLy.ThongKeBoPhanGioCong"
+            android:exported="true" />
+        <activity
+            android:name=".QuanLy.ThongKeNhanSu"
             android:exported="true" />
         <activity
             android:name=".QuanLy.ThongtinNangLucActivity"
             android:exported="false" />
         <activity
-            android:name=".QuanLy.ThongKeNhanSu"
+            android:name=".QuanLy.ThongKeGioCongNV"
             android:exported="true" />
         <activity
             android:name=".NhanVien.ThongTinCong_NhanVien"

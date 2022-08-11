@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.example.appchamcong.QuanLy.ThongKeGioCong;
+import com.example.appchamcong.QuanLy.ThongKeGioCongNV;
 import com.example.appchamcong.QuanLy.ThongKeNhanSu;
 import com.example.appchamcong.R;
 
@@ -46,7 +46,7 @@ public class QL_ThongKe extends Fragment {
         });
 
         img_Thongkecong.setOnClickListener(view -> {
-            startActivity(new Intent(getActivity(), ThongKeGioCong.class));
+            startActivity(new Intent(getActivity(), ThongKeGioCongNV.class));
         });
 
     }
