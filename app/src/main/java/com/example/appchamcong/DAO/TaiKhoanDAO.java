@@ -35,6 +35,7 @@ public class TaiKhoanDAO extends BaseAdapter {
         contentValues.put(CreateDatabase.tbl_TAIKHOAN_TENNGUOIDUNG,taiKhoanDTO.getTENNGUOIDUNG());
         contentValues.put(CreateDatabase.tbl_TAIKHOAN_MATKHAU,taiKhoanDTO.getMATKHAU());
         contentValues.put(CreateDatabase.tbl_TAIKHOAN_QUYEN,1);
+        contentValues.put(CreateDatabase.tbl_TAIKHOAN_TINHTRANG,0);
 
         long kiemtra = database.insert(CreateDatabase.tbl_TAIKHOAN, null, contentValues);
         return kiemtra;

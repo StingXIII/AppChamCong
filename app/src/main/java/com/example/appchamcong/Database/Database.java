@@ -275,6 +275,30 @@ public class Database extends SQLiteOpenHelper {
         return list;
     }
 
+    public ArrayList<TaiKhoan> ChoDuyet(int TINHTRANG){
+        ArrayList<TaiKhoan> list = new ArrayList<>();
+        Cursor cursor = Getdata("SELECT * FROM TAIKHOAN WHERE TINHTRANG =" + TINHTRANG);
+        while (cursor.moveToNext()){
+            list.add(new TaiKhoan(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getBlob(4),
+                    cursor.getInt(5),
+                    cursor.getString(6),
+                    cursor.getString(7),
+                    cursor.getString(8),
+                    cursor.getInt(9),
+                    cursor.getInt(10),
+                    cursor.getInt(11),
+                    cursor.getInt(12),
+                    cursor.getInt(13)
+            ));
+        }
+        return list;
+    }
+
     //region Video
     public ArrayList<TaiKhoan> QuanLyTaiKhoan_TimKiem(String Tennhanvien){
         ArrayList<TaiKhoan> list = new ArrayList<>();
@@ -519,6 +543,11 @@ public class Database extends SQLiteOpenHelper {
     public void CapNhatCong_QL(int ID, String MANV, String TENNV, String PHONGBAN, String NGAYCONG, String GIOVAO, String GIORA, int GIOCONG){
         QueryData("UPDATE CHAMCONGREAL SET MANHANVIEN = '" + MANV + "', TENNHANVIEN = '" + TENNV + "', PHONGBAN = '" + PHONGBAN + "', NGAYCONG = '" + NGAYCONG +
                 "' , GIOVAO = '" + GIOVAO + "', GIORA = '" + GIORA + "', GIOCONG = '" + GIOCONG + "' WHERE ID = '" + ID +"'");
+    }
+
+    public void CapNhatTaiKhoan_XetDuyet(int IDTAIKHOAN, String MANV, String TENNV, int BOPHAN, int PHONGBAN, int CHUCVU, int TINHTRANG){
+        QueryData("UPDATE TAIKHOAN SET TENTAIKHOAN = '" + MANV + "', TENNGUOIDUNG = '" + TENNV + "' , BOPHAN = " + BOPHAN + ", PHONGBAN = "
+                + PHONGBAN + ", CHUCVU = " + CHUCVU + ", TINHTRANG = " + TINHTRANG + " WHERE IDTAIKHOAN = " + IDTAIKHOAN);
     }
 
     public void XoaTK(int IDTAIKHOAN){

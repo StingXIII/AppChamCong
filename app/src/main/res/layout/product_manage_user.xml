@@ -42,7 +42,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txtV_Chucvu_qlTaikhoan"
+            android:id="@+id/txtV_Tinhtrang_qlTaikhoan"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="5dp"

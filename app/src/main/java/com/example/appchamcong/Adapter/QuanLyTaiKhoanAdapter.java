@@ -60,25 +60,8 @@ public class QuanLyTaiKhoanAdapter extends RecyclerView.Adapter<QuanLyTaiKhoanAd
         }
         holder.txtV_Tennhanvien_qltaikhoan.setText(taiKhoan.getTENNGUOIDUNG());
 
-        if (taiKhoan.getQUYEN() == 1) {
-            if (taiKhoan.getCHUCVU() == 1) {
-                holder.txtV_Chucvu_qlTaikhoan.setText("Staff");
-            } else if (taiKhoan.getCHUCVU() == 2) {
-                holder.txtV_Chucvu_qlTaikhoan.setText("Supervisor");
-            } else if (taiKhoan.getCHUCVU() == 3) {
-                holder.txtV_Chucvu_qlTaikhoan.setText("Manager");
-            } else if (taiKhoan.getCHUCVU() == 4) {
-                holder.txtV_Chucvu_qlTaikhoan.setText("BOD");
-            } else if (taiKhoan.getCHUCVU() == 5) {
-                holder.txtV_Chucvu_qlTaikhoan.setText("Leader");
-            } else if (taiKhoan.getCHUCVU() == 6) {
-                holder.txtV_Chucvu_qlTaikhoan.setText("Senior Leader");
-            } else if (taiKhoan.getCHUCVU() == 7) {
-                holder.txtV_Chucvu_qlTaikhoan.setText("Operator");
-            }
-
-        } else if (taiKhoan.getQUYEN() == 2){
-            holder.txtV_Chucvu_qlTaikhoan.setText("Management");
+        if (taiKhoan.getTINHTRANG() == 0) {
+            holder.txtV_Tinhtrang_qlTaikhoan.setText("Chờ duyệt");
         }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -103,13 +86,13 @@ public class QuanLyTaiKhoanAdapter extends RecyclerView.Adapter<QuanLyTaiKhoanAd
 
     public class Viewholder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener{
         ImageView imgV_Hinh_qlTaikhoan;
-        TextView txtV_Tennhanvien_qltaikhoan, txtV_Chucvu_qlTaikhoan;
+        TextView txtV_Tennhanvien_qltaikhoan, txtV_Tinhtrang_qlTaikhoan;
         CardView viewholder_qltaikhoan;
 
         public Viewholder(@NonNull View itemView) {
             super(itemView);
             txtV_Tennhanvien_qltaikhoan = itemView.findViewById(R.id.txtV_Tennhanvien_qltaikhoan);
-            txtV_Chucvu_qlTaikhoan = itemView.findViewById(R.id.txtV_Chucvu_qlTaikhoan);
+            txtV_Tinhtrang_qlTaikhoan = itemView.findViewById(R.id.txtV_Tinhtrang_qlTaikhoan);
             imgV_Hinh_qlTaikhoan = itemView.findViewById(R.id.imgV_Hinh_qltaikhoan);
             viewholder_qltaikhoan = itemView.findViewById(R.id.viewholder_qltaikhoan);
 
@@ -127,9 +110,7 @@ public class QuanLyTaiKhoanAdapter extends RecyclerView.Adapter<QuanLyTaiKhoanAd
         @Override
         public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
             menu.add(menu.NONE, R.id.iSua,
-                    menu.NONE, "Sửa Thông Tin Tài Khoản");
-            menu.add(menu.NONE, R.id.iXoa,
-                    menu.NONE, "Xóa Tài Khoản");
+                    menu.NONE, "Xem tài khoản");
         }
     }
 }
