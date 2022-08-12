@@ -38,7 +38,7 @@ public class ThongKeNhanSu extends AppCompatActivity {
         BarDataSet barDataSet_ConLam = new BarDataSet(barEntries1(), "Còn làm");
         barDataSet_ConLam.setColors(Color.GREEN);
 
-        BarDataSet barDataSet_DaNghi = new BarDataSet(barEntries2(), "Đã nghĩ");
+        BarDataSet barDataSet_DaNghi = new BarDataSet(barEntries2(), "Đã nghỉ");
         barDataSet_DaNghi.setColors(Color.RED);
 
         BarData barData = new BarData(barDataSet_ConLam, barDataSet_DaNghi);
