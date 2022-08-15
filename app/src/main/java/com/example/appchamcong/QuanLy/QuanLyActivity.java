@@ -171,5 +171,7 @@ public class QuanLyActivity extends AppCompatActivity implements NavigationView.
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame_manager, fragment);
         fragmentTransaction.commit();
+        //-------------------------------------------------Fragment
+
     }
 }
